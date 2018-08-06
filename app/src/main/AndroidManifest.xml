@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".DiffUtil.BigDiffUtilsActivity"
+            android:label="@string/label_diffutils"></activity>
+
     </application>
 
 </manifest>
