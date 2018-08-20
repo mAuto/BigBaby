@@ -15,11 +15,11 @@ public class BigLiveDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arch_activity_livedata);
 
-        new LiveData<String>().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-            }
-        });
+//        new LiveData<String>().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//
+//            }
+//        });
     }
 }
