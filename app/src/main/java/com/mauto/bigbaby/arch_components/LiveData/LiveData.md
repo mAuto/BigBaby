@@ -31,7 +31,7 @@ private void dispatchingValue(@Nullable ObserverWrapper initiator) {
     mDispatchingValue = false;
 }
 ```
-
+每个LiveData实例都合一个固定的LifeCycleOwner绑定，也就是说在yigeLiveData中不允许添加不同owner的Observer。
 ```
 public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<T> observer) {
     if (owner.getLifecycle().getCurrentState() == DESTROYED) {
@@ -40,6 +40,7 @@ public void observe(@NonNull LifecycleOwner owner, @NonNull Observer<T> observer
     }
     LifecycleBoundObserver wrapper = new LifecycleBoundObserver(owner, observer);
     ObserverWrapper existing = mObservers.putIfAbsent(observer, wrapper);
+    //
     if (existing != null && !existing.isAttachedTo(owner)) {
         throw new IllegalArgumentException("Cannot add the same observer"
                 + " with different lifecycles");
