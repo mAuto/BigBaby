@@ -17,4 +17,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickDiffUtils(View view) {
         Router.jump(this, RoutPointer.DIFFUTILS);
     }
+
+    public void onClickLiveData(View view) {
+        Router.jump(this, RoutPointer.LIVEDATA);
+    }
 }
