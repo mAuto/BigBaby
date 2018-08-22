@@ -1,12 +1,13 @@
-package com.mauto.bigbaby.arch_components.LiveData;
+package com.mauto.bigbaby.arch_components.LiveData_Lifecycle;
 
 import android.arch.lifecycle.GenericLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.OnLifecycleEvent;
+import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +46,13 @@ public class BigLiveDataActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public class MyObserver implements LifecycleObserver {
+        @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        public void connectListener () {
+
+        }
     }
 
     public void onClickAction(View view) {

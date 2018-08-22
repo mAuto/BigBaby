@@ -1,7 +1,7 @@
 package com.mauto.bigbaby.router;
 
 import com.mauto.bigbaby.DiffUtil.BigDiffUtilsActivity;
-import com.mauto.bigbaby.arch_components.LiveData.BigLiveDataActivity;
+import com.mauto.bigbaby.arch_components.LiveData_Lifecycle.BigLiveDataActivity;
 
 /**
  * Created by haohuidong on 18-6-11.

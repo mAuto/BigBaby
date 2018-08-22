@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.arch_components.LiveData;
+package com.mauto.bigbaby.arch_components.LiveData_Lifecycle;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
