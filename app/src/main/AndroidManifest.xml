@@ -21,6 +21,9 @@
             android:label="@string/label_diffutils" />
         <activity android:name=".arch_components.LiveData_Lifecycle.BigLiveDataActivity" />
         <activity android:name=".arch_components.LiveData_Lifecycle.BigLifecycleActivity"></activity>
+        
     </application>
+    
+
 
 </manifest>
