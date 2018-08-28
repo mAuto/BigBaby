@@ -17,15 +17,10 @@ public class BigUnitTestSample {
         return new StringBuffer(a).append(b).toString();
     }
 
-    public String fun_0 (){
-        return null;
-    }
-
-    public String fun_1 (){
-        return null;
-    }
-
-    public String fun_2 (){
-        return null;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            throw new IllegalArgumentException("obj is null");
+        return super.equals(obj);
     }
 }

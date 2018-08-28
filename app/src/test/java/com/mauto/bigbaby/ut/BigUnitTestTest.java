@@ -5,6 +5,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.junit.Assert.*;
 
@@ -19,6 +20,7 @@ public class BigUnitTestTest {
     @Before
     public void setUp() throws Exception {
         // 用来做一些初始化的操作
+        Mockito.mock(BigUnitTestSample.class);
     }
 
     /**
