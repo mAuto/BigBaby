@@ -1,6 +1,6 @@
 [TOC]
 
- ## UnitTest
+## UnitTest
 
 ### 一 本地单元测试
 - 位于 module-name/src/test/java/。  
@@ -111,11 +111,11 @@ public void equals() throws Exception {
 
 &emsp;&emsp;点击左侧的黑框就可进行针对单个方法的执行，点击之后会有三个选项：Run XXX(ctrl+shift+f10)，Debug XXX，Run XXX with Coverage。第一个的意思是执行这个测试方法;第二个的意思是调试这个测试方法，可以打断点就行调试;第三个的意思是执行这个方法并且输出一份覆盖率报告，覆盖率报告是可以导出成html的。
 
+*** flag_0: Assert测试的是什么？ ***
 
 #### 2 Mockito
 
-> 断言 Assert
-- 1 assertEquals(expected， actual)和assertSame(expected， actual)的区别，前者对比的是双参的值，后者对比的是双参的地址。
+> Assert来判断测试的结果，verfiy来判断执行的次数和顺序，doAnswer用来判断执行的方法和方法的参数。
 
 > 时间  
 在项目开发过程中使用单元测试不仅不会增加时间，还会一定程度的减少开发时间，增加工作效率。  
@@ -133,4 +133,7 @@ public void equals() throws Exception {
 
 http://chriszou.com/2016/06/07/android-unit-testing-everything-you-need-to-know.html
 
-#### 二 真机(模拟器)测试
+### 二 真机测试(UI测试)
+Espresso与Robolectric   
+#### 1 Espresso  
+&emsp;&emsp;Espresso是一个Google官方提供的Android应用UI自动化测试框架。 

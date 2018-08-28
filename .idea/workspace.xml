@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4cc44c9-1317-40d9-a915-171f8175052b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/UnitTest.md" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/UnitTest.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestSampleTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestSampleTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -55,8 +51,8 @@
       <file leaf-file-name="BigUnitTestSample.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state relative-caret-position="163">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,11 +60,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigUnitTestTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BigUnitTestTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state relative-caret-position="242">
+              <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#837#1200#0" expanded="true" />
+                <element signature="e#1199#1200#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArgumentMatchers.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/ArgumentMatchers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="464" column="25" lean-forward="false" selection-start-line="464" selection-start-column="25" selection-end-line="464" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Answer.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/stubbing/Answer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -77,12 +97,24 @@
       <file leaf-file-name="Mockito.java" pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/Mockito.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="1605" column="24" lean-forward="false" selection-start-line="1605" selection-start-column="24" selection-end-line="1605" selection-end-column="24" />
+            <state relative-caret-position="258">
+              <caret line="1649" column="66" lean-forward="true" selection-start-line="1649" selection-start-column="66" selection-end-line="1649" selection-end-column="66" />
               <folding>
                 <element signature="e#74172#74173#0" expanded="true" />
                 <element signature="e#74228#74229#0" expanded="true" />
+                <element signature="e#87599#87600#0" expanded="true" />
+                <element signature="e#87657#87658#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="451">
+              <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ExampleUnitTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="78" lean-forward="true" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+              <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,89 +143,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matchers.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/47a7ee46628ab7133129cd7cef1e92657bc275e/hamcrest-library-1.3-sources.jar!/org/hamcrest/Matchers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Assert.java" pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/Assert.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="548">
               <caret line="156" column="7" lean-forward="false" selection-start-line="156" selection-start-column="7" selection-end-line="156" selection-end-column="7" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-27/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1332">
-              <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#118182#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#6022#6023#0" expanded="false" />
-                <element signature="e#6107#6108#0" expanded="false" />
-                <element signature="e#28029#28030#0" expanded="false" />
-                <element signature="e#28088#28089#0" expanded="false" />
-                <element signature="e#36626#36627#0" expanded="false" />
-                <element signature="e#36683#36684#0" expanded="false" />
-                <element signature="e#38528#38529#0" expanded="false" />
-                <element signature="e#38582#38583#0" expanded="false" />
-                <element signature="e#47256#47257#0" expanded="false" />
-                <element signature="e#47320#47321#0" expanded="false" />
-                <element signature="e#55356#55357#0" expanded="false" />
-                <element signature="e#55400#55401#0" expanded="false" />
-                <element signature="e#58015#58016#0" expanded="false" />
-                <element signature="e#58052#58053#0" expanded="false" />
-                <element signature="e#62370#62371#0" expanded="false" />
-                <element signature="e#62422#62423#0" expanded="false" />
-                <element signature="e#65868#65869#0" expanded="false" />
-                <element signature="e#65906#65907#0" expanded="false" />
-                <element signature="e#66711#66712#0" expanded="false" />
-                <element signature="e#66763#66764#0" expanded="false" />
-                <element signature="e#70948#70949#0" expanded="false" />
-                <element signature="e#70997#70998#0" expanded="false" />
-                <element signature="e#71833#71834#0" expanded="false" />
-                <element signature="e#71889#71890#0" expanded="false" />
-                <element signature="e#83369#83370#0" expanded="false" />
-                <element signature="e#83420#83421#0" expanded="false" />
-                <element signature="e#83724#83725#0" expanded="false" />
-                <element signature="e#83773#83774#0" expanded="false" />
-                <element signature="e#95414#95415#0" expanded="false" />
-                <element signature="e#95452#95453#0" expanded="false" />
-                <element signature="e#100966#100967#0" expanded="false" />
-                <element signature="e#101025#101026#0" expanded="false" />
-                <element signature="e#101979#101980#0" expanded="false" />
-                <element signature="e#102034#102035#0" expanded="false" />
-                <element signature="e#104952#104953#0" expanded="false" />
-                <element signature="e#105007#105008#0" expanded="false" />
-                <element signature="e#107038#107039#0" expanded="false" />
-                <element signature="e#107065#107066#0" expanded="false" />
-                <element signature="e#111592#111593#0" expanded="false" />
-                <element signature="e#111654#111655#0" expanded="false" />
-                <element signature="e#112104#112105#0" expanded="false" />
-                <element signature="e#112165#112166#0" expanded="false" />
-                <element signature="e#114308#114309#0" expanded="false" />
-                <element signature="e#114369#114370#0" expanded="false" />
-                <element signature="e#114737#114738#0" expanded="false" />
-                <element signature="e#114780#114781#0" expanded="false" />
-                <element signature="e#115582#115583#0" expanded="false" />
-                <element signature="e#115624#115625#0" expanded="false" />
-                <element signature="e#116039#116040#0" expanded="false" />
-                <element signature="e#116078#116079#0" expanded="false" />
-                <element signature="e#116500#116501#0" expanded="false" />
-                <element signature="e#116540#116541#0" expanded="false" />
-                <element signature="e#116970#116971#0" expanded="false" />
-                <element signature="e#117011#117012#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -207,16 +162,6 @@
                 <element signature="e#7793#7794#0" expanded="true" />
                 <element signature="e#7829#7830#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExactComparisonCriteria.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/ExactComparisonCriteria.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -252,6 +197,7 @@
       <find>onSaveInstanceState</find>
       <find>mLifecycleRegistry</find>
       <find>assertElementsEqual</find>
+      <find>public static</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2427,7 +2373,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.ExampleUnitTest.addition_isCorrect">
+  <component name="RunManager" selected="Android JUnit.BigUnitTestTest.appendString">
     <configuration default="false" name="BigUnitTestSampleTest.appendString" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -2442,32 +2388,6 @@
       <option name="MAIN_CLASS_NAME" value="com.mauto.bigbaby.ut.BigUnitTestSampleTest" />
       <option name="METHOD_NAME" value="appendString" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="BigUnitTestTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.mauto.bigbaby.ut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="app" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.mauto.bigbaby.ut" />
-      <option name="MAIN_CLASS_NAME" value="com.mauto.bigbaby.ut.BigUnitTestTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -2558,6 +2478,32 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="false" name="BigUnitTestTest.appendString" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.mauto.bigbaby.ut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="app" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.mauto.bigbaby.ut" />
+      <option name="MAIN_CLASS_NAME" value="com.mauto.bigbaby.ut.BigUnitTestTest" />
+      <option name="METHOD_NAME" value="appendString" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -2627,7 +2573,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535441112799" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535454598248" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2674,7 +2620,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535441112799" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535454598248" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2885,24 +2831,24 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535441112801" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1535454598249" />
       </method>
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Android App.app" />
       <item index="1" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.appendString" />
-      <item index="2" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest" />
-      <item index="3" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.fun_1" />
-      <item index="4" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.equals" />
-      <item index="5" class="java.lang.String" itemvalue="Android JUnit.ExampleUnitTest.addition_isCorrect" />
+      <item index="2" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.fun_1" />
+      <item index="3" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.equals" />
+      <item index="4" class="java.lang.String" itemvalue="Android JUnit.ExampleUnitTest.addition_isCorrect" />
+      <item index="5" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.appendString" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Android JUnit.ExampleUnitTest.addition_isCorrect" />
-        <item index="1" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.equals" />
-        <item index="2" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.appendString" />
-        <item index="3" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.fun_1" />
-        <item index="4" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest" />
+        <item index="0" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.appendString" />
+        <item index="1" class="java.lang.String" itemvalue="Android JUnit.ExampleUnitTest.addition_isCorrect" />
+        <item index="2" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.equals" />
+        <item index="3" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestSampleTest.appendString" />
+        <item index="4" class="java.lang.String" itemvalue="Android JUnit.BigUnitTestTest.fun_1" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -2941,40 +2887,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BigUnitTestSampleTest_equals - 2018.08.28 at 12h 03m 04s.xml">
-      <configuration name="BigUnitTestSampleTest.equals" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 15h 57m 42s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="BigUnitTestSampleTest_equals - 2018.08.28 at 12h 03m 25s.xml">
-      <configuration name="BigUnitTestSampleTest.equals" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 15h 58m 20s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="BigUnitTestSampleTest_getContentResover - 2018.08.27 at 15h 55m 09s.xml">
-      <configuration name="BigUnitTestSampleTest.getContentResover" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 15h 59m 01s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="BigUnitTestSampleTest_getContentResover - 2018.08.27 at 16h 08m 08s.xml">
-      <configuration name="BigUnitTestSampleTest.getContentResover" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 05m 36s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="BigUnitTestTest - 2018.08.27 at 18h 12m 03s.xml">
-      <configuration name="BigUnitTestTest" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 06m 56s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="BigUnitTestTest_fun_1 - 2018.08.28 at 10h 30m 41s.xml">
-      <configuration name="BigUnitTestTest.fun_1" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 07m 21s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ExampleUnitTest_addition_isCorrect - 2018.08.28 at 12h 20m 13s.xml">
-      <configuration name="ExampleUnitTest.addition_isCorrect" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 09m 20s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ExampleUnitTest_addition_isCorrect - 2018.08.28 at 12h 20m 17s.xml">
-      <configuration name="ExampleUnitTest.addition_isCorrect" configurationId="AndroidJUnit" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 09m 58s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="onClickAction() - 2018.08.24 at 16h 47m 10s.xml">
-      <configuration name="onClickAction()" configurationId="AndroidTestRunConfigurationType" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 18m 26s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="useAppContext() - 2018.08.27 at 17h 13m 51s.xml">
-      <configuration name="useAppContext()" configurationId="AndroidTestRunConfigurationType" />
+    <history-entry file="BigUnitTestTest_appendString - 2018.08.28 at 16h 21m 32s.xml">
+      <configuration name="BigUnitTestTest.appendString" configurationId="AndroidJUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="-6" width="1867" height="1086" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2984,20 +2929,20 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10864979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.407173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2742616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.77109706" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="1973" y="-6" width="1867" height="1086" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25316456" sideWeight="0.76506025" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2317006" sideWeight="0.76506025" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.19262521" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16350211" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22573839" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3048,25 +2993,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.1/94732bda44fba11302c58e459b7c1f47e7521bf9/support-fragment-27.1.1-sources.jar!/android/support/v4/app/BaseFragmentActivityApi16.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.1/94732bda44fba11302c58e459b7c1f47e7521bf9/support-fragment-27.1.1-sources.jar!/android/support/v4/app/BaseFragmentActivityApi14.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="27" column="58" lean-forward="false" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-compat/27.1.1/fe233277b6eae25ce5b2afab6daf55d73c86f0b9/support-compat-27.1.1-sources.jar!/android/support/v4/app/SupportActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -3268,14 +3199,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="85" column="67" lean-forward="false" selection-start-line="85" selection-start-column="67" selection-end-line="85" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -3487,41 +3410,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ExampleUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="78" lean-forward="true" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/Mockito.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/stubbing/Answer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1605" column="24" lean-forward="false" selection-start-line="1605" selection-start-column="24" selection-end-line="1605" selection-end-column="24" />
+        <state relative-caret-position="256">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/ArgumentMatchers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="464" column="25" lean-forward="false" selection-start-line="464" selection-start-column="25" selection-end-line="464" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
-            <element signature="e#74172#74173#0" expanded="true" />
-            <element signature="e#74228#74229#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state relative-caret-position="242">
+          <caret line="34" column="20" lean-forward="false" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#837#1200#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/2.7.6/c9abd129c93cd8ab223ed99f7338c11968a23ca9/mockito-core-2.7.6-sources.jar!/org/mockito/Mockito.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="1649" column="66" lean-forward="true" selection-start-line="1649" selection-start-column="66" selection-end-line="1649" selection-end-column="66" />
+          <folding>
+            <element signature="e#74172#74173#0" expanded="true" />
+            <element signature="e#74228#74229#0" expanded="true" />
+            <element signature="e#87599#87600#0" expanded="true" />
+            <element signature="e#87657#87658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="67" column="14" lean-forward="true" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
           <folding />
         </state>
       </provider>

@@ -6,8 +6,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by haohuidong on 18-8-27.
@@ -20,7 +23,6 @@ public class BigUnitTestTest {
     @Before
     public void setUp() throws Exception {
         // 用来做一些初始化的操作
-        Mockito.mock(BigUnitTestSample.class);
     }
 
     /**
@@ -29,6 +31,21 @@ public class BigUnitTestTest {
     @Test
     public void appendString() throws Exception {
         // 具体的测试方法
+        BigUnitTestSample sample = Mockito.mock(BigUnitTestSample.class);
+        Mockito.verify(sample, times(0)).appendString("0", "0");
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                Object[] arguments = invocation.getArguments();
+                String tmp = (String) arguments[1];
+                if (tmp.equals("answer"))
+                    return "World";
+                return tmp;
+            }
+        }).when(sample).appendString(anyString(), any(String.class));
+
+        String result = sample.appendString("Hello", "answer");
+        LogSys.print(result);
     }
 
     @Test
