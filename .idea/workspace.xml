@@ -11,47 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4705616b-5095-49c8-a181-4ec7da5bceed" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/BigLiveDataActivityTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/BigLiveDataActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/DataBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/IPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/Lifecycle.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/LiveData.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/Presenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/SampleModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/SimulateDataPicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/res/arch_lifecycle_activity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/res/arch_lifecycle_ipresenter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/res/arch_lifecycle_presenter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/res/arch_lifecycle_presenter_observer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/BigUnitTestSample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/LogSys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/TextSys.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/UnitTest.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/res/ut_create_test_dialog.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/res/ut_junit_assert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/res/ut_junit_use_case.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/res/ut_junit_use_case_anno.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/ut/res/ut_junit_use_case_debug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/arch_activity_lifecycle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestSampleTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/mauto/bigbaby/ut/BigUnitTestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/mauto/bigbaby/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/mauto/bigbaby/ExampleInstrumentedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData/BigLiveData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData/BigLiveDataActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData/LiveData.md" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData/LiveData.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/BigLifecycleActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/arch_components/LiveData_Lifecycle/BigLifecycleActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/router/RoutPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/mauto/bigbaby/router/RoutPointer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/arch_activity_livedata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/arch_activity_livedata.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="4705616b-5095-49c8-a181-4ec7da5bceed" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="$PROJECT_DIR$/app/build/intermediates/assets/" />
@@ -111,8 +71,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+            <state relative-caret-position="319">
+              <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -178,6 +138,33 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigBaby" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigBaby" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigBaby" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigBaby" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bigbaby" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigBaby" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigBaby" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bigbaby" type="462c0819:PsiDirectoryNode" />
+              <item name="ut" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,8 +296,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+        <state relative-caret-position="319">
+          <caret line="11" column="39" lean-forward="true" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
         </state>
       </provider>
     </entry>
