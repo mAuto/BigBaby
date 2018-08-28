@@ -1,6 +1,5 @@
 package com.mauto.bigbaby.arch_components.LiveData;
 
-import android.arch.lifecycle.FullLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
@@ -19,8 +18,6 @@ public class BigLiveDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.arch_activity_livedata);
-
-        getLifecycle().addObserver(new FullLifecycleObserver(){});
 
         new MutableLiveData<String>().observe(this, new Observer<String>() {
             @Override

@@ -19,7 +19,9 @@
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
             android:label="@string/label_diffutils" />
-        <activity android:name=".arch_components.LiveData.BigLiveDataActivity"></activity>
+        <activity android:name=".arch_components.LiveData.BigLiveDataActivity" />
+        <activity android:name=".err.BigErrFragmentActivity" />
+        <activity android:name=".err.BigErrMainActivity"></activity>
     </application>
 
 </manifest>

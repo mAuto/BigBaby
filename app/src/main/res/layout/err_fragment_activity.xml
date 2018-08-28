@@ -4,37 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.mauto.bigbaby.MainActivity">
+    tools:context=".err.BigErrFragmentActivity"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_fragments"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+    </android.support.v4.view.ViewPager>
 
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:onClick="onClickErr"
+        android:onClick="onClickAddFragments"
         android:background="@color/colorPrimary"
         android:layout_margin="10dp"
         android:elevation="4dp"
-        android:text="Err"
+        android:text="Add Fragments"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickDiffUtils"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="DiffUtils"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
 
 </LinearLayout>
