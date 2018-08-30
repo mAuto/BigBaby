@@ -11,7 +11,6 @@ import com.mauto.bigbaby.arch_components.LiveData_Lifecycle.BigLiveDataActivity;
  */
 
 public enum RoutPointer {
-
     ERR_MAIN(BigErrMainActivity.class.getName()),
     ERR_FRAGMENT(BigErrFragmentActivity.class.getName()),
     DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName());

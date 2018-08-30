@@ -24,6 +24,5 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClickLiveData(View view) {
         Router.jump(this, RoutPointer.LIVEDATA);
-
     }
 }

@@ -14,7 +14,13 @@ public class BigUnitTestSample {
         if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
             return null;
 
-        return new StringBuffer(a).append(b).toString();
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            mPrinter.print(result);
+        }
+
+        return result;
     }
 
     @Override
@@ -22,5 +28,10 @@ public class BigUnitTestSample {
         if (obj == null)
             throw new IllegalArgumentException("obj is null");
         return super.equals(obj);
+    }
+
+    private Printer mPrinter = null;
+    public void addPrinter(Printer printer) {
+        mPrinter = printer;
     }
 }

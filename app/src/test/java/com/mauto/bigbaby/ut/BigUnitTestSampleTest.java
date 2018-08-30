@@ -12,12 +12,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.collection.IsArrayWithSize.arrayWithSize;
 import static org.hamcrest.core.IsNot.not;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by haohuidong on 18-8-24.
@@ -34,10 +36,10 @@ public class BigUnitTestSampleTest {
 
     @Test
     public void appendString() throws Exception {
-        String result = mSample.appendString("Hello ", "world");
-        Assert.assertNotNull(result);
-        Assert.assertEquals(new String("Hello world"), result);
-        Assert.assertNotSame(new String("Hello world"), result);
+//        String result = mSample.appendString("Hello ", "world");
+//        Assert.assertNotNull(result);
+//        Assert.assertEquals(new String("Hello world"), result);
+//        Assert.assertNotSame(new String("Hello world"), result);
         String[] tmps = new String[5];
         Assert.assertThat(tmps, arrayWithSize(lessThan(5)));
     }
