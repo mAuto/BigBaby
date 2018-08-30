@@ -23,6 +23,17 @@ public class BigUnitTestSample {
         return result;
     }
 
+    public void appendStringWithoutReturn(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        LogSys.print(result);
+
+        return;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null)

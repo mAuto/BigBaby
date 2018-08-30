@@ -37,15 +37,16 @@ public class BigUnitTestTest {
         // 具体的测试方法
         Printer printer = mock(Printer.class);
         mSample.addPrinter(printer);
+        doCallRealMethod().when(printer).print(anyString());
         mSample.appendString("Hello ", "Mockito !!!");
-        verify(printer).print("Hello Mockito !!!");// verify(printer, times(1)).print("Hello Mockito !!!");
-        verify(printer).print("Hello World !!!");
+//        verify(printer).print("Hello Mockito !!!");// verify(printer, times(1)).print("Hello Mockito !!!");
+//        verify(printer).print("Hello World !!!");
     }
 
     @Test
     public void fun_0() throws Exception {
         // 具体的测试方法
-        //        BigUnitTestSample sample = Mockito.mock(BigUnitTestSample.class);
+        BigUnitTestSample sample = Mockito.mock(BigUnitTestSample.class);
 //        Mockito.verify(sample, times(0)).appendString("0", "0");
 //        doAnswer(new Answer() {
 //            @Override
@@ -59,11 +60,13 @@ public class BigUnitTestTest {
 //            }
 //        }).doReturn("test").when(sample).appendString(anyString(), any(String.class));
 //
+//
 //        String result = sample.appendString("Hello ", "answer");
 //        LogSys.print(result);
 //        result = sample.appendString("Hello ", "answer");
 //        LogSys.print(result);
 //        Mockito.verify(sample, times(0)).appendString("Hello ", "answer");
+        doNothing().when(sample).appendString("Hello ", "Mockito !!!");
     }
 
     @Test
@@ -92,5 +95,11 @@ public class BigUnitTestTest {
     @AfterClass
     public static void dispose() {
 
+    }
+
+    @Test
+    public void appendStringWithoutReturn() {
+        BigUnitTestSample sample = mock(BigUnitTestSample.class);
+        doNothing().when(sample).appendStringWithoutReturn("Hello ", "Mockito !!!");
     }
 }

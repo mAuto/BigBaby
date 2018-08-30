@@ -134,11 +134,78 @@ Mock：mock产生的对象仅记录它们的调用信息，在断言中我们需
 
 ##### 2.2 Mockito的使用
 &emsp;&emsp;Mockito同样提供了全面的API用来构建测试用例，但是这些API基本都是组合使用的，单独使用不会有什么效果。  
-- verify(T)/verify(T, VerificationMode)：用来验证mock对象的某个方法被执行过几次。
+- verify(T)/verify(T, VerificationMode)：用来验证mock对象的某个方法被执行过几次，以及传入的参数是否正确。VerificationMode表示的是校验模式，可以自由设定方法被执行了几次，比如times(5)，atLeast(2)，never()这些模式。默认也就是verify(T)，是times(1)。
+  - BigUnitTestSample.java
+```
+// 目标方法
+public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            mPrinter.print(result);
+        }
+
+        return result;
+    }
+```
+```
+// 注入setter
+public void addPrinter(Printer printer) {
+        mPrinter = printer;
+    }
+```
+  - BigUnitTestTest.java
+```
+// 测试方法
+@Test
+    public void appendString() throws Exception {
+        // 具体的测试方法
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        mSample.appendString("Hello ", "Mockito !!!");
+        verify(printer).print("Hello Mockito !!!");// verify(printer, times(1)).print("Hello Mockito !!!");
+        // verify(printer).print("Hello World !!!");
+    }
+```
+&emsp;&emsp;在这个测试方法中，是可以通过的，因为printer对象在appendString中只被执行了一次，并且传入的参数的值是一致的。如果把注释的地方打开就会报错，因为尽管执行次数是正确的，但是传入的参数是不对的。  
+```
+Wanted but not invoked:
+printer.print("Hello World !!!");
+-> at com.mauto.bigbaby.ut.BigUnitTestTest.appendString(BigUnitTestTest.java:42)
+However, there was exactly 1 interaction with this mock:
+printer.print("Hello Mockito !!!");
+-> at com.mauto.bigbaby.ut.BigUnitTestSample.appendString(BigUnitTestSample.java:20)
+```  
+-  when(T)：这个方法不能单独使用。传入的参数是mock生成的对象，返回值也是这个对象，可以按照字面上的意思解释，就是当mock对象怎么怎么做的时候。比如：   
+
+  - BigUnitTestTest.java
+```
+// 当mock对象调用appendString方法的时候
+when(sample).appendString("Hello ", "Mockito !!!")
+```  
+是不是缺少什么东西？缺少一个动作结果。  
+-  doAnswer(Answer)：
+-  doReturn(Object)&ensp;/&ensp;doReturn(Object...)：
+-  doThrow(Throwable...)&ensp;/&ensp;doThrow(class extends Throwable...)
+-  doCallRealMethod()
+-  doNothing：啥也不做，但是只有mock对象的void方法才能用，否则会报错。有什么作用？比如说有一个目标方法，里边包含了一个repository需要向网络获取数据，但是这个数据在这个目标方法中并不需要，所以测试的时候的不希望去调用它，那么就可以mock生成这个repository对象，然后doNothing获取网络数据的方法，就可以规避了。   
+
+  - refresh()的具体实现中包含Repository夫人fetchDataFromRemote方法，但是测试refresh方法时并不需要申请网络数据，就可以这样让网络请求do nothing。
+```
+Repository repository = mock(Repository.class);
+mRefreshHelper.add(repository);
+// 顺序很重要，如果doNothing放在refresh之后就没有作用了。
+// 这个例子有个问题，发现了吗？
+doNothing().when(mReposirory).fetchDataFromRemote(id);
+mRefreshHelper.refresh();
+```
+
 ##### 2.3 小结
 
 verify inOrder
-doAnswer(Answer...) doReturn(Object...) doCallRealMethod() doThrow(Throwable...) doThrow(<class extends Throwable>...)   
 when  
 
 
