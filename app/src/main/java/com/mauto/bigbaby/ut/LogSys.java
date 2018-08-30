@@ -6,7 +6,7 @@ package com.mauto.bigbaby.ut;
 
 public class LogSys {
 
-    private static String TAG = "--> LogSys <--   ";
+    private static String TAG = "--> LogSys <--";
 
     public static void print(String msg){
         print(TAG, msg);

@@ -37,8 +37,6 @@
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"/>
 
-<<<<<<< HEAD
-=======
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -53,5 +51,5 @@
         android:textSize="16sp"
         android:gravity="center" />
 
->>>>>>> c131c4a4cd5d29fd3a92b8eaad9f38872be72c0b
+
 </LinearLayout>
