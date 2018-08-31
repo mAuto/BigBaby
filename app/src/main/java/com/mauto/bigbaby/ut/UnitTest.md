@@ -25,7 +25,7 @@ Method isEmpty in android.text.TextUtils not mocked.
 <div align=center>![avatar](/res/ut_create_test_dialog.png)   
 ##### 1.2 基础的注解的含义和作用
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
-<div align=center>![avatar](/res/ut_junit_use_case.png)
+<div align=center>![avatar](/res/ut_junit_use_case.png)</div>
 
 - @Before：每个@Test方法被调用之前都会调用一次，多用来做一些初始化的操作，比如获得一个输入流。  
 - @Test：测试方法。  
