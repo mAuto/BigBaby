@@ -10,6 +10,9 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -77,6 +80,14 @@ public class BigUnitTestTest {
     @Test
     public void fun_2() throws Exception {
         // 具体的测试方法
+    }
+
+    @Test
+    public void testSpy() throws Exception {
+        BigUnitTestSample sample = mock(BigUnitTestSample.class);
+        BigUnitTestSample spy = spy(sample);
+        when(spy.appendString("a", "b")).thenReturn("Hello");
+        LogSys.print(spy.appendString("a", "b"));
     }
 
     @After
