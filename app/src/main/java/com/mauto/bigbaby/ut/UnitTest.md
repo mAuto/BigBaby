@@ -38,7 +38,6 @@ Method isEmpty in android.text.TextUtils not mocked.
 
 <div align=center>![avatar](/res/ut_junit_use_case_anno.png)
 
-
 ##### 1.3 如何去写一个测试方法
 &emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
 ###### 1.3.1 Assert断言  
@@ -86,7 +85,7 @@ Assert.assertThat(actual, matcher)
 <div align=center>![avatar](/res/ut_junit_assert.png  )  
 
 ###### 1.3.2 异常测试
-&emsp;&emsp;加入我有一个这样的方法：
+&emsp;&emsp;假如我有一个这样的方法：
 ```
 public boolean equals(Object obj) {
     if (obj == null)
@@ -130,7 +129,11 @@ Mock：mock产生的对象仅记录它们的调用信息，在断言中我们需
 &emsp;&emsp;Fake产生的对象是目标类的具体实现的简化版。比如测试某个业务逻辑需要一个Repository从数据库拿数据，这时候Fake出来的Repositroy是不会真的从数据库拿数据，可能使用了一个简单的列表或者Map来保存数据。  
 &emsp;&emsp;这两个概念可以这样理解：**Mock是虚的，只是表面架子不能用(调用);&ensp;Fake是假的，但是可以用。**    
 
-&emsp;&emsp;但是有一点需要注意的是，mock是用来生成一个虚拟的对象的，并不是用来注入一个虚拟对象的。也就是说我们可以通过mock()方法或者@Mock注解生成一个虚拟的对象，但是无法通过这两个方式将生成的对象注入到目标方法中，如果不把生成的对象注入到目标方法中，那么目标方法中的对象仍然是内部new出来的，我们是无法对他在目标方法中的行为进行测试的。所以我们还要把对象注入到目标方法中，可以写setter方法注入，也可以使用Dagger注入，或者其他的方法。
+&emsp;&emsp;但是有一点需要注意的是，mock是用来生成一个虚拟的对象的，并不是用来注入一个虚拟对象的。也就是说我们可以通过mock()方法生成一个虚拟的对象，但是无法通过这两个方式将生成的对象注入到目标方法中，如果不把生成的对象注入到目标方法中，那么目标方法中的对象仍然是内部new出来的，我们是无法对他在目标方法中的行为进行测试的。所以我们还要把对象注入到目标方法中，可以写setter方法注入，也可以使用Dagger注入，或者使用Mockito的注解很方便的做到这点，或者其他的方法。这里我们采用最直观的setter注入。  
+> Mokito的注入注解很简单，就需要两个注解就可以完成：@InjectMocks和@Mock。被@InjectMocks标注的属性会被自动注入到被@Mock标记的属性中，但是@InjectMocks不能指明注入类，所以不能标注接口或者抽象类。并且需要在@Before方法中初始化这些注解：MockitoAnnotations.initMocks(this);
+
+> 注入注解这么简单我为什么不用注解却用setter？  
+被@Mock标注的属性在MockitoAnnotations.initMocks(this)后，会被mock生成，在一些情况下我不需要mock生成的对象，会加大我写其他测试代码的复杂度，比如这里的例子。这纯属个人习惯问题。
 
 ##### 2.2 Mockito的使用
 &emsp;&emsp;Mockito同样提供了全面的API用来构建测试用例，但是这些API基本都是组合使用的，单独使用不会有什么效果。  
@@ -187,10 +190,8 @@ printer.print("Hello Mockito !!!");
 when(sample).appendString("Hello ", "Mockito !!!")
 ```  
 是不是缺少什么东西？缺少一个动作结果。  
--  doAnswer(Answer)：
--  doReturn(Object)&ensp;/&ensp;doReturn(Object...)：
--  doThrow(Throwable...)&ensp;/&ensp;doThrow(class extends Throwable...)
--  doCallRealMethod()
+
+
 -  doNothing：啥也不做，但是只有mock对象的void方法才能用，否则会报错。有什么作用？比如说有一个目标方法，里边包含了一个repository需要向网络获取数据，但是这个数据在这个目标方法中并不需要，所以测试的时候的不希望去调用它，那么就可以mock生成这个repository对象，然后doNothing获取网络数据的方法，就可以规避了。   
 
   - refresh()的具体实现中包含Repository夫人fetchDataFromRemote方法，但是测试refresh方法时并不需要申请网络数据，就可以这样让网络请求do nothing。
@@ -201,12 +202,247 @@ mRefreshHelper.add(repository);
 // 这个例子有个问题，发现了吗？
 doNothing().when(mReposirory).fetchDataFromRemote(id);
 mRefreshHelper.refresh();
+```  
+-  doCallRealMethod()：执行这个方法的具体逻辑。什么意思？mock对象是虚拟的，是不会执行具体逻辑的，除非有限制。还是之前的代码为例子：  
+  - BigUnitTestSample.java
 ```
+// 目标方法
+public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            mPrinter.print(result);
+        }
+
+        return result;
+    }
+```
+```
+// 注入setter
+public void addPrinter(Printer printer) {
+        mPrinter = printer;
+    }
+```
+  - BigUnitTestTest.java
+```
+// 测试方法
+@Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+//        doCallRealMethod().when(printer).print(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
+```
+
+ &emsp;&emsp;如果只是把mock对象注入目标方法中，因为mock的方法不执行具体逻辑，所以这样做的话是不会把输入的内容打印出来的。  
+
+    <div align=center>![avatar](/res/ut_mockito_without_docallrealmethod.png)  
+
+ &emsp;&emsp;但是如果把注释的地方打开，就会限制mock对象，在目标方法中的行为，让它按照本来的逻辑执行，就会打印出输入的内容。  
+<div align=center>![avatar](/res/ut_mockito_docallrealmethod.png)  
+
+-  doReturn(Object)：返回指定的结果。这个方法对有返回值的mock方法有效，如果没有返回值会报错。比如在Printer中有这样一个方法：
+
+  - Printer.java
+```
+public String printMsg(String msg) {
+        System.out.println(msg);
+        return msg;
+    }
+```  
+
+ 目标方法是这样的：
+
+  - BigUnitTestSample.java
+  ```
+  public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            String msg = mPrinter.printMsg(result);
+            LogSys.print(msg);
+        }
+
+        return result;
+    }
+  ```
+
+ 测试方法是这样的：
+
+  - BigUnitTestTest.java
+    ```
+    @Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doReturn("msg_0").when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
+    ```  
+
+  &emsp;&emsp;把mock的printer注入到目标方法中后，我去这样限制它的行为：当调用它的printMsg()方法的时候，无论传入什么参数，都要返回“msg_0”。Run之后，console是这样的：   
+    <div align=center>![avatar](/res/ut_mockito_doreturn_object.png)  
+
+  &emsp;&emsp;有没有觉得哪里不对？printer的printMsg方法还是没有打印传进去的值，只是返回了指定的object。说明doReturn只是要求mock对象的方法返回指定的值，却不执行具体逻辑。
+
+-  doThrow(Throwable...)：基本同上。执行到mock方法的时候抛出一个异常，不管有没有返回值。
+
+  > &emsp;&emsp;doReturn()和doThrow()各有重载方法，用来规定之后连续(?)的几次mock方法调用的行为。比如在测试方法中连续调用了五次目标方法，mock方法也会跟着被连续调用五次，我可以这样设定：
+```
+@Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doReturn("msg_0", "msg_1", "msg_2").when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
+```
+&emsp;&emsp;要求printMsg方法在之后的三次调用中按照doReturn中的数组返回指定值，然后连续调用五次appendString方法：
+  > <div align=center>![avatar](/res/ut_mockito_doreturn_objects.png)  
+  >
+  > &emsp;&emsp;doThrow()的重载方法是一样的情况。
+
+ &emsp;&emsp;如果有这样的一个测试需求，我需要根据传入的参数，来改变测试目标方法中mock对象的某个调用方法的返回值，而不是直接返回一些定义好的返回值，该怎么办？毕竟doReturn()只是指定了返回值却没有返回值判断逻辑。
+-  doAnswer(Answer)：  
+  - BigUnitTestTest.java
+  ```
+  @Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                // 获得mock方法的传入参数
+                // 这里的mock方法是printer的printMsg方法，传入参数只有一个
+                Object[] arguments = invocation.getArguments();
+                String arg_0 = (String) arguments[0];
+
+                if (TextSys.isEmpty(arg_0)) {
+                    arg_0 = "Err";
+                }else {
+                    if (arg_0.contains("Mockito")){
+                        arg_0 = arg_0.replace("Mockito", "Big Mockito");
+                    }else if (arg_0.contains("World")) {
+                        arg_0 = arg_0.replace("World", "Small World");
+                    }else {
+                        arg_0 = "What ???";
+                    }
+                }
+
+                return arg_0;
+            }
+        }).when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "World !!!");
+        mSample.appendString("Hello ", "What ???");
+    }
+  ```  
+
+   &emsp;&emsp;在调用mock对象printer的printMsg方法的时候，会根据传入这个方法的参数而返回不同的返回值。下面是run之后的console显示：
+   <div align=center>![avatar](/res/ut_mockito_doanswer.png)   
+   > 其实这里可以用doReturn去写，但是会比较麻烦。  
+   doReturn("Hello Big Mokito !!!").when(printer).printMsg(“Hello Mokito !!!”);  
+   doReturn("Hello Small World !!!").when(printer).printMsg(“Hello World !!!”);   
+   doReturn("What ???").when(printer).printMsg(“Hello What ???”);    
+   mSample.appendString("Hello ", "Mockito !!!");  
+   mSample.appendString("Hello ", "World !!!");  
+   mSample.appendString("Hello ", "What ???");   
+
+- any：any是一系列常用的填充传参的API。比如上面用到的anyString()，表示当调用到这个mock方法的时候，不管传入参数是什么都会怎么怎么样。此外还有anyInt,anyBoolean,anyObject等等，甚至还有any(String.class)这种定制any。  
+&emsp;&emsp;doReturn, doAnswer, doThrow这些API的返回值都是一样的(Studder)，而它们本身都是Stubber的方法，这就意味着什么？意味着他们可以用链式调用结合起来，简单明了。
+```
+doReturn("Hello Everyone !!!")
+          .doCallRealMethod()
+          .doAnswer(new Answer() {
+              @Override
+              public Object answer(InvocationOnMock invocation) throws Throwable {
+                  Object[] arguments = invocation.getArguments();
+                  String arg_0 = (String) arguments[0];
+
+                  if (TextSys.isEmpty(arg_0)) {
+                      arg_0 = "Err";
+                  }else {
+                      if (arg_0.contains("Mockito")){
+                          arg_0 = arg_0.replace("Mockito", "Big Mockito");
+                      }else if (arg_0.contains("World")) {
+                          arg_0 = arg_0.replace("World", "Small World");
+                      }else {
+                          arg_0 = "What ???";
+                      }
+                  }
+
+                  return arg_0;
+              }
+          })
+          .doThrow(IllegalArgumentException.class)
+          .when(printer).printMsg(anyString());
+```  
+&emsp;&emsp;这样链式调用，就是在规定，之后的几次调用mock方法都会按照这个顺序依次返回结果。但是到doThrow之后就会测试失败，因为主动让测试方法抛出了异常。
+- inOrder：
+  - BigUnitTestSample.java
+  ```
+  public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null && mInputer != null){
+            mPrinter.printMsg(a);
+            mInputer.inputMsg(a);
+            mPrinter.printMsg(b);
+            mInputer.inputMsg(b);
+            mPrinter.printMsg(result);
+            mInputer.inputMsg(result);
+        }
+
+        return result;
+    }
+  ```
+  - BigUnitTestTest.java
+  ```
+  @Test
+    public void fun_2() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        Inputer inputer = mock(Inputer.class);
+        mSample.addInputer(inputer);
+
+        mSample.appendString("Hello ", "Mockito !!!");
+
+        // verify是后知后觉的，不像do系列API，是先给目标方法设定代理，需要在目标方法执行前提前指定规则。
+        // verify测试的是调用栈的信息，所以一定要在目标方法执行之后添加verify测试代码。顺序很重要。
+        // 创建一个带验证mocks序列对象
+        // inOrder里边参数的位置顺序并不影响测试结果，但是必须都是mock对象。
+        InOrder order = inOrder(inputer, printer);
+        order.verify(printer).printMsg("Hello ");
+        order.verify(inputer).inputMsg("Hello ");// tag_0
+        order.verify(printer).printMsg("Mockito !!!");
+        order.verify(inputer).inputMsg("Mockito !!!");// tag_1
+        order.verify(printer).printMsg("Hello Mockito !!!");
+        order.verify(inputer).inputMsg("Hello Mockito !!!");
+    }
+  ```
+- spy
+- then
+
 
 ##### 2.3 小结
 
-verify inOrder
-when  
+spy inOrder
+then  
 
 
 > Assert来判断测试的结果，verfiy来判断执行的次数和顺序，doAnswer用来判断执行的方法和方法的参数。

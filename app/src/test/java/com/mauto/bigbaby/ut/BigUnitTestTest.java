@@ -5,8 +5,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
@@ -18,6 +21,10 @@ import static org.mockito.Mockito.*;
  */
 public class BigUnitTestTest {
 
+//    @InjectMocks
+//    private Printer mPrinter;
+
+//    @Mock
     private BigUnitTestSample mSample;
 
     /**
@@ -27,6 +34,13 @@ public class BigUnitTestTest {
     public void setUp() throws Exception {
         // 用来做一些初始化的操作
         mSample = new BigUnitTestSample();
+//        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testAnno(){
+        mSample.appendString("Hello ", "What ???");
+
     }
 
     /**
@@ -34,13 +48,40 @@ public class BigUnitTestTest {
      * */
     @Test
     public void appendString() throws Exception {
-        // 具体的测试方法
         Printer printer = mock(Printer.class);
         mSample.addPrinter(printer);
-        doCallRealMethod().when(printer).print(anyString());
-        mSample.appendString("Hello ", "Mockito !!!");
-//        verify(printer).print("Hello Mockito !!!");// verify(printer, times(1)).print("Hello Mockito !!!");
-//        verify(printer).print("Hello World !!!");
+//        doReturn("Hello Everyone !!!")
+//                .doCallRealMethod()
+//                .doAnswer(new Answer() {
+//                    @Override
+//                    public Object answer(InvocationOnMock invocation) throws Throwable {
+//                        Object[] arguments = invocation.getArguments();
+//                        String arg_0 = (String) arguments[0];
+//
+//                        if (TextSys.isEmpty(arg_0)) {
+//                            arg_0 = "Err";
+//                        }else {
+//                            if (arg_0.contains("Mockito")){
+//                                arg_0 = arg_0.replace("Mockito", "Big Mockito");
+//                            }else if (arg_0.contains("World")) {
+//                                arg_0 = arg_0.replace("World", "Small World");
+//                            }else {
+//                                arg_0 = "What ???";
+//                            }
+//                        }
+//
+//                        return arg_0;
+//                    }
+//                })
+//                .doThrow(IllegalArgumentException.class)
+//                .when(printer).printMsg(anyString());
+//        mSample.appendString("Hello ", "Mockito !!!");
+//        mSample.appendString("Hello ", "World !!!");
+//        mSample.appendString("Hello ", "What ???");
+//        mSample.appendString("Hello ", "Mockito !!!");
+//        mSample.appendString("Hello ", "World !!!");
+//        mSample.appendString("Hello ", "What ???");
+        when(printer.printMsg("Hello")).thenReturn("World");
     }
 
     @Test
@@ -66,17 +107,60 @@ public class BigUnitTestTest {
 //        result = sample.appendString("Hello ", "answer");
 //        LogSys.print(result);
 //        Mockito.verify(sample, times(0)).appendString("Hello ", "answer");
-        doNothing().when(sample).appendString("Hello ", "Mockito !!!");
+//        doNothing()
+//                .doReturn("Hello Everyone !!!")
+//                .doThrow(IllegalArgumentException.class)
+//                .doCallRealMethod()
+//                .doAnswer(new Answer() {
+//            @Override
+//            public Object answer(InvocationOnMock invocation) throws Throwable {
+//                Object[] arguments = invocation.getArguments();
+//                String arg_0 = (String) arguments[0];
+//
+//                if (TextSys.isEmpty(arg_0)) {
+//                    arg_0 = "Err";
+//                }else {
+//                    if (arg_0.contains("Mockito")){
+//                        arg_0 = arg_0.replace("Mockito", "Big Mockito");
+//                    }else if (arg_0.contains("World")) {
+//                        arg_0 = arg_0.replace("World", "Small World");
+//                    }else {
+//                        arg_0 = "What ???";
+//                    }
+//                }
+//
+//                return arg_0;
+//            }
+//        }).when(printer).printMsg(anyString());
     }
 
     @Test
     public void fun_1() throws Exception {
         // 具体的测试方法
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doReturn("msg_0", "msg_1", "msg_2").when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
     }
 
     @Test
     public void fun_2() throws Exception {
-        // 具体的测试方法
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        Inputer inputer = mock(Inputer.class);
+        mSample.addInputer(inputer);
+
+        mSample.appendString("Hello ", "Mockito !!!");
+
+        InOrder order = inOrder(inputer, printer);
+        order.verify(printer).printMsg("Hello ");
+        order.verify(inputer).inputMsg("Hello ");
+        order.verify(printer).printMsg("Mockito !!!");
+        order.verify(inputer).inputMsg("Mockito !!!");
+        order.verify(printer).printMsg("Hello Mockito !!!");
+        order.verify(inputer).inputMsg("Hello Mockito !!!");
     }
 
     @After

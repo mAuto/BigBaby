@@ -16,8 +16,13 @@ public class BigUnitTestSample {
 
         String result = new StringBuffer(a).append(b).toString();
 
-        if (mPrinter != null){
-            mPrinter.print(result);
+        if (mPrinter != null && mInputer != null){
+            mPrinter.printMsg(a);
+            mInputer.inputMsg(a);
+            mPrinter.printMsg(b);
+            mInputer.inputMsg(b);
+            mPrinter.printMsg(result);
+            mInputer.inputMsg(result);
         }
 
         return result;
@@ -44,5 +49,10 @@ public class BigUnitTestSample {
     private Printer mPrinter = null;
     public void addPrinter(Printer printer) {
         mPrinter = printer;
+    }
+
+    private Inputer mInputer = null;
+    public void addInputer(Inputer inputer) {
+        mInputer = inputer;
     }
 }
