@@ -22,8 +22,10 @@ Method isEmpty in android.text.TextUtils not mocked.
 &emsp;&emsp;通过Android Studio创建项目会自动引入JUnit，所以可以忽略手动添加JUnit的dependency。   
 ##### 1.1 怎样创建一个测试文件。
 &emsp;&emsp;主要有两种方法：在需要测试的方法或者类名上点击右键选择Goto&ensp;->&ensp;test，然后在弹出的对话框中创建;快捷键ctrl+shift+T直接弹出创建测试文件的对话框。  
-<div align=center>![avatar](/res/ut_create_test_dialog.png)</div>   
-##### 1.2 基础的注解的含义和作用
+<div align=center>![avatar](/res/ut_create_test_dialog.png)</div>
+
+##### 1.2 基础的注解的含义和作用  
+
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
 <div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
 - @Before：每个@Test方法被调用之前都会调用一次，多用来做一些初始化的操作，比如获得一个输入流。  
