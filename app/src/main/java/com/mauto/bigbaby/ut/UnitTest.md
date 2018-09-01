@@ -111,7 +111,7 @@ public void equals() throws Exception {
 &emsp;&emsp;点击左侧的黑框就可进行针对单个方法的执行，点击之后会有三个选项：Run XXX(ctrl+shift+f10)，Debug XXX，Run XXX with Coverage。第一个的意思是执行这个测试方法;第二个的意思是调试这个测试方法，可以打断点就行调试;第三个的意思是执行这个方法并且输出一份覆盖率报告，覆盖率报告是可以导出成html的。
 
 ##### 1.5 小结
-*** flag_0: Assert测试的是什么？ ***
+*** flag_0: Assert测试的是什么？***
 
 &emsp;&emsp;Assert是用来测试目标方法的结果的，对Assert而言目标方法的具体实现就是一个黑盒子，并不关心具体业务逻辑，只在乎结果是否符合预期。使用断言提供的API可以全面的测试目标方法的返回值是否符合预期，不管是什么类型都可以测试。      
 &emsp;&emsp;** 但是目标方法的具体实现怎么测试？**   
