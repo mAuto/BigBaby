@@ -25,13 +25,12 @@ Method isEmpty in android.text.TextUtils not mocked.
 <div align=center>![avatar](/res/ut_create_test_dialog.png)   
 ##### 1.2 基础的注解的含义和作用
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
-<div align=center>![avatar](/res/ut_junit_use_case.png)</div>
-
+<div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
 - @Before：每个@Test方法被调用之前都会调用一次，多用来做一些初始化的操作，比如获得一个输入流。  
 - @Test：测试方法。  
 - @After：每个@Test方法执行完毕后都会调用一次，多用来做一些善后工作，比如关闭一个数据流。
 
-这里就会有一个问题，如果在测试中需要一些全局的变量怎么办，放在@Before中明显不行，因为被修饰过得方法每次都会调用，并不能用来保存数据。JUnit提供了两个不常用的注解来解决这个问题。
+ &emsp;&emsp;这里就会有一个问题，如果在测试中需要一些全局的变量怎么办，放在@Before中明显不行，因为被修饰过得方法每次都会调用，并不能用来保存数据。JUnit提供了两个不常用的注解来解决这个问题。
 - @BeforeClass：在执行所有测试方法之前执行一次被@BeforeClass修饰过得方法，可以用来初始化一个全局的变量。   
 - @AfterClass：在执行完毕所有测试方法之后执行@AfterClass修饰的方法，用来做最后的善后工作。  
 但是这两个注解修饰的方法都必须是静态方法。  
