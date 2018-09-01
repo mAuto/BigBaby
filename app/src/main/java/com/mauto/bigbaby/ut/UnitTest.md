@@ -28,6 +28,7 @@ Method isEmpty in android.text.TextUtils not mocked.
 
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
 <div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
+
 - @Before：每个@Test方法被调用之前都会调用一次，多用来做一些初始化的操作，比如获得一个输入流。  
 - @Test：测试方法。  
 - @After：每个@Test方法执行完毕后都会调用一次，多用来做一些善后工作，比如关闭一个数据流。
