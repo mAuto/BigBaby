@@ -22,7 +22,7 @@ Method isEmpty in android.text.TextUtils not mocked.
 &emsp;&emsp;通过Android Studio创建项目会自动引入JUnit，所以可以忽略手动添加JUnit的dependency。   
 ##### 1.1 怎样创建一个测试文件。
 &emsp;&emsp;主要有两种方法：在需要测试的方法或者类名上点击右键选择Goto&ensp;->&ensp;test，然后在弹出的对话框中创建;快捷键ctrl+shift+T直接弹出创建测试文件的对话框。  
-<div align=center>![avatar](/res/ut_create_test_dialog.png)   
+<div align=center>![avatar](/res/ut_create_test_dialog.png)</div>   
 ##### 1.2 基础的注解的含义和作用
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
 <div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
@@ -35,7 +35,7 @@ Method isEmpty in android.text.TextUtils not mocked.
 - @AfterClass：在执行完毕所有测试方法之后执行@AfterClass修饰的方法，用来做最后的善后工作。  
 但是这两个注解修饰的方法都必须是静态方法。  
 
-<div align=center>![avatar](/res/ut_junit_use_case_anno.png)
+<div align=center>![avatar](/res/ut_junit_use_case_anno.png)</div>
 
 
 ##### 1.3 如何去写一个测试方法
@@ -82,7 +82,7 @@ Assert.assertArrayEquals(expected, actual)
 Assert.assertThat(actual, matcher)
 ```  
 &emsp;&emsp;最后，Assert的以上方法都有一个对应的重载方法，多了一个String类型的参数message，这个重载方法的意义在于，如果方法failed可以将传进去的massage作为失败信息返回，增加返回结果的可理解性，否则都将是默认的失败信息。
-<div align=center>![avatar](/res/ut_junit_assert.png  )  
+<div align=center>![avatar](/res/ut_junit_assert.png)</div>  
 
 ###### 1.3.2 异常测试
 &emsp;&emsp;加入我有一个这样的方法：
@@ -106,7 +106,7 @@ public void equals() throws Exception {
 &emsp;&emsp;Assert还有一些不常用的方法，作用不是很大，比如fail()，主动让测试方法失败。只在一些情境中用些用处;还有一个用来忽略测试方法的注解@Ignore，比如某个测试方法还没有实现或者实际代码还没有写，就可用这个注解标注测试方法，这样在run测试文件的时候就会忽略这个测试方法。
 
 ##### 1.4 执行
-<div align=center>![avatar](/res/ut_junit_use_case_debug.png)  
+<div align=center>![avatar](/res/ut_junit_use_case_debug.png)</div>  
 
 &emsp;&emsp;点击左侧的黑框就可进行针对单个方法的执行，点击之后会有三个选项：Run XXX(ctrl+shift+f10)，Debug XXX，Run XXX with Coverage。第一个的意思是执行这个测试方法;第二个的意思是调试这个测试方法，可以打断点就行调试;第三个的意思是执行这个方法并且输出一份覆盖率报告，覆盖率报告是可以导出成html的。
 
