@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -88,6 +89,23 @@ public class BigUnitTestTest {
         BigUnitTestSample spy = spy(sample);
         when(spy.appendString("a", "b")).thenReturn("Hello");
         LogSys.print(spy.appendString("a", "b"));
+    }
+
+    @Test
+    public void testThen(){
+        List<String> mockList = mock(ArrayList.class);
+        // 注入mock
+        mSample.addMockList(mockList);
+        mSample.addMockNetHunter(mock(NetHunter.class));
+
+        int posWanted = 1;
+        // 使mock对象执行真实逻辑
+        doCallRealMethod().when(mockList).get(posWanted);
+
+//        doReturn("pos: "+posWanted).when(mockList).get(posWanted);
+        when(mockList.get(posWanted)).thenReturn("pos: "+posWanted);
+
+        mSample.getDataByPos(posWanted);
     }
 
     @After
