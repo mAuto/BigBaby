@@ -20,11 +20,10 @@
             android:name=".DiffUtil.BigDiffUtilsActivity"
             android:label="@string/label_diffutils" />
         <activity android:name=".err.BigErrFragmentActivity" />
-        <activity android:name=".err.BigErrMainActivity"></activity>
+        <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".arch_components.LiveData_Lifecycle.BigLiveDataActivity" />
-        <activity android:name=".arch_components.LiveData_Lifecycle.BigLifecycleActivity"></activity>
+        <activity android:name=".arch_components.LiveData_Lifecycle.BigLifecycleActivity" />
+        <activity android:name=".ut.BigUnitTestActivity"></activity>
     </application>
-    
-
 
 </manifest>
