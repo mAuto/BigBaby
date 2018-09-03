@@ -4,6 +4,9 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.text.TextUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by haohuidong on 18-8-24.
  */
@@ -37,6 +40,26 @@ public class BigUnitTestSample {
         LogSys.print(result);
 
         return;
+    }
+
+    private List<String> targetData;
+    private NetHunter mHunter;
+
+    public String getDataByPos(int pos) {
+        // something operation
+
+        // 非常耗时的操作，获取数据
+        mHunter.fetchData(targetData);
+
+        return targetData.get(pos);
+    }
+
+    public void addMockNetHunter(NetHunter hunter) {
+        mHunter = hunter;
+    }
+
+    public void addMockList(List<String> list){
+        targetData = list;
     }
 
     @Override

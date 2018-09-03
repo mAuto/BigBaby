@@ -22,21 +22,23 @@ Method isEmpty in android.text.TextUtils not mocked.
 &emsp;&emsp;通过Android Studio创建项目会自动引入JUnit，所以可以忽略手动添加JUnit的dependency。   
 ##### 1.1 怎样创建一个测试文件。
 &emsp;&emsp;主要有两种方法：在需要测试的方法或者类名上点击右键选择Goto&ensp;->&ensp;test，然后在弹出的对话框中创建;快捷键ctrl+shift+T直接弹出创建测试文件的对话框。  
-<div align=center>![avatar](/res/ut_create_test_dialog.png)   
-##### 1.2 基础的注解的含义和作用
+<div align=center>![avatar](/res/ut_create_test_dialog.png)</div>
+
+##### 1.2 基础的注解的含义和作用  
+
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
-<div align=center>![avatar](/res/ut_junit_use_case.png)
+<div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
 
 - @Before：每个@Test方法被调用之前都会调用一次，多用来做一些初始化的操作，比如获得一个输入流。  
 - @Test：测试方法。  
 - @After：每个@Test方法执行完毕后都会调用一次，多用来做一些善后工作，比如关闭一个数据流。
 
-这里就会有一个问题，如果在测试中需要一些全局的变量怎么办，放在@Before中明显不行，因为被修饰过得方法每次都会调用，并不能用来保存数据。JUnit提供了两个不常用的注解来解决这个问题。
+ &emsp;&emsp;这里就会有一个问题，如果在测试中需要一些全局的变量怎么办，放在@Before中明显不行，因为被修饰过得方法每次都会调用，并不能用来保存数据。JUnit提供了两个不常用的注解来解决这个问题。
 - @BeforeClass：在执行所有测试方法之前执行一次被@BeforeClass修饰过得方法，可以用来初始化一个全局的变量。   
 - @AfterClass：在执行完毕所有测试方法之后执行@AfterClass修饰的方法，用来做最后的善后工作。  
 但是这两个注解修饰的方法都必须是静态方法。  
 
-<div align=center>![avatar](/res/ut_junit_use_case_anno.png)
+<div align=center>![avatar](/res/ut_junit_use_case_anno.png)</div>
 
 ##### 1.3 如何去写一个测试方法
 &emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
@@ -82,7 +84,7 @@ Assert.assertArrayEquals(expected, actual)
 Assert.assertThat(actual, matcher)
 ```  
 &emsp;&emsp;最后，Assert的以上方法都有一个对应的重载方法，多了一个String类型的参数message，这个重载方法的意义在于，如果方法failed可以将传进去的massage作为失败信息返回，增加返回结果的可理解性，否则都将是默认的失败信息。
-<div align=center>![avatar](/res/ut_junit_assert.png  )  
+<div align=center>![avatar](/res/ut_junit_assert.png)</div>  
 
 ###### 1.3.2 异常测试
 &emsp;&emsp;假如我有一个这样的方法：
@@ -106,12 +108,12 @@ public void equals() throws Exception {
 &emsp;&emsp;Assert还有一些不常用的方法，作用不是很大，比如fail()，主动让测试方法失败。只在一些情境中用些用处;还有一个用来忽略测试方法的注解@Ignore，比如某个测试方法还没有实现或者实际代码还没有写，就可用这个注解标注测试方法，这样在run测试文件的时候就会忽略这个测试方法。
 
 ##### 1.4 执行
-<div align=center>![avatar](/res/ut_junit_use_case_debug.png)  
+<div align=center>![avatar](/res/ut_junit_use_case_debug.png)</div>  
 
 &emsp;&emsp;点击左侧的黑框就可进行针对单个方法的执行，点击之后会有三个选项：Run XXX(ctrl+shift+f10)，Debug XXX，Run XXX with Coverage。第一个的意思是执行这个测试方法;第二个的意思是调试这个测试方法，可以打断点就行调试;第三个的意思是执行这个方法并且输出一份覆盖率报告，覆盖率报告是可以导出成html的。
 
 ##### 1.5 小结
-*** flag_0: Assert测试的是什么？ ***
+*** flag_0: Assert测试的是什么？***
 
 &emsp;&emsp;Assert是用来测试目标方法的结果的，对Assert而言目标方法的具体实现就是一个黑盒子，并不关心具体业务逻辑，只在乎结果是否符合预期。使用断言提供的API可以全面的测试目标方法的返回值是否符合预期，不管是什么类型都可以测试。      
 &emsp;&emsp;** 但是目标方法的具体实现怎么测试？**   
