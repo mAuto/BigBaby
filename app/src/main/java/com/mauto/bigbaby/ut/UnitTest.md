@@ -291,7 +291,7 @@ public String printMsg(String msg) {
     ```  
 
   &emsp;&emsp;把mock的printer注入到目标方法中后，我去这样限制它的行为：当调用它的printMsg()方法的时候，无论传入什么参数，都要返回“msg_0”。Run之后，console是这样的：   
-  
+
 <div align=center>![avatar](/res/ut_mockito_doreturn_object.png)    
 
 
