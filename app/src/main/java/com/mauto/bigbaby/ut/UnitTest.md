@@ -243,10 +243,10 @@ public void addPrinter(Printer printer) {
 
  &emsp;&emsp;如果只是把mock对象注入目标方法中，因为mock的方法不执行具体逻辑，所以这样做的话是不会把输入的内容打印出来的。  
 
-    <div align=center>![avatar](/res/ut_mockito_without_docallrealmethod.png)  
+    <div align=center>![avatar](/res/ut_mockito_without_docallrealmethod.png)</div>    
 
  &emsp;&emsp;但是如果把注释的地方打开，就会限制mock对象，在目标方法中的行为，让它按照本来的逻辑执行，就会打印出输入的内容。  
-<div align=center>![avatar](/res/ut_mockito_docallrealmethod.png)  
+<div align=center>![avatar](/res/ut_mockito_docallrealmethod.png)</div>  
 
 -  doReturn(Object)：返回指定的结果。这个方法对有返回值的mock方法有效，如果没有返回值会报错。比如在Printer中有这样一个方法：
 
