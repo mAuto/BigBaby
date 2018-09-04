@@ -291,6 +291,7 @@ public String printMsg(String msg) {
     ```  
 
   &emsp;&emsp;把mock的printer注入到目标方法中后，我去这样限制它的行为：当调用它的printMsg()方法的时候，无论传入什么参数，都要返回“msg_0”。Run之后，console是这样的：   
+
     <div align=center>![avatar](/res/ut_mockito_doreturn_object.png)</div>  
 
   &emsp;&emsp;有没有觉得哪里不对？printer的printMsg方法还是没有打印传进去的值，只是返回了指定的object。说明doReturn只是要求mock对象的方法返回指定的值，却不执行具体逻辑。
