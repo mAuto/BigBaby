@@ -82,4 +82,28 @@ public class BigUnitTestActivity extends AppCompatActivity {
         });
     }
     /////////////////////////////////////↑↑↑ --> fill list <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-9-5 下午12:17 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> IdlingResource <-- ↓↓↓/////////////////////////////////////
+    private boolean isRemoteFinished = false;
+
+    public void fetchDataFromRemote() {
+        // 模拟一个网络请求
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                isRemoteFinished = true;
+            }
+        }.start();
+    }
+
+    public boolean isRemoteFinished(){
+        return isRemoteFinished;
+    }
+    /////////////////////////////////////↑↑↑ --> IdlingResource <-- ↑↑↑/////////////////////////////////////
 }

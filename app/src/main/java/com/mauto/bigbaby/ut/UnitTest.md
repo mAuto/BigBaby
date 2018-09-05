@@ -1,8 +1,9 @@
 [TOC]
 
-## UnitTest
+## Unit & UI Test
 &emsp;&emsp;什么是单元测试？按照名字的解释就是，对一个单元进行的测试就是单元测试。但是什么可以称为一个单元？是一个大的业务模块，还是一个类，或者更小，是一个具体的方法？也许这个概念因人而异因开发环境而异，但是在android中，尤其是面向对象领域，一个单元指一个类的某个方法。**单元测试是为了单独测试某个类的某个方法是否正常工作儿编写的测试代码。**  
 &emsp;&emsp;既然是单独测试某个类的某个方法，所以就不能像集成测试那样对一整个业务线的进行测试。为什么？单元测试强调的是对小单元进行快速且精准的测试，编写简单，运行快捷，反馈迅速，能够融入到日常开发中而不影响开发进程。但是反观集成测试，需要大量的提前准备，也需要对整个流程进行配置设定，运行起来速度很慢，并且发现的问题很大程度依赖于测试代码的质量。对开发人员无论从技术还是项目开发进程上都不合适，所以对开发的重要性并不高。并且单元测试会引导开发写出粒度更小，结构更分明的模块，对代码质量本身就是一种提升。但是集成测试对改善项目结构提升代码质量作用很小。
+
 ### 一 本地单元测试
 - 位于 module-name/src/test/java/。  
 
@@ -18,6 +19,8 @@ Method isEmpty in android.text.TextUtils not mocked.
 > 单元测试使用到的android相关的文件并不包含任何实际上的代码(实际上开发环境中是没有android文件的具体实现的，只是一些API的定义，并且所有的实现都是throw new RuntimeException("stub")，而我们所能看到的源码实际上来自SDK下载的Android System Image)，因为这些文件只有真机或者虚拟机的android系统映像能够提供。所以所有调用android文件的地方都会报异常。这样做是为了确保你的单元测试是用来测试你的代码，而不受制于android平台的任何特殊的行为（没有使用Mockito显式地mock这些类的前提下）  
 
 &emsp;&emsp;在本地单元测是中使用的基本都是JUnit + Mockito。JUnit用来正常的编写测试用例，Mockito用来生成模拟的目标类，并加以管理。
+
+&emsp;&emsp;运行本地单元测试可以使用命令行gradle testDebugUnitTest或者gradle testReleaseUnitTest，会生成测试报告，在app/build/reports目录下。
 
 #### 1.1 JUnit（JUnit4）
 &emsp;&emsp;通过Android Studio创建项目会自动引入JUnit，所以可以忽略手动添加JUnit的dependency。   
@@ -524,10 +527,13 @@ doReturn("Hello Everyone !!!")
    ```
 
 ### 二 真机测试(UI自动化测试)
-Espresso与Robolectric   
+  
 #### 2.1 Espresso  
 &emsp;&emsp;Espresso是一个Google官方提供的Android应用UI自动化测试框架。已经被集成到了Android Testing Supporting Library中，在Adnroid Studio会随着项目创建一起添加进去。所以不需要手动添加依赖。
 > Espresso 的最新版本(V3.0.2)貌似有问题，有一些很重要测试工具不能使用，找不到引用，要么是版本出错，要么就是最新版本是新的使用方式而我还没掌握。但是V3.0.1是可以使用的，所以这里采用V3.0.1。  
+
+&emsp;&emsp;Espresso有一个这样的特性：只有在UI线程idle时才会进行测试，否则会一直等待UI线程idle之后才开始执行。
+<div align=center>![avatar](res/ut_espresso_flow.png)</div>
 
 ##### 2.1.1 Espresso能做什么？
 &emsp;&emsp;在介绍使用方法之前先想这样一个问题：本地测试以一个方法为单元，可以测试这个单元的返回值是否正确，内部逻辑的执行顺序，执行次数，也可以屏蔽一些没必要的内部逻辑从而简化目标方法的测试逻辑，提升测试效率，但是Espresso能做什么？
@@ -585,8 +591,143 @@ onView(ViewMatchers)
 onView(withId(R.id.btn_fill_data))
                 .check(ViewAssertions.matches(withText("Fill data")));
 ```  
-&emsp;&emsp;其中perform并不是必需的，在这里我只是想纯粹的测试button的text。我想时使用withId定位到这个button，然后用check方法校验text是否为我想要的，用到了ViewAssertions的静态方法matchs(Matcher&lt;T extends View&gt;)。with方法都会返回一个Matcher&lt;T extends View&gt;，从参数中就能知道，我们可以在matchs方法中校验很多状态。
-#### 2.2 Robolectric
+&emsp;&emsp;其中perform并不是必需的，在这里我只是想纯粹的测试button的text。我想时使用withId定位到这个button，然后用check方法校验text是否为我想要的，用到了ViewAssertions的静态方法matchs(Matcher&lt;T extends View&gt;)。with方法都会返回一个Matcher&lt;T extends View&gt;，从参数中就能知道，我们可以在matchs方法中校验很多状态。   
+###### 2.1.2.4 对于ListView和RecyclerView的测试  
+&emsp;&emsp;ListView和RecyclerView的UI自动化测试是Espresso里边既复杂又不容易理解的部分。对于单个view，我们可以用id定位它，也可以用text，甚至是类名或者资源名，但是对于一个list而言，我们可以通过onView定位到list本身却无法定位到list的item。Espresso换了一种思路，提供了onData方法，通过定位传入list的data来模拟对应的item的行为，来专门支持对AdapterView的子类进行UI自动化测试(RecyclerView不能用)。一些常用的方法：  
+- onData(Matcher&lt;? extends Object&gt;)：创建一个需要list显示的数据的DataInteraction，定位满足传入matcher的数据中的item。 
+- allOf(Matcher&lt;? super T&gt;...)：这个比较难理解，这个方法会返回一个matcher，这个matcher满足传入的所有限制。比如：  
+```
+assertThat("myValue", allOf(startsWith("my"), containsString("Val")))
+```  
+这行代码中的allOf就是说。返回满足以“my”开头，包含“Val”的字符串matcher。allOf有三个重载方法，用法本质都一样，自己去体验。  
+- is(T)：这个方法是is(equalTo())的简写，意思是是否和传入的value相等。is也同样有多个重载方法。  
+
+&emsp;&emsp;看这样一行代码，能从这里边得到哪些信息？  
+- ```
+onData(allOf(is(instanceOf(String.class)), is("NO Lie"))).perform(click());
+``` 
+&emsp;&emsp;ListView的数据源是一个String的集合。并且页面里只有**一个**ListView。为什么说只有一个ListView？这样想这个问题，如果一个界面里边有两个ListView并且传入的数据源不一样，如果这样去写，Espresso就找不到你想要测试的ListView是哪个了(另外一个问题，为什么Espresso不直接判断ListView的数据源的类型，根据类型分配对应的onData？1 根据数据源去区分ListVIew不准确，如果界面中的ListView中有两个的数据源类型是一样的怎么办，Espresso要测试哪个？2 如果我故意对我需要测试的ListView测试错误的数据源怎么办？所以这里Espresso的做法就是只提供测试方法不提供测试逻辑，不智能才是最好的测试。)。
+```
+android.support.test.espresso.AmbiguousViewMatcherException: ‘is assignable from class: class android.widget.AdapterView’ matches multiple views in the hierarchy. 
+Problem views are marked with ‘*MATCHES*’ below.
+```   
+&emsp;&emsp;这时候需要另外一个方法：
+- inAdapterView(Matcher<View>)：指定一个AdapterView来执行onData中的模拟操作。
+- ```
+onData(allOf(is(instanceOf(String.class)), is("NO Lie")))
+                .inAdapterView(withId(R.id.lv_sample))
+                .perform(click());
+```  
+
+&emsp;&emsp;指定id为lv_sample的AdapterView来执行onData的操作。  
+> DataInteraction不仅定义了inAdapterView来筛选指定的AdapterView，还定义了一写其他的方法来筛选指定的item中的某个view或者定位某个根视图中的AdapterView。
+> - onChildView(Matcher&lt;View&gt;)
+> - atPosition(Integer)
+> - inRoot(Matcher<Root>)
+ ```
+> onData(allOf(is(instanceOf(String.class)))) // 校验类型
+>                .inAdapterView(withId(R.id.lv_sample))
+>                .atPosition(0) // ListView中position=0的item
+>                .inRoot(RootMatchers.isDialog()) // dialog的视图中的AdapterView
+>                .onChildView(withText("No Lie")) // ListView的item中text为“No Lie”的view
+>                .perform(click());
+> ```
+
+&emsp;&emsp;RecyclerView的测试比AdapterView简单，因为Espresso专门提供了RecyclerViewActions来处理RecyclerView 的模拟事件，但是需要单独引用一个lib：
+- app/build.gradle
+```
+androidTestImplementation'com.android.support.test.espresso:espresso-contrib:3.0.1'
+```
+- BigUnitTestActivityTest.java
+```
+onView(withId(R.id.rv_sample))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(10, longClick()));
+``` 
+> RecyclerViewActions的辅助方法很多，滑动，定位，然后配合ViewActions中的模拟事件，click，longClick，swip等等。不多余介绍，篇幅限制。
+
+###### 2.1.2.5 对于延时操作的UI自动化测试  
+&emsp;&emsp;经常有这样的场景，点击了某个button，需要进行耗时的网络请求，但是网络请求都是在子线程中的，只要主线程idle就会执行test usecase，所以会出现网络请求没完成就开始执行usecase的情况，这是可以用sleep暂停测试方法等待结果返回，或者用Espresso包含的IdlingResource接口实现延时执行。使用IdlingResource第一步需要先实现IdlingResource，实现类不能放在main目录下，要放在androidTest目录下，因为main目录不识别测试类。目标Activity也要做好对应的接口方法判断是否执行完毕。
+- BigUnitTestActivity.java
+```
+private boolean isRemoteFinished = false;
+
+    public void fetchDataFromRemote() {
+        // 模拟一个网络请求
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                isRemoteFinished = true;
+            }
+        }.start();
+    }
+
+    public boolean isRemoteFinished(){
+        return isRemoteFinished;
+    } 
+``` 
+- androidTest/BigIdlingResource.java  
+```
+public class BigIdlingResource implements IdlingResource {
+    private ResourceCallback mCallback;
+    private BigUnitTestActivity mActivity;
+
+    public BigIdlingResource(BigUnitTestActivity activity){
+        mActivity = activity;
+    }
+
+    // 唯一标识
+    @Override
+    public String getName() {
+        return BigIdlingResource.class.getName();
+    }
+
+    // 底层会通过调用这个方法判断网络请求是否已完成
+    @Override
+    public boolean isIdleNow() {
+        if (mActivity != null && mActivity.isRemoteFinished()){
+            if (mCallback != null)
+                mCallback.onTransitionToIdle();
+            return true;
+        }
+        return false;
+    }
+    
+    // 给测试类注册一个回调，传进来的callback会作为isIdleNow中完成时的回调。
+    @Override
+    public void registerIdleTransitionCallback(ResourceCallback callback) {
+        mCallback = callback;
+    }
+}
+```
+- BigUnitTestActivityTest.java  
+```
+@Rule
+    public ActivityTestRule rule = new ActivityTestRule(BigUnitTestActivity.class);
+
+    private BigIdlingResource mIdlingResource;
+    @Before
+    public void setup(){
+        mIdlingResource = new BigIdlingResource((BigUnitTestActivity) rule.getActivity());
+        IdlingRegistry.getInstance().register(mIdlingResource);
+    }
+
+    @After
+    public void tearDown(){
+        IdlingRegistry.getInstance().unregister(mIdlingResource);
+    }
+```  
+&emsp;&emsp;在测试类中，需要进行以下几步：  
+
+  - 指定测试类的目标Activity，就是@Run的作用。
+  - 在@Before标识的方法中注册需要用到的IdlingResource实现类。 
+  - 在@After标识的方法中反注册IdlingResource的实现类。    
+
+ &emsp;&emsp;这样就可以保证，在网络请求完成之前，不会进行对目标Activity的UI测试。  
 
 ### 三 总结
 #### 3.1 关于时间   
