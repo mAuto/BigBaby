@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.err;
+package com.mauto.bigbaby.err.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;

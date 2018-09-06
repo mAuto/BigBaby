@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.err;
+package com.mauto.bigbaby.err.fragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,8 +10,11 @@ import java.util.List;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
+    private FragmentManager mManager;
+
     public FragmentAdapter(FragmentManager fm) {
         super(fm);
+        mManager = fm;
     }
 
     @Override
@@ -19,7 +22,12 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         if (mFragments == null)
         return null;
         else {
-            return mFragments.get(position);
+            Fragment tmp = mFragments.get(position);
+//            if (mManager != null && mManager.findFragmentByTag(tmp.getTag()) != null){
+//                mManager.beginTransaction().remove(tmp).commit();
+//                mManager.executePendingTransactions();
+//            }
+            return tmp;
         }
     }
 
@@ -41,6 +49,13 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         if (mFragments.size() == 0) {
             mFragments.addAll(fragments);
         }else {
+            for (int i = index; i<mFragments.size(); i++) {
+                Fragment fragment = mFragments.get(i);
+                if (mManager != null && mManager.findFragmentByTag(fragment.getTag()) != null && !fragment.isDetached()){
+                    mManager.beginTransaction().remove(fragment).commit();
+                    mManager.executePendingTransactions();
+                }
+            }
             mFragments.addAll(index, fragments);
         }
 

@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.err;
+package com.mauto.bigbaby.err.fragment;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
