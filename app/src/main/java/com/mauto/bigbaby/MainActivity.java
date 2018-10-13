@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickErr(View view) {
         Router.jump(this, RoutPointer.ERR_MAIN);
     }
+
     public void onClickLiveData(View view) {
         Router.jump(this, RoutPointer.LIVEDATA);
     }

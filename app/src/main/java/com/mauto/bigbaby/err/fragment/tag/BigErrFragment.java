@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.err.fragment;
+package com.mauto.bigbaby.err.fragment.tag;
 
 
 import android.content.Context;
@@ -106,5 +106,14 @@ public class BigErrFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.e("--> err/fragment <--", "tag => "+this.getTag());
+    }
+
+    private long mFragmentId;
+    public void setFragmentId(long id) {
+        mFragmentId = id;
+    }
+
+    public long getFragmentId() {
+        return mFragmentId;
     }
 }

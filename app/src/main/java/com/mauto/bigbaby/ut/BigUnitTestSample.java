@@ -19,13 +19,13 @@ public class BigUnitTestSample {
 
         String result = new StringBuffer(a).append(b).toString();
 
-        if (mPrinter != null && mInputer != null){
-            mPrinter.printMsg(a);
-            mInputer.inputMsg(a);
-            mPrinter.printMsg(b);
-            mInputer.inputMsg(b);
+        if (mPrinter != null){
+//            mPrinter.printMsg(a);
+//            mInputer.inputMsg(a);
+//            mPrinter.printMsg(b);
+//            mInputer.inputMsg(b);
             mPrinter.printMsg(result);
-            mInputer.inputMsg(result);
+//            mInputer.inputMsg(result);
         }
 
         return result;

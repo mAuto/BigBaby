@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".err.BigErrMainActivity">
+    tools:context=".err.fragment.BigErrFragmentActivity">
 
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"
@@ -14,7 +14,24 @@
         android:background="@color/colorPrimary"
         android:layout_margin="10dp"
         android:elevation="4dp"
-        android:text="Fragment"
+        android:text="Err_0: Fragment Tag"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:onClick="onClickErrFragmentAttach"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:elevation="4dp"
+        android:text="Err_1: Fragment Attach"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
