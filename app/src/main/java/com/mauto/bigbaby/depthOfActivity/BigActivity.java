@@ -1,6 +1,7 @@
 package com.mauto.bigbaby.depthOfActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,7 +30,7 @@ public class BigActivity extends AppCompatActivity {
 
         initViews();
 
-        Log.e("--> onCreate <--", "start");
+        Log.e("--> BigActivity <--", "onCreate"+"");
         getFragmentWhos();
     }
 
@@ -40,7 +41,7 @@ public class BigActivity extends AppCompatActivity {
 
     private void getFragmentWhos() {
         if (tmp == null) {
-            Log.e("--> getFragmentWhos <--", "bundle is null");
+            Log.e("--> BigActivity <--", "getFragmentWhos"+": "+"bundle is null");
             return;
         }
         String[] fragmentWhos = tmp.getStringArray("android:support:request_fragment_who");
@@ -55,7 +56,7 @@ public class BigActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.e("--> onSaveInstanceState <--", "start");
+        Log.e("--> BigActivity <--", "onSaveInstanceState"+"");
         if (outState != null) {
             tmp = (Bundle) outState.clone();
         }
@@ -64,7 +65,7 @@ public class BigActivity extends AppCompatActivity {
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.e("--> onRestoreInstanceState <--", "start");
+        Log.e("--> BigActivity <--", "onRestoreInstanceState"+"");
         if (savedInstanceState != null) {
             tmp = (Bundle) savedInstanceState.clone();
         }
@@ -74,27 +75,36 @@ public class BigActivity extends AppCompatActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.e("--> onNewIntent <--", "HERE");
+        Log.e("--> BigActivity <--", "onNewIntent"+"");
         super.onNewIntent(intent);
     }
 
     @Override
     protected void onStart() {
-        Log.e("--> onStart <--", "HERE");
+        Log.e("--> BigActivity <--", "onStart"+"");
         super.onStart();
     }
 
+    int flag = 0;
     @Override
     protected void onResume() {
-        Log.e("--> onResume <--", "HERE");
+        Log.e("--> BigActivity <--", "onResume"+"");
         super.onResume();
         FragmentManager manager = getSupportFragmentManager();
         List<Fragment> fragments = manager.getFragments();
+        if (flag > 0) {
+            if (fragments.size() == 7) {
+                manager.beginTransaction().remove(fragments.get(6)).commitNow();
+//                manager.executePendingTransactions();
+            }
+        }
+        fragments = manager.getFragments();
+        flag += 1;
     }
 
     @Override
     protected void onPause() {
-        Log.e("--> onPause <--", "HERE");
+        Log.e("--> BigActivity <--", "onPause"+"");
         super.onPause();
         FragmentManager manager = getSupportFragmentManager();
         List<Fragment> fragments = manager.getFragments();
@@ -102,13 +112,13 @@ public class BigActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        Log.e("--> onStop <--", "HERE");
+       Log.e("--> BigActivity <--", "onStop"+"");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.e("--> onDestroy <--", "HERE");
+        Log.e("--> BigActivity <--", "onDestroy"+"");
         super.onDestroy();
     }
 }

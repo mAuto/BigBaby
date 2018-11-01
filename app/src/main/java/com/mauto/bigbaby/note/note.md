@@ -9,7 +9,18 @@
 <div align=center>![avatar](/res/note_1_1.png)</div>    
 
 ##### 1.3 当app被DDMS强行杀死后，重新唤起到前台不会经过app的任何生命周期，也不经过重新创建application的过程，为什么？  
+&emsp;&emsp;在被强行杀死之后立即重新创建application和相关activity/fragment，~~唤醒之后还是不走生命周期~~，会经过正常的生命周期，只是ADM抓不到log   
+
 
 ##### 1.4 重新唤起到前台的app，再次点击home键的话是可以经过正常的生命周期的。  
 
-##### 1.5 在重新唤起的app的pause方法中debug，调试此时的mFragments，发现fragment的总数多了一个，是全新的一级fragment，为什么会重新创建一个一级fragment？  
+##### 1.5 在重新唤起的app的pause方法中debug，调试此时的mFragments，发现fragment的总数多了一个，是全新的一级fragment，为什么会重新创建一个一级fragment？   
+&emsp;&emsp;如果手动的在容器activity的onResume中remove掉这个多出来的一级fragment，发现整个app没有任何不正常的地方，和被强行杀死前是一样的。为什么要再次创建一个以及fragment覆盖在原来的fragments之上？  
+
+##### 1.6 Fragment的onViewStateRestored方法也许是关键。  
+
+##### 1.7 这些方法   
+Activity{onCreate，onSaveInstanceState， onRestoreInstanceState}    
+Fragment{onSaveInstanceState， onViewSateRestored}
+
+##### 1.8 已被复杂的代码搞晕了，缓缓。。。

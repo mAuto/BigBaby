@@ -43,4 +43,8 @@ public class BigFragmentAdapter extends FragmentPagerAdapter {
         mFragments.addAll(fragments);
         notifyDataSetChanged();
     }
+
+    public List<Fragment> getFragments() {
+        return mFragments;
+    }
 }
