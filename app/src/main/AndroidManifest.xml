@@ -8,13 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".BabyApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
@@ -25,7 +26,16 @@
         <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
         <activity android:name=".ut.BigUnitTestActivity" />
         <activity android:name=".err.BigErrMainActivity" />
-        <activity android:name=".err.fragment.attach.BigErrAttachActivity"></activity>
+        <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
+        <activity android:name=".thread.BigThreadActivity" />
+        <activity android:name=".depthOfActivity.BigActivity"
+            android:persistableMode="persistAcrossReboots">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

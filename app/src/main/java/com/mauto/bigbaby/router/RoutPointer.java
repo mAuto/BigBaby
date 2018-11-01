@@ -6,6 +6,7 @@ import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
 import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
 import com.mauto.bigbaby.err.fragment.BigErrFragmentActivity;
 import com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
+import com.mauto.bigbaby.thread.BigThreadActivity;
 import com.mauto.bigbaby.ut.BigUnitTestActivity;
 
 
@@ -21,7 +22,9 @@ public enum RoutPointer {
     ERR_ATTACH(BigErrAttachActivity.class.getName()),
 
     DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName()),
-    UT_MAIN(BigUnitTestActivity.class.getName());
+    UT_MAIN(BigUnitTestActivity.class.getName()),
+
+    THREAD(BigThreadActivity.class.getName());
 
 
     String mRoutTarget = "";
