@@ -55,4 +55,8 @@ public class MainActivity extends AppCompatActivity {
     public void onClickThread(View view) {
         Router.jump(this, RoutPointer.THREAD);
     }
+
+    public void onClickLibraries(View view) {
+        Router.jump(this, RoutPointer.LIB_RECYCLER_MAIN);
+    }
 }

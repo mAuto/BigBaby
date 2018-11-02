@@ -6,6 +6,8 @@ import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
 import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
 import com.mauto.bigbaby.err.fragment.BigErrFragmentActivity;
 import com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
+import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
+import com.mauto.bigbaby.librarys.recyclerview.sortedlist.BigSortedActivity;
 import com.mauto.bigbaby.thread.BigThreadActivity;
 import com.mauto.bigbaby.ut.BigUnitTestActivity;
 
@@ -24,8 +26,14 @@ public enum RoutPointer {
     DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName()),
     UT_MAIN(BigUnitTestActivity.class.getName()),
 
-    THREAD(BigThreadActivity.class.getName());
+    THREAD(BigThreadActivity.class.getName()),
 
+
+    /////////////////////////////////////////--> 18-11-2 上午11:19 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> lib <-- ↓↓↓/////////////////////////////////////
+    LIB_RECYCLER_MAIN(BigLibRecyclerActivity.class.getName()),
+    LIB_RECYCLER_SORTED(BigSortedActivity.class.getName());
+    /////////////////////////////////////↑↑↑ --> lib <-- ↑↑↑/////////////////////////////////////
 
     String mRoutTarget = "";
     RoutPointer(String rout) {

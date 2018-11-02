@@ -3,19 +3,21 @@
     package="com.mauto.bigbaby">
 
     <application
+        android:name=".BabyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".BabyApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
@@ -28,14 +30,17 @@
         <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
         <activity android:name=".thread.BigThreadActivity" />
-        <activity android:name=".depthOfActivity.BigActivity"
+        <activity
+            android:name=".depthOfActivity.BigActivity"
             android:persistableMode="persistAcrossReboots">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
+        <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
+        <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity"></activity>
     </application>
 
 </manifest>
