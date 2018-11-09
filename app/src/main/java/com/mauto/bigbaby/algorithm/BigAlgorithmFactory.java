@@ -23,9 +23,13 @@ public class BigAlgorithmFactory {
         for (int i=0;i<boundary;i++) {
             int randomMark = random.nextInt(boundaryPointer);
             int randomNum = randomDomain[randomMark];
-            int boundaryNum = randomDomain[boundaryPointer - 1];
-            randomDomain[boundaryPointer - 1] = randomNum;
-            randomDomain[randomMark] = boundaryNum;
+
+            if (randomMark < boundaryPointer - 1) {
+                int boundaryNum = randomDomain[boundaryPointer - 1];
+                randomDomain[boundaryPointer - 1] = randomNum;
+                randomDomain[randomMark] = boundaryNum;
+            }
+
             LogSys.print("--> algorithm <--", i+" -> "+randomNum);
             boundaryPointer -= 1;
         }
