@@ -60,18 +60,20 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".share.BigShareActivity"
+        <activity
+            android:name=".share.BigShareActivity"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
 
                 <data
-                    android:scheme="smsshare"
                     android:host="news_receiver"
-                    ></data>
+                    android:scheme="smsshare" />
             </intent-filter>
         </activity>
+        <activity android:name=".algorithm.BigAlgorithmActivity"></activity>
     </application>
 
 </manifest>
