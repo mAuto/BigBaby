@@ -35,4 +35,17 @@ public class BigAlgorithmFactory {
         }
     }
 
+    public static int findOdd(int... array) {
+        if (array == null || array.length == 0)
+            return -1;
+
+        int len = array.length;
+        int result = 0;
+        for (int i=0;i<len;i++) {
+            result ^= array[i];
+        }
+
+        return result;
+    }
+
 }

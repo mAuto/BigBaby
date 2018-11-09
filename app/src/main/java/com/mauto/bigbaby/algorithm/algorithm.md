@@ -28,4 +28,19 @@ public static void realRandom(int boundary) {
     }
 ```
 
-#### 2 一个整数数组中只有一个数出现过奇数次，其余的都出现过偶数次，找到这个出现奇数次的数，要求空间复杂度O(n)，时间复杂度O(1)。
+#### [2 一个整数数组中只有一个数出现过奇数次，其余的都出现过偶数次，找到这个出现奇数次的数，要求空间复杂度O(n)，时间复杂度O(1)。](#algorithm_1)    
+&emsp;&emsp;**基本思路** ：基本的位运算中的异或运算：两个数转为二进制，然后从高位开始比较，如果相同则为0，不相同则为1。也就说异或运算实际上与两个数的绝对值减法相同。   
+```
+public static int findOdd(int... array) {
+        if (array == null || array.length == 0)
+            return -1;
+
+        int len = array.length;
+        int result = 0;
+        for (int i=0;i<len;i++) {
+            result ^= array[i];
+        }
+
+        return result;
+    }
+```   
