@@ -12,12 +12,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
@@ -33,14 +33,45 @@
         <activity
             android:name=".depthOfActivity.BigActivity"
             android:persistableMode="persistAcrossReboots">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
-        <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity"></activity>
+        <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity" />
+        <activity android:name=".target26.service.BigServiceActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".target26.service.BigSampleService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".target26.service.BigTestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".share.BigShareActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data
+                    android:scheme="smsshare"
+                    android:host="news_receiver"
+                    ></data>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
