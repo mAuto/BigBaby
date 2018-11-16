@@ -13,7 +13,7 @@
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:layout_margin="10dp"
-        android:text="SortedList"
+        android:text="SortedList(done)"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"

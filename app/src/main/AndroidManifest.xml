@@ -11,13 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
@@ -44,11 +42,13 @@
         <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
         <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity" />
         <activity android:name=".target26.service.BigServiceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <service
@@ -73,7 +73,8 @@
                     android:scheme="smsshare" />
             </intent-filter>
         </activity>
-        <activity android:name=".algorithm.BigAlgorithmActivity"></activity>
+        <activity android:name=".algorithm.BigAlgorithmActivity" />
+        <activity android:name=".librarys.recyclerview.AsyncList.BigAsyncListActivity"></activity>
     </application>
 
 </manifest>
