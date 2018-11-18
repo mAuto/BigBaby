@@ -1,6 +1,8 @@
 [TOC]
 
-## UnitTest
+## Unit & UI Test
+&emsp;&emsp;什么是单元测试？按照名字的解释就是，对一个单元进行的测试就是单元测试。但是什么可以称为一个单元？是一个大的业务模块，还是一个类，或者更小，是一个具体的方法？也许这个概念因人而异因开发环境而异，但是在android中，尤其是面向对象领域，一个单元指一个类的某个方法。**单元测试是为了单独测试某个类的某个方法是否正常工作儿编写的测试代码。**  
+&emsp;&emsp;既然是单独测试某个类的某个方法，所以就不能像集成测试那样对一整个业务线的进行测试。为什么？单元测试强调的是对小单元进行快速且精准的测试，编写简单，运行快捷，反馈迅速，能够融入到日常开发中而不影响开发进程。但是反观集成测试，需要大量的提前准备，也需要对整个流程进行配置设定，运行起来速度很慢，并且发现的问题很大程度依赖于测试代码的质量。对开发人员无论从技术还是项目开发进程上都不合适，所以对开发的重要性并不高。并且单元测试会引导开发写出粒度更小，结构更分明的模块，对代码质量本身就是一种提升。但是集成测试对改善项目结构提升代码质量作用很小。
 
 ### 一 本地单元测试
 - 位于 module-name/src/test/java/。  
@@ -18,13 +20,15 @@ Method isEmpty in android.text.TextUtils not mocked.
 
 &emsp;&emsp;在本地单元测是中使用的基本都是JUnit + Mockito。JUnit用来正常的编写测试用例，Mockito用来生成模拟的目标类，并加以管理。
 
-#### 1 JUnit（JUnit4）
+&emsp;&emsp;运行本地单元测试可以使用命令行gradle testDebugUnitTest或者gradle testReleaseUnitTest，会生成测试报告，在app/build/reports目录下。
+
+#### 1.1 JUnit（JUnit4）
 &emsp;&emsp;通过Android Studio创建项目会自动引入JUnit，所以可以忽略手动添加JUnit的dependency。   
-##### 1.1 怎样创建一个测试文件。
+##### 1.1.1 怎样创建一个测试文件。
 &emsp;&emsp;主要有两种方法：在需要测试的方法或者类名上点击右键选择Goto&ensp;->&ensp;test，然后在弹出的对话框中创建;快捷键ctrl+shift+T直接弹出创建测试文件的对话框。  
 <div align=center>![avatar](/res/ut_create_test_dialog.png)</div>
 
-##### 1.2 基础的注解的含义和作用  
+##### 1.1.2 基础的注解的含义和作用  
 
 &emsp;&emsp;创建好一个测试文件，里边是这个样子的
 <div align=center>![avatar](/res/ut_junit_use_case.png)</div>   
@@ -40,12 +44,20 @@ Method isEmpty in android.text.TextUtils not mocked.
 
 <div align=center>![avatar](/res/ut_junit_use_case_anno.png)</div>
 
+<<<<<<< HEAD
 ##### 1.3 如何去写一个测试方法
 &emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
 ###### 1.3.1 Assert断言  
 &emsp;&emsp;断言的方法很多，一般都是成对出现的:
 
 ```    
+=======
+##### 1.1.3 如何去写一个测试方法
+&emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
+###### 1.1.3.1 Assert断言  
+&emsp;&emsp;断言的方法很多，一般都是成对出现的：
+```
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 /********** 前后的值是否相等 *********/
 // 如果前后的值是String ，就是前后是否想等
 // 如果前后的值非String ，就会走Object的equals方法，  
@@ -87,9 +99,14 @@ Assert.assertThat(actual, matcher)
 &emsp;&emsp;最后，Assert的以上方法都有一个对应的重载方法，多了一个String类型的参数message，这个重载方法的意义在于，如果方法failed可以将传进去的massage作为失败信息返回，增加返回结果的可理解性，否则都将是默认的失败信息。
 <div align=center>![avatar](/res/ut_junit_assert.png)</div>  
 
+<<<<<<< HEAD
 ###### 1.3.2 异常测试
 &emsp;&emsp;假如我有一个这样的方法：
 -  BigUnitTestSample.java
+=======
+###### 1.1.3.2 异常测试
+&emsp;&emsp;假如我有一个这样的方法：
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 ```
 public boolean equals(Object obj) {
     if (obj == null)
@@ -108,21 +125,21 @@ public void equals() throws Exception {
 ```  
 &emsp;&emsp;在执行这个方法的时候，就会通过测试，因为目标方法成功的返回了一个期望的异常。但是如果传值不是null而是一个新对象的话，这个测试方法就会failed，因为在@Test注解中已经标注，在这个测试方法中期望情况是得到一个异常，任何不返回期望异常的结果都是不对的。@Test也可以给测试方法设置一个超时时间，比如@Test(timeout = 100)，如果测试方法执行超过100毫秒就会失败，可以用来进行性能测试。  
 
-###### 1.3.3 其他
+###### 1.1.3.3 其他
 &emsp;&emsp;Assert还有一些不常用的方法，作用不是很大，比如fail()，主动让测试方法失败。只在一些情境中用些用处;还有一个用来忽略测试方法的注解@Ignore，比如某个测试方法还没有实现或者实际代码还没有写，就可用这个注解标注测试方法，这样在run测试文件的时候就会忽略这个测试方法。
 
-##### 1.4 执行
+##### 1.1.4 执行
 <div align=center>![avatar](/res/ut_junit_use_case_debug.png)</div>  
 
 &emsp;&emsp;点击左侧的黑框就可进行针对单个方法的执行，点击之后会有三个选项：Run XXX(ctrl+shift+f10)，Debug XXX，Run XXX with Coverage。第一个的意思是执行这个测试方法;第二个的意思是调试这个测试方法，可以打断点就行调试;第三个的意思是执行这个方法并且输出一份覆盖率报告，覆盖率报告是可以导出成html的。
 
-##### 1.5 小结
+##### 1.1.5 小结
 *** flag_0: Assert测试的是什么？***
 
 &emsp;&emsp;Assert是用来测试目标方法的结果的，对Assert而言目标方法的具体实现就是一个黑盒子，并不关心具体业务逻辑，只在乎结果是否符合预期。使用断言提供的API可以全面的测试目标方法的返回值是否符合预期，不管是什么类型都可以测试。      
 &emsp;&emsp;** 但是目标方法的具体实现怎么测试？**   
 
-#### 2 Mockito
+#### 1.2 Mockito
 &emsp;&emsp;Mockito不会像Junit那样在AndroidStudio中自动引入dependency，需要手动加入：
 -  app/build.gradle
 ```
@@ -131,16 +148,24 @@ testImplementation "org.mockito:mockito-core:2.7.6"
 
  &emsp;&emsp;在上一节的末尾有个问题，Junit用来给有返回值的方法做测试，但是目标方法的内部逻辑如何做测试，或者，哪些地方值得测试？   
 &emsp;&emsp;**在目标方法的内部实现中，主要测试里边的某个对象或者某个对象的某个方法是否得到了调用，调用的顺序是什么样的，调用的次数，传入的参数是否正确等等内部的逻辑。** 但是对于JUnit而言，目标方法的实现是个黑盒子，JUnit拿不到里边的某个对象，所以这时候就需要一个工具来提供内部的那个对象。Mockito是Java圈里使用最广泛的mock工具。
+<<<<<<< HEAD
 
 ##### 2.1 基本概念 —— Mock
+=======
+##### 1.2.1 基本概念 —— Mock
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 Mock：mock产生的对象仅记录它们的调用信息，在断言中我们需要验证这些对象进行了符合期望的调用。如果只是单纯的调用这些对象的方法而没有提前**描述**任何逻辑，返回值都是 **返回类型默认值**。Object -> null，int/long -> 0。  
 > &emsp;&emsp;在单元测试里边还有一个概念容易和mock混淆 —— Fake   
 &emsp;&emsp;Fake产生的对象是目标类的具体实现的简化版。比如测试某个业务逻辑需要一个Repository从数据库拿数据，这时候Fake出来的Repositroy是不会真的从数据库拿数据，可能使用了一个简单的列表或者Map来保存数据。  
 &emsp;&emsp;这两个概念可以这样理解：**Mock是虚的，只是表面架子不能用(调用);&ensp;Fake是假的，但是可以用。**    
 
-&emsp;&emsp;但是有一点需要注意的是，mock是用来生成一个虚拟的对象的，并不是用来注入一个虚拟对象的。也就是说我们可以通过mock()方法或者@Mock注解生成一个虚拟的对象，但是无法通过这两个方式将生成的对象注入到目标方法中，如果不把生成的对象注入到目标方法中，那么目标方法中的对象仍然是内部new出来的，我们是无法对他在目标方法中的行为进行测试的。所以我们还要把对象注入到目标方法中，可以写setter方法注入，也可以使用Dagger注入，或者其他的方法。
+&emsp;&emsp;但是有一点需要注意的是，mock是用来生成一个虚拟的对象的，并不是用来注入一个虚拟对象的。也就是说我们可以通过mock()方法生成一个虚拟的对象，但是无法通过这两个方式将生成的对象注入到目标方法中，如果不把生成的对象注入到目标方法中，那么目标方法中的对象仍然是内部new出来的，我们是无法对他在目标方法中的行为进行测试的。所以我们还要把对象注入到目标方法中，可以写setter方法注入，也可以使用Dagger注入，或者使用Mockito的注解很方便的做到这点，或者其他的方法。这里我们采用最直观的setter注入。  
+> Mokito的注入注解很简单，就需要两个注解就可以完成：@InjectMocks和@Mock。被@InjectMocks标注的属性会被自动注入到被@Mock标记的属性中，但是@InjectMocks不能指明注入类，所以不能标注接口或者抽象类。并且需要在@Before方法中初始化这些注解：MockitoAnnotations.initMocks(this);
 
-##### 2.2 Mockito的使用
+> 注入注解这么简单我为什么不用注解却用setter？  
+被@Mock标注的属性在MockitoAnnotations.initMocks(this)后，会被mock生成，在一些情况下我不需要mock生成的对象，会加大我写其他测试代码的复杂度，比如这里的例子。这纯属个人习惯问题。
+
+##### 1.2.2 Mockito的使用
 &emsp;&emsp;Mockito同样提供了全面的API用来构建测试用例，但是这些API基本都是组合使用的，单独使用不会有什么效果。  
 - verify(T)/verify(T, VerificationMode)：用来验证mock对象的某个方法被执行过几次，以及传入的参数是否正确。VerificationMode表示的是校验模式，可以自由设定方法被执行了几次，比如times(5)，atLeast(2)，never()这些模式。默认也就是verify(T)，是times(1)。
   - BigUnitTestSample.java
@@ -195,10 +220,8 @@ printer.print("Hello Mockito !!!");
 when(sample).appendString("Hello ", "Mockito !!!")
 ```  
 是不是缺少什么东西？缺少一个动作结果。  
--  doAnswer(Answer)：
--  doReturn(Object)&ensp;/&ensp;doReturn(Object...)：
--  doThrow(Throwable...)&ensp;/&ensp;doThrow(class extends Throwable...)
--  doCallRealMethod()
+
+
 -  doNothing：啥也不做，但是只有mock对象的void方法才能用，否则会报错。有什么作用？比如说有一个目标方法，里边包含了一个repository需要向网络获取数据，但是这个数据在这个目标方法中并不需要，所以测试的时候的不希望去调用它，那么就可以mock生成这个repository对象，然后doNothing获取网络数据的方法，就可以规避了。   
 
   - refresh()的具体实现中包含Repository夫人fetchDataFromRemote方法，但是测试refresh方法时并不需要申请网络数据，就可以这样让网络请求do nothing。
@@ -209,38 +232,542 @@ mRefreshHelper.add(repository);
 // 这个例子有个问题，发现了吗？
 doNothing().when(mReposirory).fetchDataFromRemote(id);
 mRefreshHelper.refresh();
+```  
+-  doCallRealMethod()：执行这个方法的具体逻辑。什么意思？mock对象是虚拟的，是不会执行具体逻辑的，除非有限制。还是之前的代码为例子：  
+  - BigUnitTestSample.java
+```
+// 目标方法
+public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            mPrinter.print(result);
+        }
+
+        return result;
+    }
+```
+```
+// 注入setter
+public void addPrinter(Printer printer) {
+        mPrinter = printer;
+    }
+```
+  - BigUnitTestTest.java
+```
+// 测试方法
+@Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+//        doCallRealMethod().when(printer).print(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
 ```
 
-##### 2.3 小结
+ &emsp;&emsp;如果只是把mock对象注入目标方法中，因为mock的方法不执行具体逻辑，所以这样做的话是不会把输入的内容打印出来的。  
 
-verify inOrder
-when  
+    <div align=center>![avatar](/res/ut_mockito_without_docallrealmethod.png)</div>    
+
+ &emsp;&emsp;但是如果把注释的地方打开，就会限制mock对象，在目标方法中的行为，让它按照本来的逻辑执行，就会打印出输入的内容。  
+<div align=center>![avatar](/res/ut_mockito_docallrealmethod.png)</div>  
+
+-  doReturn(Object)：返回指定的结果。这个方法对有返回值的mock方法有效，如果没有返回值会报错。比如在Printer中有这样一个方法：
+
+  - Printer.java
+```
+public String printMsg(String msg) {
+        System.out.println(msg);
+        return msg;
+    }
+```  
+
+ 目标方法是这样的：
+
+  - BigUnitTestSample.java
+  ```
+  public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null){
+            String msg = mPrinter.printMsg(result);
+            LogSys.print(msg);
+        }
+
+        return result;
+    }
+  ```
+
+ 测试方法是这样的：
+
+  - BigUnitTestTest.java
+    ```
+    @Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doReturn("msg_0").when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
+    ```  
+
+  &emsp;&emsp;把mock的printer注入到目标方法中后，我去这样限制它的行为：当调用它的printMsg()方法的时候，无论传入什么参数，都要返回“msg_0”。Run之后，console是这样的：   
+
+    <div align=center>![avatar](/res/ut_mockito_doreturn_object.png)</div>  
+
+  &emsp;&emsp;有没有觉得哪里不对？printer的printMsg方法还是没有打印传进去的值，只是返回了指定的object。说明doReturn只是要求mock对象的方法返回指定的值，却不执行具体逻辑。
+
+-  doThrow(Throwable...)：基本同上。执行到mock方法的时候抛出一个异常，不管有没有返回值。
+
+  > &emsp;&emsp;doReturn()和doThrow()各有重载方法，用来规定之后连续(?)的几次mock方法调用的行为。比如在测试方法中连续调用了五次目标方法，mock方法也会跟着被连续调用五次，我可以这样设定：
+```
+@Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doReturn("msg_0", "msg_1", "msg_2").when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "Mockito !!!");
+    }
+```
+&emsp;&emsp;要求printMsg方法在之后的三次调用中按照doReturn中的数组返回指定值，然后连续调用五次appendString方法：
+  > <div align=center>![avatar](/res/ut_mockito_doreturn_objects.png)</div>  
+  >
+  > &emsp;&emsp;doThrow()的重载方法是一样的情况。
+
+ &emsp;&emsp;如果有这样的一个测试需求，我需要根据传入的参数，来改变测试目标方法中mock对象的某个调用方法的返回值，而不是直接返回一些定义好的返回值，该怎么办？毕竟doReturn()只是指定了返回值却没有返回值判断逻辑。
+-  doAnswer(Answer)：  
+  - BigUnitTestTest.java
+  ```
+  @Test
+    public void appendString() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        doAnswer(new Answer() {
+            @Override
+            public Object answer(InvocationOnMock invocation) throws Throwable {
+                // 获得mock方法的传入参数
+                // 这里的mock方法是printer的printMsg方法，传入参数只有一个
+                Object[] arguments = invocation.getArguments();
+                String arg_0 = (String) arguments[0];
+
+                if (TextSys.isEmpty(arg_0)) {
+                    arg_0 = "Err";
+                }else {
+                    if (arg_0.contains("Mockito")){
+                        arg_0 = arg_0.replace("Mockito", "Big Mockito");
+                    }else if (arg_0.contains("World")) {
+                        arg_0 = arg_0.replace("World", "Small World");
+                    }else {
+                        arg_0 = "What ???";
+                    }
+                }
+
+                return arg_0;
+            }
+        }).when(printer).printMsg(anyString());
+        mSample.appendString("Hello ", "Mockito !!!");
+        mSample.appendString("Hello ", "World !!!");
+        mSample.appendString("Hello ", "What ???");
+    }
+  ```  
+
+   &emsp;&emsp;在调用mock对象printer的printMsg方法的时候，会根据传入这个方法的参数而返回不同的返回值。下面是run之后的console显示：
+   <div align=center>![avatar](/res/ut_mockito_doanswer.png)</div>   
+   > 其实这里可以用doReturn去写，但是会比较麻烦。  
+   doReturn("Hello Big Mokito !!!").when(printer).printMsg(“Hello Mokito !!!”);  
+   doReturn("Hello Small World !!!").when(printer).printMsg(“Hello World !!!”);   
+   doReturn("What ???").when(printer).printMsg(“Hello What ???”);    
+   mSample.appendString("Hello ", "Mockito !!!");  
+   mSample.appendString("Hello ", "World !!!");  
+   mSample.appendString("Hello ", "What ???");   
+
+- any：any是一系列常用的填充传参的API。比如上面用到的anyString()，表示当调用到这个mock方法的时候，不管传入参数是什么都会怎么怎么样。此外还有anyInt,anyBoolean,anyObject等等，甚至还有any(String.class)这种定制any。  
+&emsp;&emsp;doReturn, doAnswer, doThrow这些API的返回值都是一样的(Studder)，而它们本身都是Stubber的方法，这就意味着什么？意味着他们可以用链式调用结合起来，简单明了。
+```
+doReturn("Hello Everyone !!!")
+          .doCallRealMethod()
+          .doAnswer(new Answer() {
+              @Override
+              public Object answer(InvocationOnMock invocation) throws Throwable {
+                  Object[] arguments = invocation.getArguments();
+                  String arg_0 = (String) arguments[0];
+
+                  if (TextSys.isEmpty(arg_0)) {
+                      arg_0 = "Err";
+                  }else {
+                      if (arg_0.contains("Mockito")){
+                          arg_0 = arg_0.replace("Mockito", "Big Mockito");
+                      }else if (arg_0.contains("World")) {
+                          arg_0 = arg_0.replace("World", "Small World");
+                      }else {
+                          arg_0 = "What ???";
+                      }
+                  }
+
+                  return arg_0;
+              }
+          })
+          .doThrow(IllegalArgumentException.class)
+          .when(printer).printMsg(anyString());
+```  
+&emsp;&emsp;这样链式调用，就是在规定，之后的几次调用mock方法都会按照这个顺序依次返回结果。但是到doThrow之后就会测试失败，因为主动让测试方法抛出了异常。
+- inOrder：
+  - BigUnitTestSample.java
+  ```
+  public String appendString(String a, String b) {
+        if (TextSys.isEmpty(a) || TextSys.isEmpty(b))
+            return null;
+
+        String result = new StringBuffer(a).append(b).toString();
+
+        if (mPrinter != null && mInputer != null){
+            mPrinter.printMsg(a);
+            mInputer.inputMsg(a);
+            mPrinter.printMsg(b);
+            mInputer.inputMsg(b);
+            mPrinter.printMsg(result);
+            mInputer.inputMsg(result);
+        }
+
+        return result;
+    }
+  ```
+  - BigUnitTestTest.java
+  ```
+  @Test
+    public void fun_2() throws Exception {
+        Printer printer = mock(Printer.class);
+        mSample.addPrinter(printer);
+        Inputer inputer = mock(Inputer.class);
+        mSample.addInputer(inputer);
+
+        mSample.appendString("Hello ", "Mockito !!!");
+
+        // verify是后知后觉的，不像do系列API，是先给目标方法设定代理，需要在目标方法执行前提前指定规则。
+        // verify测试的是调用栈的信息，所以一定要在目标方法执行之后添加verify测试代码。顺序很重要。
+        // 创建一个带验证mocks序列对象
+        // inOrder里边参数的位置顺序并不影响测试结果，但是必须都是mock对象。
+        InOrder order = inOrder(inputer, printer);
+        order.verify(printer).printMsg("Hello ");
+        order.verify(inputer).inputMsg("Hello ");// tag_0
+        order.verify(printer).printMsg("Mockito !!!");
+        order.verify(inputer).inputMsg("Mockito !!!");// tag_1
+        order.verify(printer).printMsg("Hello Mockito !!!");
+        order.verify(inputer).inputMsg("Hello Mockito !!!");
+    }
+  ```
+
+- then：Mockito还提供了另外一套与do系列相对应的测试API。例如：thenReturn, thenThrow, thenAnswer, thenCallRealCode。它们之间有什么区别呢？首先调用方法上。这里以doReturn和thenReturn举例，其他的方法大同小异，基本相同。
+    - BigUnitTestTest.java
+    ```
+    // doReturn是前置于when的
+    doReturn("test").when(sample).appendString(anyString(), any(String.class));
+    ```
+    ```
+    // thenReturn是后置于when的
+    when(sample.appendString("a", "b")).thenReturn("Hello");
+    ```  
+
+  &emsp;&emsp;这是最直观的语法差别。根本的区别在于，**doReturn修饰的方法不会被真实执行，只是返回了指定的返回值而已；而thenReturn，会先执行真实的逻辑，然后返回指定的返回值。**
+
+    <div align=center>![avatar](/res/ut_mockito_dorenturn.png)</div>
+    <div align=center>![avatar](/res/ut_mockito_thenreturn.png)</div>   
+  &emsp;&emsp;这两种方式的区别有哪些应用场景？主要有两个比较常见的场景。1 屏蔽某个方法重的已知异常或者对测试目标方法造成的影响；2 可以用doReturn屏蔽测试代码中的thenReturn。  
+    - BigUnitTestSample.java
+    ```
+    private List<String> targetData;
+      private NetHunter mHunter;
+
+      public String getDataByPos(int pos) {
+          // something operation
+
+          // 非常耗时的操作，获取数据
+          mHunter.fetchData(targetData);
+
+          return targetData.get(pos);
+      }
+    ```  
+
+ &emsp;&emsp;这个方法中有个耗时操作，我不希望经过这个耗时操作，很简单，只要注入一个NetHunter的mock对象就好了。但是我还需要targetData在get之后给我返回我想要的值，不要出错。我可以这样写：  
+ - BigUnitTestTest.java
+      ```
+      @Test
+      public void testThen(){
+          List<String> mockList = mock(ArrayList.class);
+          // 注入mock
+          mSample.addMockList(mockList);
+          mSample.addMockNetHunter(mock(NetHunter.class));
+
+          int posWanted = 1;
+          // 使mock对象执行真实逻辑
+          doCallRealMethod().when(mockList).get(posWanted);
+
+          //doReturn("pos: "+posWanted).when(mockList).get(posWanted);
+          when(varStrs.get(posWanted)).thenReturn("pos: "+posWanted);
+
+          mSample.getDataByPos(posWanted);
+      }
+      ```  
+
+  &emsp;&emsp;方法中向目标方法中注入了一个mock的NetHunetr，但是不做任何其他的操作，因为mock对象不执行方法，所以耗时操作就会被屏蔽。然后还注入了一个mock的list，我们需要操作这个list，并get我们想要的pos对应的值。所以必须使用doCallRealMethod保证mock方法能够执行。最后如果使用thenReturn会发生什么事情？  
+
+    <div align=center>![avatar](/res/ut_mockito_thenreturn_ex.png)</div>
+  &emsp;&emsp;因为list没有经过hunter装填数据，里边是空的，所以贸然调用get会错。而thenReturn是先执行真实方法然后返回，所以会在执行真实方法的时候抛异常。所以这时候就应该使用doReturn，禁止list执行会出错的方法，还能返回我想要的数据。而另一个使用场景的意思就是，doReturn发生在之前，会屏蔽掉同一个mock对象同一个方法同样参数的调用的thenReturn。因为mock方法调用之前直接通过代理方法返回指定值，是不会执行真实逻辑的，也就不会走到thenReturn。
+
+  &emsp;&emsp;*** 难道每次遇到这样的场景，我都需要用doCallRealMethod保证mock方法执行真实逻辑吗？有没有其他的方法可以得到一个可操作的还执行真实方法的对象？ ***
+
+- spy：(间谍?)这个方法会生成一个真实对象的“代理”，通过这个代理调用的方法会执行真正的逻辑，直到这个方法被提前的设定打断，按照设定的逻辑执行。  
+
+    - BigUnitTestTest.java
+    ```
+    @Test
+      public void testSpy() throws Exception {
+          BigUnitTestSample sample = new BigUnitTestSample();
+          BigUnitTestSample spy = spy(sample);// tag_0 spy(Object)
+          BigUnitTestSample spy = spy(BigUnitTestSample.class);// tag_1 spy(Class)
+          when(spy.appendString("a", "b")).thenReturn("Hello");
+          LogSys.print(spy.appendString("a", "b"));
+      }
+    ```   
+
+  &emsp;&emsp;spy方法有两个API，一个参数是一个真实对象(即便传进去一个mock对象也不会影响结果，因为spy(Object)的底层其实就是mock，但是设置了CALLS_REAL_METHODS)，一个参数是一个类，得到的结果是一样的。   
+   <div align=center>![avatar](/res/ut_mockito_spy.png)</div>
+
+   &emsp;&emsp;所以then的例子我可以这样写：
+   ```
+   List<String> mockList = spy(ArrayList.class);
+   ......
+   //doCallRealMethod().when(mockList).get(posWanted);
+   ```
+
+### 二 真机测试(UI自动化测试)
+  
+#### 2.1 Espresso  
+&emsp;&emsp;Espresso是一个Google官方提供的Android应用UI自动化测试框架。已经被集成到了Android Testing Supporting Library中，在Adnroid Studio会随着项目创建一起添加进去。所以不需要手动添加依赖。
+> Espresso 的最新版本(V3.0.2)貌似有问题，有一些很重要测试工具不能使用，找不到引用，要么是版本出错，要么就是最新版本是新的使用方式而我还没掌握。但是V3.0.1是可以使用的，所以这里采用V3.0.1。  
+
+&emsp;&emsp;Espresso有一个这样的特性：只有在UI线程idle时才会进行测试，否则会一直等待UI线程idle之后才开始执行。
+<div align=center>![avatar](res/ut_espresso_flow.png)</div>
+
+##### 2.1.1 Espresso能做什么？
+&emsp;&emsp;在介绍使用方法之前先想这样一个问题：本地测试以一个方法为单元，可以测试这个单元的返回值是否正确，内部逻辑的执行顺序，执行次数，也可以屏蔽一些没必要的内部逻辑从而简化目标方法的测试逻辑，提升测试效率，但是Espresso能做什么？
+
+&emsp;&emsp;**模拟用户的各种操作，校验各种事件的反应。**   
+
+&emsp;&emsp;那么使用Espresso测试一个View分几步？
+-  定位view  
+-  模拟操作view  
+-  校验view的状态  
+
+##### 2.1.2 Espresso的使用方法
+&emsp;&emsp;Espresso提供了三个基本方法分别来完成这三个步骤：
+- onView(ViewMatchers): 用来定位某个view。
+- perform(ViewAction): 用来模拟上一步得到的view的某个操作。
+- check(ViewAssertions): 用来校验上一步操作之后的view的状态。  
+&emsp;&emsp;调用方式类似于这样：  
+```
+onView(ViewMatchers)
+          .perform(ViewAction)
+          .check(ViewAssertion)
+```  
+
+###### 2.1.2.1 定位某个view  
+- onView(ViewMatchers): 用来定位某个view。定位view的matcher有很多，基本都是with开头的静态方法：  
+
+  - withId(int)：通过view的id来定位这个view。
+  - withText(String)：通过view的text定位view。
+  - withResourceName(String)：通过view的id的名字定位view。  
 
 
-> Assert来判断测试的结果，verfiy来判断执行的次数和顺序，doAnswer用来判断执行的方法和方法的参数。
+ &emsp;&emsp;还有很多其他的定位方法：withHint，withClassName，withParent，withChild等等，有兴趣的可以自己研究。这些定位方法都有重载方法，其中最重要的就是withXXX(Matcher<T>)。实际上每个with方法底层都是在调用对应的withXXX(Matcher<T>)方法。并且Matcher不能为null，否则会NPE;    
 
-> 时间  
-在项目开发过程中使用单元测试不仅不会增加时间，还会一定程度的减少开发时间，增加工作效率。  
-1 学习单元测试需要一些时间。  
-2 写单元测试的时候不熟悉，会慢一点，需要时间多琢磨多练习。   
-3 在一个没有单元测试的项目中接入单元测试，需要不少时间取调整结构，有单元测试的项目和没有单元测试的项目的结构是有一定差别的。   
+###### 2.1.2.2 对某个view进行模拟操作
+- perform(ViewAction): 用来模拟上一步得到的view的某个操作。一个view有很多个事件，那么模拟事件同样很多：  
+  - click():单击
+  - doubleClick():双击
+  - longClick():长按
+  - swipLeft():向左滑
+  - swipRight():向右滑
+  - swipUp():向上滑
+  - swipDown():想下滑  
+  
+&emsp;&emsp;还有很多其他的事件，比如滑动scrollTo， 用在WebView上的openLink系列，pressKey，pressBack等等。这个步骤并不是必需的。  
 
-> 小细节  
-1 在实际写代码中难免会用到一些android包中比较好用的工具类，比如TextUtils，用来check字符串的isEmpty方法。这个方法虽然在android包中，但是实现代码都是java包中的内容，所以可以自己写一个工具类来实现这个功能，这样就可以在代码中放心使用而不用担心UT是报异常。Log也可以用System的api来替代。
+###### 2.1.2.3 对某个view进行状态校验
+- check(ViewAssertion): 用来校验上一步操作之后的view的状态。校验的方法也有很多：
+  - isEnable():是否可用
+  - isChecked()/isNotChecked():是否被勾选
+  - isSelected():  是否被选中  
 
-关于单元测试的建议  
+&emsp;&emsp;还有一些校验方法，比如isFocusable，isClickable，isDisplayed等等，此外还有PositionAssertions提供的一些校验view的位置信息的方法，比如isLeftOf，isAbove等等。  
+&emsp;&emsp;值得注意的是，with方法并不是只能作为定位view的方法，还可以用来进行校验，比如有个界面上有一个button，我想校验一下button上的text是不是我想要的，所以结合上面的三个步骤我可以这样写：  
+```
+onView(withId(R.id.btn_fill_data))
+                .check(ViewAssertions.matches(withText("Fill data")));
+```  
+&emsp;&emsp;其中perform并不是必需的，在这里我只是想纯粹的测试button的text。我想时使用withId定位到这个button，然后用check方法校验text是否为我想要的，用到了ViewAssertions的静态方法matchs(Matcher&lt;T extends View&gt;)。with方法都会返回一个Matcher&lt;T extends View&gt;，从参数中就能知道，我们可以在matchs方法中校验很多状态。   
+###### 2.1.2.4 对于ListView和RecyclerView的测试  
+&emsp;&emsp;ListView和RecyclerView的UI自动化测试是Espresso里边既复杂又不容易理解的部分。对于单个view，我们可以用id定位它，也可以用text，甚至是类名或者资源名，但是对于一个list而言，我们可以通过onView定位到list本身却无法定位到list的item。Espresso换了一种思路，提供了onData方法，通过定位传入list的data来模拟对应的item的行为，来专门支持对AdapterView的子类进行UI自动化测试(RecyclerView不能用)。一些常用的方法：  
+- onData(Matcher&lt;? extends Object&gt;)：创建一个需要list显示的数据的DataInteraction，定位满足传入matcher的数据中的item。 
+- allOf(Matcher&lt;? super T&gt;...)：这个比较难理解，这个方法会返回一个matcher，这个matcher满足传入的所有限制。比如：  
+```
+assertThat("myValue", allOf(startsWith("my"), containsString("Val")))
+```  
+这行代码中的allOf就是说。返回满足以“my”开头，包含“Val”的字符串matcher。allOf有三个重载方法，用法本质都一样，自己去体验。  
+- is(T)：这个方法是is(equalTo())的简写，意思是是否和传入的value相等。is也同样有多个重载方法。  
+
+&emsp;&emsp;看这样一行代码，能从这里边得到哪些信息？  
+- ```
+onData(allOf(is(instanceOf(String.class)), is("NO Lie"))).perform(click());
+``` 
+&emsp;&emsp;ListView的数据源是一个String的集合。并且页面里只有**一个**ListView。为什么说只有一个ListView？这样想这个问题，如果一个界面里边有两个ListView并且传入的数据源不一样，如果这样去写，Espresso就找不到你想要测试的ListView是哪个了(另外一个问题，为什么Espresso不直接判断ListView的数据源的类型，根据类型分配对应的onData？1 根据数据源去区分ListVIew不准确，如果界面中的ListView中有两个的数据源类型是一样的怎么办，Espresso要测试哪个？2 如果我故意对我需要测试的ListView测试错误的数据源怎么办？所以这里Espresso的做法就是只提供测试方法不提供测试逻辑，不智能才是最好的测试。)。
+```
+android.support.test.espresso.AmbiguousViewMatcherException: ‘is assignable from class: class android.widget.AdapterView’ matches multiple views in the hierarchy. 
+Problem views are marked with ‘*MATCHES*’ below.
+```   
+&emsp;&emsp;这时候需要另外一个方法：
+- inAdapterView(Matcher<View>)：指定一个AdapterView来执行onData中的模拟操作。
+- ```
+onData(allOf(is(instanceOf(String.class)), is("NO Lie")))
+                .inAdapterView(withId(R.id.lv_sample))
+                .perform(click());
+```  
+
+&emsp;&emsp;指定id为lv_sample的AdapterView来执行onData的操作。  
+> DataInteraction不仅定义了inAdapterView来筛选指定的AdapterView，还定义了一写其他的方法来筛选指定的item中的某个view或者定位某个根视图中的AdapterView。
+> - onChildView(Matcher&lt;View&gt;)
+> - atPosition(Integer)
+> - inRoot(Matcher<Root>)
+ ```
+> onData(allOf(is(instanceOf(String.class)))) // 校验类型
+>                .inAdapterView(withId(R.id.lv_sample))
+>                .atPosition(0) // ListView中position=0的item
+>                .inRoot(RootMatchers.isDialog()) // dialog的视图中的AdapterView
+>                .onChildView(withText("No Lie")) // ListView的item中text为“No Lie”的view
+>                .perform(click());
+> ```
+
+&emsp;&emsp;RecyclerView的测试比AdapterView简单，因为Espresso专门提供了RecyclerViewActions来处理RecyclerView 的模拟事件，但是需要单独引用一个lib：
+- app/build.gradle
+```
+androidTestImplementation'com.android.support.test.espresso:espresso-contrib:3.0.1'
+```
+- BigUnitTestActivityTest.java
+```
+onView(withId(R.id.rv_sample))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(10, longClick()));
+``` 
+> RecyclerViewActions的辅助方法很多，滑动，定位，然后配合ViewActions中的模拟事件，click，longClick，swip等等。不多余介绍，篇幅限制。
+
+###### 2.1.2.5 对于延时操作的UI自动化测试  
+&emsp;&emsp;经常有这样的场景，点击了某个button，需要进行耗时的网络请求，但是网络请求都是在子线程中的，只要主线程idle就会执行test usecase，所以会出现网络请求没完成就开始执行usecase的情况，这是可以用sleep暂停测试方法等待结果返回，或者用Espresso包含的IdlingResource接口实现延时执行。使用IdlingResource第一步需要先实现IdlingResource，实现类不能放在main目录下，要放在androidTest目录下，因为main目录不识别测试类。目标Activity也要做好对应的接口方法判断是否执行完毕。
+- BigUnitTestActivity.java
+```
+private boolean isRemoteFinished = false;
+
+    public void fetchDataFromRemote() {
+        // 模拟一个网络请求
+        new Thread(){
+            @Override
+            public void run() {
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                isRemoteFinished = true;
+            }
+        }.start();
+    }
+
+    public boolean isRemoteFinished(){
+        return isRemoteFinished;
+    } 
+``` 
+- androidTest/BigIdlingResource.java  
+```
+public class BigIdlingResource implements IdlingResource {
+    private ResourceCallback mCallback;
+    private BigUnitTestActivity mActivity;
+
+    public BigIdlingResource(BigUnitTestActivity activity){
+        mActivity = activity;
+    }
+
+    // 唯一标识
+    @Override
+    public String getName() {
+        return BigIdlingResource.class.getName();
+    }
+
+    // 底层会通过调用这个方法判断网络请求是否已完成
+    @Override
+    public boolean isIdleNow() {
+        if (mActivity != null && mActivity.isRemoteFinished()){
+            if (mCallback != null)
+                mCallback.onTransitionToIdle();
+            return true;
+        }
+        return false;
+    }
+    
+    // 给测试类注册一个回调，传进来的callback会作为isIdleNow中完成时的回调。
+    @Override
+    public void registerIdleTransitionCallback(ResourceCallback callback) {
+        mCallback = callback;
+    }
+}
+```
+- BigUnitTestActivityTest.java  
+```
+@Rule
+    public ActivityTestRule rule = new ActivityTestRule(BigUnitTestActivity.class);
+
+    private BigIdlingResource mIdlingResource;
+    @Before
+    public void setup(){
+        mIdlingResource = new BigIdlingResource((BigUnitTestActivity) rule.getActivity());
+        IdlingRegistry.getInstance().register(mIdlingResource);
+    }
+
+    @After
+    public void tearDown(){
+        IdlingRegistry.getInstance().unregister(mIdlingResource);
+    }
+```  
+&emsp;&emsp;在测试类中，需要进行以下几步：  
+
+  - 指定测试类的目标Activity，就是@Run的作用。
+  - 在@Before标识的方法中注册需要用到的IdlingResource实现类。 
+  - 在@After标识的方法中反注册IdlingResource的实现类。    
+
+ &emsp;&emsp;这样就可以保证，在网络请求完成之前，不会进行对目标Activity的UI测试。  
+
+### 三 总结
+#### 3.1 关于时间   
+&emsp;&emsp;在项目开发过程中使用单元测试不仅不会增加时间，还会一定程度的减少开发时间，增加工作效率。 比较需要时间的下面的几点：
+- 学习单元测试需要一些时间，因为UT的技术值得学习的的确很多，JUnit的使用就可以写一本书，更何况实际的单元测试需要多个测试库共同开发。  
+- 刚写单元测试的时候不熟悉，会慢一点，需要时间多琢磨多练习。   
+- 在一个没有单元测试的项目中接入单元测试，需要不少时间取调整结构，因为有单元测试的项目和没有单元测试的项目的结构差别还是很大的。   
+
+#### 3.2 关于单元测试的建议  
 &emsp;&emsp;建议分成四个阶段去做这件事情，总体上按照先本地测试后UI测试的顺序  
 - 第一阶段：先要熟悉JUnit和Mockito这些本地单元测试的工具，弄清楚它们可以做什么不可以做什么，然后怎样结合起来做测试。可以自己动手写一些demo，尝试一下。这个阶段争取一个这样的成果：脑子里要清楚的知道一个什么样子的方法适合被测试。一个新的方法如何去写，一个老方法如何去调整。  
 - 第二阶段：接入老项目之前要选好应该被接入的模块，然后按照第一步学到的去调整这些模块的结构(可以单拉分支去做)。可以边调整边做单元测试也可以调整结束后接入。  
 - 第三阶段：经过第二步之后熟练度就会得到提升，然后尽量在新业务的开发中使用UT。这个时候自己可以抽一些时间去做个简单的对比，对比一下有UT的开发和无UT的开发的时间，代码质量，项目结构。如果足够熟练的话，有UT的开发时间是丝毫不会比普通开发慢的，甚至更快，并且代码质量更高，项目结构更加清晰。在真机或者模拟器上费时的调试，完全可以用更快更全面的单元测试替代。  
-- 第四阶段：做UI测试。UI测试相对于本地测试比较复杂，掌握起来可能会需要更多的时间。并且对于一个适合做UT的项目来说，一定在尽量的使UI层更轻，业务逻辑层更清晰分明。用于输出展示的UI重要保证业务层提供的数据正确，基本上就不会有太大问题，所以UI测试用在以UI层作为输入的场景下会比较多。但是一个单纯的点击事件，实现里调用了业务层的逻辑，有必要非得给点击事件加一个UseCase吗？   
+- 第四阶段：做UI测试。UI测试相对于本地测试而言重要性比较低。建议按计划一步步来，不要一蹴而就。   
+
+#### 3.3 小细节  
+&emsp;&emsp;在实际写代码中难免会用到一些android包中比较好用的工具类，比如TextUtils，用来check字符串的isEmpty方法。这个方法虽然在android包中，但是实现代码都是java包中的内容，所以可以自己写一个工具类来实现这个功能，这样就可以在代码中放心使用而不用担心UT是报异常。Log也可以用System的api来替代。
 
 &emsp;&emsp;最后，不要为了完成任务而去写单元测试，每写一个UseCase每弄明白一个细节都是在给项目加分给自己加分。  
-
-
-http://chriszou.com/2016/06/07/android-unit-testing-everything-you-need-to-know.html
-
-### 二 真机测试(UI测试)
-Espresso与Robolectric   
-#### 1 Espresso  
-&emsp;&emsp;Espresso是一个Google官方提供的Android应用UI自动化测试框架。

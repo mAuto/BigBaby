@@ -1,9 +1,15 @@
 package com.mauto.bigbaby.router;
 
 import com.mauto.bigbaby.DiffUtil.BigDiffUtilsActivity;
-import com.mauto.bigbaby.err.BigErrFragmentActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
-import com.mauto.bigbaby.arch_components.LiveData_Lifecycle.BigLiveDataActivity;
+import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
+import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
+import com.mauto.bigbaby.err.fragment.BigErrFragmentActivity;
+import com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
+import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
+import com.mauto.bigbaby.librarys.recyclerview.sortedlist.BigSortedActivity;
+import com.mauto.bigbaby.thread.BigThreadActivity;
+import com.mauto.bigbaby.ut.BigUnitTestActivity;
 
 
 /**
@@ -11,10 +17,23 @@ import com.mauto.bigbaby.arch_components.LiveData_Lifecycle.BigLiveDataActivity;
  */
 
 public enum RoutPointer {
+    // err
     ERR_MAIN(BigErrMainActivity.class.getName()),
     ERR_FRAGMENT(BigErrFragmentActivity.class.getName()),
-    DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName());
+    ERR_TAG(BigErrTagActivity.class.getName()),
+    ERR_ATTACH(BigErrAttachActivity.class.getName()),
 
+    DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName()),
+    UT_MAIN(BigUnitTestActivity.class.getName()),
+
+    THREAD(BigThreadActivity.class.getName()),
+
+
+    /////////////////////////////////////////--> 18-11-2 上午11:19 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> lib <-- ↓↓↓/////////////////////////////////////
+    LIB_RECYCLER_MAIN(BigLibRecyclerActivity.class.getName()),
+    LIB_RECYCLER_SORTED(BigSortedActivity.class.getName());
+    /////////////////////////////////////↑↑↑ --> lib <-- ↑↑↑/////////////////////////////////////
 
     String mRoutTarget = "";
     RoutPointer(String rout) {

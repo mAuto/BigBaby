@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".BabyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -23,6 +24,7 @@
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
             android:label="@string/label_diffutils" />
+<<<<<<< HEAD
         <activity android:name=".err.BigErrFragmentActivity" />
         <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".arch_components.LiveData_Lifecycle.BigLiveDataActivity" />
@@ -35,6 +37,63 @@
             </intent-filter>
         </activity>
         <activity android:name=".news.BrowserCopyActivity"></activity>
+=======
+        <activity android:name=".err.fragment.tag.BigErrTagActivity" />
+        <activity android:name=".err.fragment.BigErrFragmentActivity" />
+        <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
+        <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
+        <activity android:name=".ut.BigUnitTestActivity" />
+        <activity android:name=".err.BigErrMainActivity" />
+        <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
+        <activity android:name=".thread.BigThreadActivity" />
+        <activity
+            android:name=".depthOfActivity.BigActivity"
+            android:persistableMode="persistAcrossReboots">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
+        <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity" />
+        <activity android:name=".target26.service.BigServiceActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+
+        <service
+            android:name=".target26.service.BigSampleService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".target26.service.BigTestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".share.BigShareActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="news_receiver"
+                    android:scheme="smsshare" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".algorithm.BigAlgorithmActivity" />
+        <activity android:name=".librarys.recyclerview.AsyncList.BigAsyncListActivity"></activity>
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
     </application>
 
 </manifest>

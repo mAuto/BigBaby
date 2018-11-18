@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mauto.bigbaby.arch_components.LiveData_Lifecycle.BigLiveDataActivity">
+    tools:context="com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity">
 
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"

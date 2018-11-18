@@ -8,4 +8,9 @@ public class Printer {
     public void print(String msg) {
         System.out.println(msg);
     }
+
+    public String printMsg(String msg) {
+        System.out.println(msg);
+        return msg;
+    }
 }

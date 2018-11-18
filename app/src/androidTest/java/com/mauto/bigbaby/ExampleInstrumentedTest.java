@@ -22,6 +22,5 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.mauto.bigbaby", appContext.getPackageName());
-
     }
 }
