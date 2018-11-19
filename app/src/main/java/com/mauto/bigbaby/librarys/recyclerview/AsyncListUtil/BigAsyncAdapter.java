@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.AsyncList;
+package com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

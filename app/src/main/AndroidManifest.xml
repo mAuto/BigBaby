@@ -86,7 +86,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".algorithm.BigAlgorithmActivity" />
-        <activity android:name=".librarys.recyclerview.AsyncList.BigAsyncListActivity" />
+        <activity android:name=".librarys.recyclerview.AsyncListUtil.BigAsyncListActivity" />
         <activity
             android:name=".markdown.MarkdownBrowserActivity"
             android:launchMode="singleTask">

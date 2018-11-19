@@ -22,7 +22,7 @@ public class MarkdownPointer {
     /*
     * link of markdown file about libraries
     * */
-    public final static String MD_LINK_LIB_RECYCLER_ASYNCLISTUTIL = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/extensions_of_recyclerview.md";
+    public final static String MD_LINK_LIB_RECYCLER_ASYNCLISTUTIL = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/AsyncList/AsyncListUtil.md";
     public final static String MD_LINK_LIB_RECYCLER_SORTEDLIST = "";
     /////////////////////////////////////↑↑↑ --> for libraries <-- ↑↑↑/////////////////////////////////////
 

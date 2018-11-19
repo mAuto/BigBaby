@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.AsyncList;
+package com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil;
 
 import android.support.v7.util.AsyncListUtil;
 import android.support.v7.widget.RecyclerView;

@@ -1,10 +1,8 @@
-package com.mauto.bigbaby.librarys.recyclerview.AsyncList;
+package com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.mauto.bigbaby.R;
 import com.mauto.bigbaby.base.BigBaseActivity;
