@@ -16,7 +16,7 @@ public class BigDataCallback extends AsyncListUtil.DataCallback<String> {
     public void fillData(String[] data, int startPosition, int itemCount) {
 
         for (int i=0;i<itemCount;i++) {
-            data[i] = "Item: " + (startPosition + 1);
+            data[i] = "Item: " + (startPosition + i + 1);
         }
 
         try {

@@ -24,6 +24,7 @@ public class BigLibRecyclerActivity extends AppCompatActivity {
     }
 
     public void onClickAsyncListUtil(View view) {
+        Router.jump(this, RoutPointer.LIB_RECYCLER_ASYNC);
     }
 
     public void onClickThreadUtil(View view) {

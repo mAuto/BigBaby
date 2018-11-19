@@ -7,18 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mauto.bigbaby.R;
+import com.mauto.bigbaby.base.BigBaseActivity;
 import com.mauto.bigbaby.err.fragment.tag.BigErrFragment;
 import com.mauto.bigbaby.err.fragment.tag.FragmentAdapter;
+import com.mauto.bigbaby.markdown.MarkdownPointer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BigErrTagActivity extends AppCompatActivity {
+public class BigErrTagActivity extends BigBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.err_fragment_activity);
+
+        updateTitle("Fragment Tag");
+        displayMarkdownEntrance(MarkdownPointer.MD_LINK_ERR_FRAGMENT_TAG);
 
         initViews();
     }

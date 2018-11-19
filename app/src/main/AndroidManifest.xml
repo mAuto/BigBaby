@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mauto.bigbaby">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".BabyApplication"
         android:allowBackup="true"
@@ -74,7 +76,21 @@
             </intent-filter>
         </activity>
         <activity android:name=".algorithm.BigAlgorithmActivity" />
-        <activity android:name=".librarys.recyclerview.AsyncList.BigAsyncListActivity"></activity>
+        <activity android:name=".librarys.recyclerview.AsyncList.BigAsyncListActivity" />
+        <activity
+            android:name=".markdown.MarkdownBrowserActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="markdown"
+                    android:scheme="bigbaby" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".base.BigBaseActivity"></activity>
     </application>
 
 </manifest>

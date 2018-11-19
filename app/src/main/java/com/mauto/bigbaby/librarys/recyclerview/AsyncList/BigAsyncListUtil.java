@@ -12,7 +12,7 @@ public class BigAsyncListUtil extends AsyncListUtil<String> {
     private static int TILE_SIZE = 20;
 
     public BigAsyncListUtil(RecyclerView recyclerView) {
-        super(String.class, TILE_SIZE, new BigDataCallback(), new BigViewCallback());
+        super(String.class, TILE_SIZE, new BigDataCallback(), new BigViewCallback(recyclerView));
 
         if (recyclerView != null) {
             recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
