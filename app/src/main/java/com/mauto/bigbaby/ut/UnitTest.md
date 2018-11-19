@@ -44,11 +44,20 @@ Method isEmpty in android.text.TextUtils not mocked.
 
 <div align=center>![avatar](/res/ut_junit_use_case_anno.png)</div>
 
+<<<<<<< HEAD
+##### 1.3 如何去写一个测试方法
+&emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
+###### 1.3.1 Assert断言  
+&emsp;&emsp;断言的方法很多，一般都是成对出现的:
+
+```    
+=======
 ##### 1.1.3 如何去写一个测试方法
 &emsp;&emsp;创建测试文件并且明白了几个基本注解的含义和作用之后，下一步，就是如何去写一个测试方法，验证我们的代码逻辑是否正确。JUnit提供了最基本的一些验证API：Assert(断言)，此外还可以直接抛异常或者验证异常的方式编写测试用例。  
 ###### 1.1.3.1 Assert断言  
 &emsp;&emsp;断言的方法很多，一般都是成对出现的：
 ```
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 /********** 前后的值是否相等 *********/
 // 如果前后的值是String ，就是前后是否想等
 // 如果前后的值非String ，就会走Object的equals方法，  
@@ -90,8 +99,14 @@ Assert.assertThat(actual, matcher)
 &emsp;&emsp;最后，Assert的以上方法都有一个对应的重载方法，多了一个String类型的参数message，这个重载方法的意义在于，如果方法failed可以将传进去的massage作为失败信息返回，增加返回结果的可理解性，否则都将是默认的失败信息。
 <div align=center>![avatar](/res/ut_junit_assert.png)</div>  
 
+<<<<<<< HEAD
+###### 1.3.2 异常测试
+&emsp;&emsp;假如我有一个这样的方法：
+-  BigUnitTestSample.java
+=======
 ###### 1.1.3.2 异常测试
 &emsp;&emsp;假如我有一个这样的方法：
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 ```
 public boolean equals(Object obj) {
     if (obj == null)
@@ -100,6 +115,8 @@ public boolean equals(Object obj) {
 }
 ```  
 &emsp;&emsp;要给这个方法添加测试用例，用来测试异常的情况，可以这样写：
+
+-  BigUnitTestSampleTest.java
 ```
 @Test(expected = IllegalArgumentException.class)
 public void equals() throws Exception {
@@ -124,12 +141,19 @@ public void equals() throws Exception {
 
 #### 1.2 Mockito
 &emsp;&emsp;Mockito不会像Junit那样在AndroidStudio中自动引入dependency，需要手动加入：
+-  app/build.gradle
 ```
 testImplementation "org.mockito:mockito-core:2.7.6"
 ```   
-&emsp;&emsp;在上一节的末尾有个问题，Junit用来给有返回值的方法做测试，但是目标方法的内部逻辑如何做测试，或者，哪些地方值得测试？   
+
+ &emsp;&emsp;在上一节的末尾有个问题，Junit用来给有返回值的方法做测试，但是目标方法的内部逻辑如何做测试，或者，哪些地方值得测试？   
 &emsp;&emsp;**在目标方法的内部实现中，主要测试里边的某个对象或者某个对象的某个方法是否得到了调用，调用的顺序是什么样的，调用的次数，传入的参数是否正确等等内部的逻辑。** 但是对于JUnit而言，目标方法的实现是个黑盒子，JUnit拿不到里边的某个对象，所以这时候就需要一个工具来提供内部的那个对象。Mockito是Java圈里使用最广泛的mock工具。
+<<<<<<< HEAD
+
+##### 2.1 基本概念 —— Mock
+=======
 ##### 1.2.1 基本概念 —— Mock
+>>>>>>> d92e4eef58b379b9b11c3ef436faae42b4a1200e
 Mock：mock产生的对象仅记录它们的调用信息，在断言中我们需要验证这些对象进行了符合期望的调用。如果只是单纯的调用这些对象的方法而没有提前**描述**任何逻辑，返回值都是 **返回类型默认值**。Object -> null，int/long -> 0。  
 > &emsp;&emsp;在单元测试里边还有一个概念容易和mock混淆 —— Fake   
 &emsp;&emsp;Fake产生的对象是目标类的具体实现的简化版。比如测试某个业务逻辑需要一个Repository从数据库拿数据，这时候Fake出来的Repositroy是不会真的从数据库拿数据，可能使用了一个简单的列表或者Map来保存数据。  

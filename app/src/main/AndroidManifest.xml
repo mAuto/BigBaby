@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mauto.bigbaby">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".BabyApplication"
@@ -22,12 +22,22 @@
         <activity
             android:name=".DiffUtil.BigDiffUtilsActivity"
             android:label="@string/label_diffutils" />
+        <activity android:name=".err.BigErrMainActivity" />
+        <activity android:name=".news.BigNewsActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".news.BrowserCopyActivity" />
         <activity android:name=".err.fragment.tag.BigErrTagActivity" />
         <activity android:name=".err.fragment.BigErrFragmentActivity" />
         <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
         <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
         <activity android:name=".ut.BigUnitTestActivity" />
-        <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
         <activity android:name=".thread.BigThreadActivity" />
         <activity
@@ -90,7 +100,8 @@
                     android:scheme="bigbaby" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.BigBaseActivity"></activity>
+        <activity android:name=".base.BigBaseActivity" />
+        <activity android:name=".librarys.BigLibrariesActivity"></activity>
     </application>
 
 </manifest>
