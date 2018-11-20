@@ -17,6 +17,11 @@ public class BigViewCallback extends AsyncListUtil.ViewCallback {
         mView = view;
     }
 
+    @Override
+    public void extendRangeInto(int[] range, int[] outRange, int scrollHint) {
+        super.extendRangeInto(range, outRange, scrollHint);
+    }
+
     // 确定当前视界范围
     @Override
     public void getItemRangeInto(int[] outRange) {

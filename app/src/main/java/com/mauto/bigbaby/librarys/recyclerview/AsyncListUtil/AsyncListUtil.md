@@ -120,4 +120,22 @@ public class BigAsyncListUtil extends AsyncListUtil<String> {
 <div align=center>![avatar](/res/async_effect.gif)</div>    
 
 
-##### 2 源码及原理
+##### 2 源码及原理   
+
+###### 2.1 为什么说AsyncListUtil加载的数据是定长的？   
+&emsp;&emsp;Adapter的getItemCount方法通过AsyncListUtil的实例的getItemCount方法获取，返回值是变量mItemCount。   
+- AsuncListUtil.class  
+```
+public int getItemCount() {
+        return mItemCount;
+    }
+// ..................................
+public T getItem(int position) {
+        if (position < 0 || position >= mItemCount) {
+            throw new IndexOutOfBoundsException(position + " is not within 0 and " + mItemCount);
+        }
+        .............................
+        return item;
+    }
+```  
+&emsp;&emsp;getItem方法是在Adapter的getView或者onBindViewHolder方法中，用来向AsyncListUtil获取item数据的方法，获取数据的position只能在0与变量mItemCount之间。而变量的赋值只发生在ThreadUtil.BackgroundCallback的refresh方法中，而这个方法又只会被AsyncListUtil的refresh方法调用，最后AsyncListUtil的refresh方法只被自己的构造方法调用，所以在AsyncListUtil被实例化的时候，列表的长度已经固定了。
