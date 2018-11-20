@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.sortedlist;
+package com.mauto.bigbaby.librarys.recyclerview.SortedList;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.util.SortedListAdapterCallback;

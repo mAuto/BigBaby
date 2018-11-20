@@ -20,8 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DiffUtil.BigDiffUtilsActivity"
-            android:label="@string/label_diffutils" />
+            android:name=".librarys.recyclerview.DiffUtil.BigDiffUtilsActivity" />
         <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".news.BigNewsActivity">
 
@@ -52,7 +51,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
-        <activity android:name=".librarys.recyclerview.sortedlist.BigSortedActivity" />
+        <activity android:name=".librarys.recyclerview.SortedList.BigSortedActivity" />
         <activity android:name=".target26.service.BigServiceActivity">
 
             <!-- <intent-filter> -->

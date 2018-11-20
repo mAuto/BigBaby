@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.util.AsyncListUtil;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class BigAsyncAdapter extends RecyclerView.Adapter<BigAsyncAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String title = mAsyncListUtil.getItem(position);
+        // 可能为null，没有填充完毕即为null
         if (TextUtils.isEmpty(title))
             holder.tvTitle.setText("loading...");
         else
@@ -43,6 +45,8 @@ public class BigAsyncAdapter extends RecyclerView.Adapter<BigAsyncAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+//        Log.e("--> BigAsyncAdapter <--", "getItemCount"+"");
+        // 获取列表长度
         return mAsyncListUtil.getItemCount();
     }
 

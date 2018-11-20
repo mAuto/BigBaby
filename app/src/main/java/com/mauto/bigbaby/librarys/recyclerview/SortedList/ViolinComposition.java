@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.sortedlist;
+package com.mauto.bigbaby.librarys.recyclerview.SortedList;
 
 /**
  * Created by haohuidong on 18-11-2.

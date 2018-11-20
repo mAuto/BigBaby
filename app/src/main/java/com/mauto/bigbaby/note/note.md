@@ -24,3 +24,11 @@ Activity{onCreate，onSaveInstanceState， onRestoreInstanceState}
 Fragment{onSaveInstanceState， onViewSateRestored}
 
 ##### 1.8 已被复杂的代码搞晕了，缓缓。。。
+
+---
+
+#### 2. libraries -> RecyclerView lib -> AsyncListUtil  
+
+##### 2.1 AsyncListUtil实现的异歩加载数据的局限性。  
+
+##### 2.2 源码中有一个“代”的概念，不知道可不可以实现动态加载。

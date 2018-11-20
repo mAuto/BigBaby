@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.sortedlist;
+package com.mauto.bigbaby.librarys.recyclerview.SortedList;
 
 import android.support.annotation.NonNull;
 import android.support.v7.util.SortedList;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.mauto.bigbaby.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

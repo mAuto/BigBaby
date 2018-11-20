@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.DiffUtil;
+package com.mauto.bigbaby.librarys.recyclerview.DiffUtil;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,14 +8,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mauto.bigbaby.R;
+import com.mauto.bigbaby.base.BigBaseActivity;
 
-public class BigDiffUtilsActivity extends AppCompatActivity {
+public class BigDiffUtilsActivity extends BigBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.diffutils_activity);
 
+        updateTitle("DiffUtil");
+        displayMarkdownEntrance("http://www.baidu.com");
+        
         initViews();
     }
 

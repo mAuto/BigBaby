@@ -1,6 +1,6 @@
 package com.mauto.bigbaby.librarys.recyclerview;
 
-import com.mauto.bigbaby.librarys.recyclerview.sortedlist.ViolinComposition;
+import com.mauto.bigbaby.librarys.recyclerview.SortedList.ViolinComposition;
 
 import java.util.ArrayList;
 import java.util.List;

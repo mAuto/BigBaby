@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mauto.bigbaby.DiffUtil.BigDiffUtilsActivity">
+    tools:context="com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity">
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/acb_fetch_data"

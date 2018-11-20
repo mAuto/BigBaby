@@ -24,6 +24,7 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
     }
 
     public void onClickDiffUtil(View view) {
+        Router.jump(this, RoutPointer.DIFFUTILS);
     }
 
     public void onClickAsyncListUtil(View view) {

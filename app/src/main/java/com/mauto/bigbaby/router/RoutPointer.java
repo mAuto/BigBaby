@@ -1,6 +1,6 @@
 package com.mauto.bigbaby.router;
 
-import com.mauto.bigbaby.DiffUtil.BigDiffUtilsActivity;
+import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
 import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
 import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
@@ -9,7 +9,7 @@ import com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDat
 import com.mauto.bigbaby.librarys.BigLibrariesActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil.BigAsyncListActivity;
 import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
-import com.mauto.bigbaby.librarys.recyclerview.sortedlist.BigSortedActivity;
+import com.mauto.bigbaby.librarys.recyclerview.SortedList.BigSortedActivity;
 import com.mauto.bigbaby.thread.BigThreadActivity;
 import com.mauto.bigbaby.ut.BigUnitTestActivity;
 

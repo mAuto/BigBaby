@@ -3,6 +3,7 @@ package com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.mauto.bigbaby.R;
 import com.mauto.bigbaby.base.BigBaseActivity;
@@ -22,10 +23,15 @@ public class BigAsyncListActivity extends BigBaseActivity {
     }
 
     private RecyclerView mView;
+    private BigAsyncListUtil mAsyncUtil;
     private void initViews() {
         mView = findViewById(R.id.rv_items);
         mView.setLayoutManager(new LinearLayoutManager(this));
-        mView.setAdapter(new BigAsyncAdapter(this, new BigAsyncListUtil(mView)));
+        mAsyncUtil = new BigAsyncListUtil(mView);
+        mView.setAdapter(new BigAsyncAdapter(this, mAsyncUtil));
     }
 
+    public void onClickRefresh(View view) {
+        mAsyncUtil.refresh();
+    }
 }
