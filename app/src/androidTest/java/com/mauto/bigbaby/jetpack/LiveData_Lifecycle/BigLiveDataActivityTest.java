@@ -1,8 +1,6 @@
-package com.mauto.bigbaby.arch_components.LiveData_Lifecycle;
+package com.mauto.bigbaby.jetpack.LiveData_Lifecycle;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by haohuidong on 18-8-24.

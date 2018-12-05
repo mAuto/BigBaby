@@ -36,4 +36,6 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
 
     public void onClickTileList(View view) {
     }
+
+
 }

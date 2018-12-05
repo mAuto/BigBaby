@@ -34,8 +34,8 @@
         <activity android:name=".news.BrowserCopyActivity" />
         <activity android:name=".err.fragment.tag.BigErrTagActivity" />
         <activity android:name=".err.fragment.BigErrFragmentActivity" />
-        <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
-        <activity android:name=".arch_components.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
+        <activity android:name=".jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
+        <activity android:name=".jetpack.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
         <activity android:name=".ut.BigUnitTestActivity" />
         <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
         <activity android:name=".thread.BigThreadActivity" />

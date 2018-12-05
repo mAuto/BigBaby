@@ -5,7 +5,7 @@ import com.mauto.bigbaby.err.BigErrMainActivity;
 import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
 import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
 import com.mauto.bigbaby.err.fragment.BigErrFragmentActivity;
-import com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
+import com.mauto.bigbaby.jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
 import com.mauto.bigbaby.librarys.BigLibrariesActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil.BigAsyncListActivity;
 import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;

@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.arch_components.LiveData_Lifecycle_ViewModel;
+package com.mauto.bigbaby.jetpack.LiveData_Lifecycle_ViewModel;
 
 import android.arch.lifecycle.GenericLifecycleObserver;
 import android.arch.lifecycle.Lifecycle;
@@ -7,8 +7,6 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.OnLifecycleEvent;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
