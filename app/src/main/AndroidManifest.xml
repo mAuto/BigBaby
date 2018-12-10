@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".librarys.recyclerview.DiffUtil.BigDiffUtilsActivity" />
+        <activity android:name=".librarys.recyclerview.DiffUtil.BigDiffUtilsActivity" />
         <activity android:name=".err.BigErrMainActivity" />
         <activity android:name=".news.BigNewsActivity">
 
@@ -100,7 +99,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".base.BigBaseActivity" />
-        <activity android:name=".librarys.BigLibrariesActivity"></activity>
+        <activity android:name=".librarys.BigLibrariesActivity" />
+        <activity android:name=".jetpack.Room.BigJetpackRoomActivity"></activity>
     </application>
 
 </manifest>
