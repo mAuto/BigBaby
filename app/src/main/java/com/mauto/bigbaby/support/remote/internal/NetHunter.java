@@ -40,7 +40,7 @@ public class NetHunter {
     private void initNetSupport() {
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient.Builder()
-                                .connectTimeout(5, TimeUnit.SECONDS)
+                                .connectTimeout(20, TimeUnit.SECONDS)
                                 .build())
                 .baseUrl(BASE_API_LINK)
                 .addConverterFactory(GsonConverterFactory.create())

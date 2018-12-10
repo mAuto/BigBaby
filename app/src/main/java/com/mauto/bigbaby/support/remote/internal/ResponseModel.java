@@ -7,5 +7,4 @@ package com.mauto.bigbaby.support.remote.internal;
 public abstract class ResponseModel {
     public ModelSate state = ModelSate.INIT;
     public String errMsg;
-    public String results;
 }
