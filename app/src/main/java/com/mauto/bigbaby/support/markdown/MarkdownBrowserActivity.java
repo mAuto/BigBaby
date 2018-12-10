@@ -1,9 +1,8 @@
-package com.mauto.bigbaby.markdown;
+package com.mauto.bigbaby.support.markdown;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebSettings;
@@ -11,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.mauto.bigbaby.R;
-import com.mauto.bigbaby.base.BigBaseActivity;
+import com.mauto.bigbaby.support.base.BigBaseActivity;
 
 public class MarkdownBrowserActivity extends BigBaseActivity {
 

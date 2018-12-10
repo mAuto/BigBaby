@@ -2,15 +2,12 @@ package com.mauto.bigbaby.err.fragment.tag;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.mauto.bigbaby.R;
-import com.mauto.bigbaby.base.BigBaseActivity;
-import com.mauto.bigbaby.err.fragment.tag.BigErrFragment;
-import com.mauto.bigbaby.err.fragment.tag.FragmentAdapter;
-import com.mauto.bigbaby.markdown.MarkdownPointer;
+import com.mauto.bigbaby.support.base.BigBaseActivity;
+import com.mauto.bigbaby.support.markdown.MarkdownPointer;
 
 import java.util.ArrayList;
 import java.util.List;

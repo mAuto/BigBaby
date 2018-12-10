@@ -35,6 +35,7 @@ public class BigAlgorithmFactory {
         }
     }
 
+    // 给出一个整数数组，其中只有一个整数出现过奇数次，找出这个整数。
     public static int findOdd(int... array) {
         if (array == null || array.length == 0)
             return -1;
