@@ -1,5 +1,8 @@
 ### free note
 [ToC]
+
+**我觉得我的既定方法很有可能一直以来都是不合理的**
+
 #### 1.从FM白屏问题延伸开去的一系列系统源码分析
 ##### 1.1　复现步骤：  
 &emsp;&emsp;前提：activity -> fragment(VIewPager) -> fragments，至少两层fragments嵌套的UI flow。  
