@@ -138,4 +138,7 @@ public T getItem(int position) {
         return item;
     }
 ```  
-&emsp;&emsp;getItem方法是在Adapter的getView或者onBindViewHolder方法中，用来向AsyncListUtil获取item数据的方法，获取数据的position只能在0与变量mItemCount之间。而变量的赋值只发生在ThreadUtil.BackgroundCallback的refresh方法中，而这个方法又只会被AsyncListUtil的refresh方法调用，最后AsyncListUtil的refresh方法只被自己的构造方法调用，所以在AsyncListUtil被实例化的时候，列表的长度已经固定了。
+&emsp;&emsp;getItem方法是在Adapter的getView或者onBindViewHolder方法中，用来向AsyncListUtil获取item数据的方法，获取数据的position只能在0与变量mItemCount之间。而变量的赋值只发生在ThreadUtil.BackgroundCallback的refresh方法中，而这个方法又只会被AsyncListUtil的refresh方法调用，最后AsyncListUtil的refresh方法只被自己的构造方法调用，所以在AsyncListUtil被实例化的时候，列表的长度已经固定了。   
+
+
+###### 2.2 AsyncListUtil原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)

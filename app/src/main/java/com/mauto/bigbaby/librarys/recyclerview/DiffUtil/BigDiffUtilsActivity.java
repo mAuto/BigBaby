@@ -10,6 +10,8 @@ import android.view.View;
 import com.mauto.bigbaby.R;
 import com.mauto.bigbaby.base.BigBaseActivity;
 
+import static com.mauto.bigbaby.markdown.MarkdownPointer.MD_LINK_LIB_RECYCLER_DIFFUTIL;
+
 public class BigDiffUtilsActivity extends BigBaseActivity {
 
     @Override
@@ -18,7 +20,7 @@ public class BigDiffUtilsActivity extends BigBaseActivity {
         setContentView(R.layout.diffutils_activity);
 
         updateTitle("DiffUtil");
-        displayMarkdownEntrance("http://www.baidu.com");
+        displayMarkdownEntrance(MD_LINK_LIB_RECYCLER_DIFFUTIL);
         
         initViews();
     }
