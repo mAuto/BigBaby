@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.mauto.bigbaby.R;
-import com.mauto.bigbaby.base.BigBaseActivity;
-import com.mauto.bigbaby.markdown.MarkdownPointer;
+import com.mauto.bigbaby.support.base.BigBaseActivity;
+import com.mauto.bigbaby.support.markdown.MarkdownPointer;
 
 public class BigAsyncListActivity extends BigBaseActivity {
 

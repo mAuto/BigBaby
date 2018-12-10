@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mauto.bigbaby.markdown.MarkdownPointer;
+import com.mauto.bigbaby.support.markdown.MarkdownPointer;
 import com.mauto.bigbaby.router.RoutPointer;
 import com.mauto.bigbaby.router.Router;
 

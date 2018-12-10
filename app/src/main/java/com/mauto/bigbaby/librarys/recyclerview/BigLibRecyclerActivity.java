@@ -1,11 +1,10 @@
 package com.mauto.bigbaby.librarys.recyclerview;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.mauto.bigbaby.R;
-import com.mauto.bigbaby.base.BigBaseActivity;
+import com.mauto.bigbaby.support.base.BigBaseActivity;
 import com.mauto.bigbaby.router.RoutPointer;
 import com.mauto.bigbaby.router.Router;
 

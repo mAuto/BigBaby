@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.markdown;
+package com.mauto.bigbaby.support.markdown;
 
 /**
  * Created by haohuidong on 18-11-19.

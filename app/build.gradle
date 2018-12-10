@@ -65,11 +65,25 @@ dependencies {
 //    implementation 'com.google.protobuf:protoc:3.5.1'
 
     //----------------------------- remote -------------------------------
-    // Okhttp
-    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    ///* ----------------------- >> OkHttp << ----------------------- */
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    // for unit test
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.11.0'
+    /* ----------------------- >> OkHttp << ----------------------- *///
+
+    ///* ----------------------- >> Retrofit << ----------------------- */
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    // for unite test
+    implementation 'com.squareup.retrofit2:retrofit-mock:2.4.0'
+    /* ----------------------- >> Retrofit << ----------------------- *///
     //--------------------------------------------------------------------
+
+    ///* ----------------------- >> Reactive << ----------------------- */
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    /* ----------------------- >> Reactive << ----------------------- *///
 
     // RecyclerView
     implementation 'com.android.support:recyclerview-v7:27.1.1'

@@ -87,7 +87,7 @@
         <activity android:name=".algorithm.BigAlgorithmActivity" />
         <activity android:name=".librarys.recyclerview.AsyncListUtil.BigAsyncListActivity" />
         <activity
-            android:name=".markdown.MarkdownBrowserActivity"
+            android:name=".support.markdown.MarkdownBrowserActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -99,7 +99,7 @@
                     android:scheme="bigbaby" />
             </intent-filter>
         </activity>
-        <activity android:name=".base.BigBaseActivity" />
+        <activity android:name=".support.base.BigBaseActivity" />
         <activity android:name=".librarys.BigLibrariesActivity"></activity>
     </application>
 
