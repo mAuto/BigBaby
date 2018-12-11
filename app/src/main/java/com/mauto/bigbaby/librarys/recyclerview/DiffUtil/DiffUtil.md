@@ -5,7 +5,8 @@
     这里的增量更新指的是，向列表中插入那些存在于新数据源而不存在于旧数据源的数据，但是那些存在于旧数据源而不存在与新数据源的数据(item)将会被remove掉。
     所以，DiffUtil的增量更新实现的不是那种可以叠加的增量更新，而是会用新数据覆盖旧数据，只不过只会更新那些只存在于新数据源的数据。
 
-##### 1 使用方法
+##### 1 使用  
+###### 1.1 基本的使用方法
 &emsp;&emsp;DiffUtil的基本使用非常简单。只需要实现一个Callback就可以了：
 - DiffCallback.java
 
@@ -37,6 +38,13 @@ public class DiffCallback extends DiffUtil.Callback {
     @Override
     public boolean areContentsTheSame(int i, int i1) {
         return mOldData.get(i).isEqualsTo(mNewData.get(i1));
+    }
+
+    // 这里算是一个DiffUtil的隐藏彩蛋，下面会写到
+    @Nullable
+    @Override
+    public Object getChangePayload(int oldItemPosition, int newItemPosition) {
+        return super.getChangePayload(oldItemPosition, newItemPosition);
     }
 }
 ```
@@ -98,7 +106,12 @@ private void fetchData() {
 >
 > <div align=center><img src="res/lib_recycler_diffutil_1.png"/></div>   
 > &emsp;&emsp;更新的流程依然会按照diffResult得出的结果进行，但是由于新数据追加到了旧数据的末尾，所以，在按照diffResult的结果通过position获取元数据的时候，获取到的不是新数据的指定位置数据，而是旧数据的相应位置的数据，然后插入到指定位置，就会出现图中的结果。
-> &emsp;&emsp;**可见如果不是替换旧数据的话，就会出现很大的问题，UI flow显示不正确，adapter的数据与UI flow也不一致。**
+> &emsp;&emsp;**可见如果不是替换旧数据的话，就会出现很大的问题，UI flow显示不正确，adapter的数据与UI flow也不一致。**   
+
+###### 1.2 深入拓展   
+&emsp;&emsp;这里要说的是上面提到的隐藏彩蛋getChangePayload。下面是官方源码的注释：   
+<div align=center><img src="res/lib_recycler_diffutil_2.png"/></div>  
+&emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。
 
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)
