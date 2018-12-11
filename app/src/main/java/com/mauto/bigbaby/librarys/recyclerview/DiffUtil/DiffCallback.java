@@ -1,6 +1,7 @@
 package com.mauto.bigbaby.librarys.recyclerview.DiffUtil;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.util.DiffUtil;
 import android.text.TextUtils;
 
@@ -40,5 +41,11 @@ public class DiffCallback extends DiffUtil.Callback {
     @Override
     public boolean areContentsTheSame(int i, int i1) {
         return mOldData.get(i).isEqualsTo(mNewData.get(i1));
+    }
+
+    @Nullable
+    @Override
+    public Object getChangePayload(int oldItemPosition, int newItemPosition) {
+        return super.getChangePayload(oldItemPosition, newItemPosition);
     }
 }

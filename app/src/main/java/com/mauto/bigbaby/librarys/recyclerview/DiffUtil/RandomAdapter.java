@@ -37,6 +37,11 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
     }
 
     @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.e("--> RandomAdapter <--", "onBindViewHolder"+" position:"+position);
         if (holder != null) {
