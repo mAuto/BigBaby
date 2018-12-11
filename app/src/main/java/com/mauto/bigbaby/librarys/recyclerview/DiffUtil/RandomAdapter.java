@@ -70,7 +70,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
         if (mData == null)
             mData = new ArrayList<>();
 
-        mData.clear();
+//        mData.clear();
         mData.addAll(data);
     }
 

@@ -54,8 +54,8 @@ public class BigDiffUtilsActivity extends BigBaseActivity {
                     ArrayList<GankBean> newData = ((RandomResponseBody) model.resultBody).results;
                     ArrayList<GankBean> oldData = (ArrayList<GankBean>) mAdapter.getOriginalData();
 
-                    if (oldData.size() > 10) {
-                        for (int i=0;i<10;i++) {
+                    if (oldData.size() > 2) {
+                        for (int i=0;i<2;i++) {
                             newData.remove(i*2);
                             newData.add(i*2, oldData.get(i));
                         }

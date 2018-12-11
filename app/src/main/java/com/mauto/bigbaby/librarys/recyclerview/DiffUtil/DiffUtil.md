@@ -63,7 +63,7 @@ private void fetchData() {
                     // calculateDiff方法用来对比新旧数据，并获得一个result，包含哪些item需要remove，那些item需要insert
                     DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffCallback(oldData, newData), true);
 
-                    // 将新数据fill到adapter中替换就数据，是替换旧数据而不是添加到就数据后边。
+                    // 将新数据fill到adapter中替换旧数据，是替换旧数据而不是添加到就数据后边(这里有个疑问下边会讲)。
                     mAdapter.fillData(newData);
 
                     // 根据diffResult分发更新事件，该insert的insert，该remove的remove。
@@ -76,5 +76,23 @@ private void fetchData() {
 ```
 
 &emsp;&emsp;这样就可以简单的使用DiffUtil来实现一个增量更新的case。
+
+> 上面有个疑问，为什么要用新数据替换旧数据，而不是追加到旧数据后边(或者某个位置)?
+> ```java
+> public void fillData(List<GankBean> data) {
+>          if (data == null || data.size() == 0)
+>              return;
+>
+>          if (mData == null)
+>              mData = new ArrayList<>();
+>
+>          mData.clear();// 这里注释掉会有什么区别？
+>          mData.addAll(data);
+>      }
+> ```
+>
+> <div align=center>![avatar](/res/lib_recycler_diffutil_0.png)</div>
+>
+> <div align=center>![avatar](/res/lib_recycler_diffutil_1.png)</div>
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)

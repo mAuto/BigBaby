@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers;
 public class RandomDataOp implements DataOp<RandomResponseBody> {
     @Override
     public void fetchData(Observer<RandomResponseBody> observer) {
-        NetHunter.getInstance().getApiPointer().fetchAndroidRandomData(20)
+        NetHunter.getInstance().getApiPointer().fetchAndroidRandomData(4)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(observer);
