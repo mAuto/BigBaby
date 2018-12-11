@@ -91,9 +91,14 @@ private void fetchData() {
 >      }
 > ```
 >
+> &emsp;&emsp;DiffUtil的原理可以这样简单的描述：先删除UI flow中那些不存在于新数据的item，然后按照顺序，取得需要插入的元数据的postion，然后根据这些position取得元数据，然后插入到它的目标位置。
+> &emsp;&emsp;如果用新数据替换旧数据，那么简单的流程就是下面图的样子：
 > <div align=center><img src="res/lib_recycler_diffutil_0.png"/></div>
 >
+> &emsp;&emsp;如果是将新数据追加到旧数据末尾(举个例子，任何位置都可以)，那么简单的流程就是下面图的样子：
 > <div align=center><img src="res/lib_recycler_diffutil_1.png"/></div>
+>
+> &emsp;&emsp;**可见如果不是替换旧数据的话，就会出现很大的问题，UI flow显示不正确，adapter的数据与UI flow也不一致。**
 
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)
