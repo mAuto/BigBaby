@@ -1,7 +1,7 @@
 package com.mauto.bigbaby.support.remote;
 
 
-import com.mauto.bigbaby.support.remote.internal.ResponseBody;
+import com.mauto.bigbaby.support.remote.model.RandomResponseBody;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -18,6 +18,6 @@ import static com.mauto.bigbaby.support.remote.NetPointer.SEPARATOR;
 public interface ApiPointer {
 
     @GET(API_RANDOM_PATH + API_CATEGORY_ANDROID + SEPARATOR + "{count}")
-    Observable<ResponseBody> fetchAndroidRandomData(@Path("count") int count);
+    Observable<RandomResponseBody> fetchAndroidRandomData(@Path("count") int count);
 
 }

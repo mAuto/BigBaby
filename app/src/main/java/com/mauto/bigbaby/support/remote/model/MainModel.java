@@ -1,8 +1,6 @@
 package com.mauto.bigbaby.support.remote.model;
 
-import com.mauto.bigbaby.support.remote.internal.BaseModel;
-import com.mauto.bigbaby.support.remote.internal.ResponseModel;
-import com.mauto.bigbaby.support.remote.model.GankBean;
+import com.mauto.bigbaby.support.remote.internal.action.ResponseModel;
 
 import java.util.ArrayList;
 

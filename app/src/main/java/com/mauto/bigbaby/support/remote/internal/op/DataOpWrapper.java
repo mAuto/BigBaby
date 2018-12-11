@@ -1,7 +1,8 @@
 package com.mauto.bigbaby.support.remote.internal.op;
 
-import com.mauto.bigbaby.support.remote.internal.ErrModel;
-import com.mauto.bigbaby.support.remote.internal.LoadingModel;
+import com.mauto.bigbaby.support.remote.internal.action.ErrModel;
+import com.mauto.bigbaby.support.remote.internal.action.LoadingModel;
+import com.mauto.bigbaby.support.remote.internal.action.SuccessModel;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -28,7 +29,7 @@ public class DataOpWrapper<T> {
 
             @Override
             public void onNext(T t) {
-
+                action.onAction(new SuccessModel<T>(t));
             }
 
             @Override

@@ -1,5 +1,4 @@
-package com.mauto.bigbaby.support.remote.internal;
-
+package com.mauto.bigbaby.support.remote.internal.action;
 
 
 /**
