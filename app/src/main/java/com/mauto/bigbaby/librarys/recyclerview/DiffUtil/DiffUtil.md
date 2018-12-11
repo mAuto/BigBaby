@@ -91,8 +91,8 @@ private void fetchData() {
 >      }
 > ```
 >
-> <div align=center>![avatar](/res/lib_recycler_diffutil_0.png)</div>
+> ![avatar](/res/lib_recycler_diffutil_0.png)
 >
-> <div align=center>![avatar](/res/lib_recycler_diffutil_1.png)</div>
+> ![avatar](/res/lib_recycler_diffutil_1.png)
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)
