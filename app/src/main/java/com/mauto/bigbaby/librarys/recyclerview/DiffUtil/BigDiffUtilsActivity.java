@@ -56,8 +56,11 @@ public class BigDiffUtilsActivity extends BigBaseActivity {
 
                     if (oldData.size() > 2) {
                         for (int i=0;i<2;i++) {
-                            newData.remove(i*2);
-                            newData.add(i*2, oldData.get(i));
+//                            newData.remove(i*2);
+                            GankBean bean = newData.get(i*2);
+                            bean._id = oldData.get(i)._id;
+                            bean.desc = "test desc: "+(i*2);
+//                            newData.add(i*2, oldData.get(i));
                         }
                     }
 

@@ -106,11 +106,15 @@ private void fetchData() {
 >
 > <div align=center><img src="res/lib_recycler_diffutil_1.png"/></div>   
 > &emsp;&emsp;更新的流程依然会按照diffResult得出的结果进行，但是由于新数据追加到了旧数据的末尾，所以，在按照diffResult的结果通过position获取元数据的时候，获取到的不是新数据的指定位置数据，而是旧数据的相应位置的数据，然后插入到指定位置，就会出现图中的结果。
+>
 > &emsp;&emsp;**可见如果不是替换旧数据的话，就会出现很大的问题，UI flow显示不正确，adapter的数据与UI flow也不一致。**   
 
 ###### 1.2 深入拓展   
-&emsp;&emsp;这里要说的是上面提到的隐藏彩蛋getChangePayload。下面是官方源码的注释：   
-<div align=center><img src="res/lib_recycler_diffutil_2.png"/></div>  
+&emsp;&emsp;如果有这样的一个场景，在获取到的新数据中某个元数据的唯一标志符和旧数据的某个元数据是一样的，但是内容上有一些差别，按照上面介绍的方法，UI flow上代表这个元数据的item将会被remove掉然后插入新的元数据代表的item，在视觉上会有一个插入动画。但是我不希望这个item重新加载，我希望它可以直接更新有差异的部分，而不是remove掉再insert。这时候要怎么做？
+这里就要说到上面提到的隐藏彩蛋getChangePayload。下面是源码的官方注释：
+
+<div align=center><img src="res/lib_recycler_diffutil_2.png"/></div>
+
 &emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。
 
 

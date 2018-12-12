@@ -12,11 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mauto.bigbaby.R;
+import com.mauto.bigbaby.support.remote.internal.action.ModelSate;
 import com.mauto.bigbaby.support.remote.model.GankBean;
-import com.mauto.bigbaby.support.remote.model.RandomResponseBody;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -75,7 +74,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
         if (mData == null)
             mData = new ArrayList<>();
 
-//        mData.clear();
+        mData.clear();
         mData.addAll(data);
     }
 

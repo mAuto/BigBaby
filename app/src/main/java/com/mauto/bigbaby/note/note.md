@@ -30,8 +30,10 @@ Fragment{onSaveInstanceState， onViewSateRestored}
 
 ---
 
-#### 2. libraries -> RecyclerView lib -> AsyncListUtil  
+#### 2. libraries -> RecyclerView lib
 
 ##### 2.1 AsyncListUtil实现的异歩加载数据的局限性。  
 
 ##### 2.2 源码中有一个“代”的概念，不知道可不可以实现动态加载。
+
+##### 2.3 DiffUtil的calculateDiff方法的最后一个参数有点意思。
