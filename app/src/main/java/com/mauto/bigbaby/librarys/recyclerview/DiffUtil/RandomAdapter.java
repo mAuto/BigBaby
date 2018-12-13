@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mauto.bigbaby.R;
-import com.mauto.bigbaby.support.remote.internal.action.ModelSate;
 import com.mauto.bigbaby.support.remote.model.GankBean;
 
 import java.util.ArrayList;
