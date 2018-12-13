@@ -1,8 +1,10 @@
 package com.mauto.bigbaby.librarys.recyclerview.DiffUtil;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +38,24 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
-        super.onBindViewHolder(holder, position, payloads);
+        Log.e("--> RandomAdapter <--", "onBindViewHolder_payload"+" position:"+position);
+        Bundle payload = null;
+        if (payloads != null && payloads.size() > 0)
+            payload = (Bundle) payloads.get(0);
+
+        if (payload == null)
+            super.onBindViewHolder(holder, position, payloads);
+        else {
+            if (holder != null) {
+                String type = payload.getString("type");
+                if (!TextUtils.isEmpty(type))
+                    holder.tvTitle.setText(type);
+
+                String desc = payload.getString("desc");
+                if (!TextUtils.isEmpty(desc))
+                    holder.tvDesc.setText(desc);
+            }
+        }
     }
 
     @Override
@@ -65,7 +84,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
         return mData.size();
     }
 
-    private List<GankBean> mData;
+    private ArrayList<GankBean> mData;
     public void fillData(List<GankBean> data) {
         if (data == null || data.size() == 0)
             return;
@@ -89,7 +108,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
         notifyItemRangeInserted(mData.size(), size);
     }
 
-    public List<GankBean> getOriginalData() {
+    public ArrayList<GankBean> getOriginalData() {
         if (mData == null)
             mData = new ArrayList<>();
         return mData;

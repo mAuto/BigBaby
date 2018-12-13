@@ -66,7 +66,7 @@ private void fetchData() {
                     // 这里是最重要的
                     // ****************************************************************
                     ArrayList<GankBean> newData = ((RandomResponseBody) model.resultBody).results;
-                    ArrayList<GankBean> oldData = (ArrayList<GankBean>) mAdapter.getOriginalData();
+                    ArrayList<GankBean> oldData = (ArrayList<GankBean>) mAdapter.getOriginalData().clone();
 
                     // calculateDiff方法用来对比新旧数据，并获得一个result，包含哪些item需要remove，那些item需要insert
                     DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffCallback(oldData, newData), true);
@@ -81,7 +81,8 @@ private void fetchData() {
             }
         });
     }
-```
+```  
+> [FLAG_0: 获取adapter中的原始数据的时候，clone()方法是很重要的一个细节，仔细想想为什么？](#flag_0)
 
 &emsp;&emsp;这样就可以简单的使用DiffUtil来实现一个增量更新的case。  
 
@@ -115,7 +116,77 @@ private void fetchData() {
 
 <div align=center><img src="res/lib_recycler_diffutil_2.png"/></div>
 
-&emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。
+&emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。这个方法需要和adapter的onBindViewHolder(ViewHolder, int, List<Object>)方法配合，其中第三个参数就是getChangePayload返回的差量数据([FLAG_1：这里有一个疑问](#flag_1))。以下是示例：    
+- DiffCallback.java  
+```java
+    @Nullable
+    @Override
+    public Object getChangePayload(int oldItemPosition, int newItemPosition) {
+
+        Bundle payload = null;
+        GankBean oldBean = mOldData.get(oldItemPosition);
+        GankBean newBean = mNewData.get(newItemPosition);
+
+        if (!TextUtils.equals(oldBean.desc, newBean.desc)) {
+            if (payload == null)
+                payload  = new Bundle();
+            payload.putString("desc", newBean.desc);
+        }
+        if (!TextUtils.equals(oldBean.type, newBean.type)) {
+            if (payload == null)
+                payload  = new Bundle();
+            payload.putString("type", newBean.type);
+        }
+
+        // 这里是出于什么目的？
+        if (!TextUtils.equals(oldBean.createAt, newBean.createAt)
+                || !TextUtils.equals(oldBean.publishedAt, newBean.publishedAt)
+                || !TextUtils.equals(oldBean.source, newBean.source)
+                || !TextUtils.equals(oldBean.url, newBean.url)
+                || !TextUtils.equals(oldBean.who, newBean.who)
+                || !TextUtils.equals(oldBean.used, newBean.used))
+            if (payload == null)
+                payload  = new Bundle();
+
+        return payload;
+    }
+```  
+> [FLAG_2: 注释标注的部分是出于什么目的？](#flag_0)
+- RandomAdapter.java
+```java
+@Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
+        Log.e("--> RandomAdapter <--", "onBindViewHolder_payload"+" position:"+position);
+        Bundle payload = null;
+        if (payloads != null && payloads.size() > 0)
+            payload = (Bundle) payloads.get(0);
+
+        if (payload == null)
+            super.onBindViewHolder(holder, position, payloads);
+        else {
+            if (holder != null) {
+                String type = payload.getString("type");
+                if (!TextUtils.isEmpty(type))
+                    holder.tvTitle.setText(type);
+
+                String desc = payload.getString("desc");
+                if (!TextUtils.isEmpty(desc))
+                    holder.tvDesc.setText(desc);
+            }
+        }
+    }
+```  
+&emsp;&emsp;当没有差量数据传入的时候就不进行差量刷新，而是将方法传入onBindViewHolder(ViewHolder, int)中，执行其他的操作(一般是整体刷新item的UI)；如果有差量数据返回，直接根据返回的数据差量更新指定的控件，精准而简洁，那些不需要改动的UI根本不会刷新。
+
+> <a name="flag_0">细节：</a>
+> - 从adapter中获取原始数据时，注意使用clone方法。
+> - 有这样的一种情况，item的UI并不需要将所有数据都展示出来，只需要展示一部分，如果getChangePayload方法只对需要展示的数据进行了差异化保存，而没有处理不需要展示的那一部分数据，在需要展示的数据相同但是其他数据不相同的情况下，getChangePayload方法就会返回null，这就意味着adapter将直接通过onBindViewHolder(ViewHolder, int, List<Object>)方法，进入到onBindViewHolder(ViewHolder, int)方法，而进入到后者就意味着这个item将会重新刷新一遍，不管UI是否有改动。但是在前面提到的情况下UI是不需要更新的，更新就会造成资源浪费。
+
+###### <a name="flag_1">1.3 一些疑问</a>  
+
+- DiffUtil的calculateDiff方法的最后一个参数有什么作用？  
+- 如果两个item的唯一标识相同但是具体内容有差别，那么UI上是怎么更新的，在DiffResult中是一个什么样的状态？  
+- 方法getChangePayload的返回值是一个Object，但是与之配合使用的onBindViewHolder方法中，是一个List<Object>，这是什么意思？
 
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)

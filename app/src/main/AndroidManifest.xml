@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".librarys.recyclerview.DiffUtil.BigDiffUtilsActivity" />
         <activity android:name=".err.BigErrMainActivity" />
@@ -53,12 +53,12 @@
         <activity android:name=".librarys.recyclerview.SortedList.BigSortedActivity" />
         <activity android:name=".target26.service.BigServiceActivity">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
         </activity>
 
         <service
