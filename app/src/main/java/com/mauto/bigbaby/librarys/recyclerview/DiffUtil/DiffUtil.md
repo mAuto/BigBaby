@@ -116,7 +116,11 @@ private void fetchData() {
 
 <div align=center><img src="res/lib_recycler_diffutil_2.png"/></div>
 
-&emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。这个方法需要和adapter的onBindViewHolder(ViewHolder, int, List<Object>)方法配合，其中第三个参数就是getChangePayload返回的差量数据([FLAG_1：这里有一个疑问](#flag_1))。以下是示例：    
+&emsp;&emsp;当areItemsTheSame返回true，而areContentsTheSame返回false的时候就会调用这个方法，这个方法是用来返回两个唯一标识(举个例子)相同但是内容有些许差异的item的差异变量的。从而实现一种针对单个item的内容的增量更新(之前的增量更新针对的是整个item的数据集合)。这个方法需要和adapter的onBindViewHolder(ViewHolder, int, List\<Object\>)方法配合，其中第三个参数就是getChangePayload返回的差量数据([FLAG_1：这里有一个疑问](#flag_1))。下图是这个方法源码部分的注释：
+<div align=center><img src="res/lib_recycler_diffutil_3.png"/></div>
+&emsp;&emsp;注释的前半段可以适当忽略，后半段有这样几个重要信息：1 部分绑定(我管它叫差量更新) VS 完全绑定。2 payload集合来自于二参notifyItemChanged或者二参notifyItemRangeChanged。3 payload不为空，就可以实行部分绑定(差量更新)，为空的话就要进行一次完全更新。4 适配器不一定会在三参onBindViewHolder中接收到payload的集合，为啥？没有attach的item的payload会被忽略(drop，扔掉，抛弃，啥啥啥)。
+
+&emsp;&emsp;以下是示例：
 - DiffCallback.java  
 ```java
     @Nullable
@@ -151,7 +155,7 @@ private void fetchData() {
         return payload;
     }
 ```  
-> [FLAG_2: 注释标注的部分是出于什么目的？](#flag_0)
+> [FLAG_2: 注释标注的部分是出于什么目的？](#flag_2)
 - RandomAdapter.java
 ```java
 @Override
@@ -178,15 +182,22 @@ private void fetchData() {
 ```  
 &emsp;&emsp;当没有差量数据传入的时候就不进行差量刷新，而是将方法传入onBindViewHolder(ViewHolder, int)中，执行其他的操作(一般是整体刷新item的UI)；如果有差量数据返回，直接根据返回的数据差量更新指定的控件，精准而简洁，那些不需要改动的UI根本不会刷新。
 
-> <a name="flag_0">细节：</a>
-> - 从adapter中获取原始数据时，注意使用clone方法。
-> - 有这样的一种情况，item的UI并不需要将所有数据都展示出来，只需要展示一部分，如果getChangePayload方法只对需要展示的数据进行了差异化保存，而没有处理不需要展示的那一部分数据，在需要展示的数据相同但是其他数据不相同的情况下，getChangePayload方法就会返回null，这就意味着adapter将直接通过onBindViewHolder(ViewHolder, int, List<Object>)方法，进入到onBindViewHolder(ViewHolder, int)方法，而进入到后者就意味着这个item将会重新刷新一遍，不管UI是否有改动。但是在前面提到的情况下UI是不需要更新的，更新就会造成资源浪费。
+> 细节：
+> - <a name="flag_0"></a>从adapter中获取原始数据时，注意使用clone方法。Callback中是需要传入旧数据和新数据来进行校验的，但是如果使用了getChangePayload方法来获取item数据之间的差量数据，就要注意整个流程上的调用顺序。getChangePayload是在向adapter注入数据之后执行的，那么如果从adapter获取数据的时候如果不用clone方法或者其他的什么方法，就会出现这样一种情况，向adapter中注入数据之后，在执行到getChangePayload方法的时候，会发现，这个方法中的新数据和旧数据是一样的，那么在比对的时候就获取不到差量，那么这个方法的意义就不存在了。
+> - <a name="flag_2"></a>有这样的一种情况，item的UI并不需要将所有数据都展示出来，只需要展示一部分，如果getChangePayload方法只对需要展示的数据进行了差异化保存，而没有处理不需要展示的那一部分数据，在需要展示的数据相同但是其他数据不相同的情况下，getChangePayload方法就会返回null，这就意味着adapter将直接通过onBindViewHolder(ViewHolder, int, List\<Object\>)方法，进入到onBindViewHolder(ViewHolder, int)方法，而进入到后者就意味着这个item将会重新刷新一遍，不管UI是否有改动。但是在前面提到的情况下UI是不需要更新的，更新就会造成资源浪费。
+> 当然这里也可以这样写，不管两个item的数据是否存在差量，我们都返回一个new之后的bundle，只不过有的bundle是空的，有的携带了数据，在onBindViewHolder(ViewHolder, int, List\<Object\>)中，判断bundle是否携带了数据，如果没有数据再转入onBindViewHolder(ViewHolder, int)，如果有数据直接在这个方法中消化掉任务，这样也是非常不错的。
 
-###### <a name="flag_1">1.3 一些疑问</a>  
+###### 1.3 在子线程中进行新旧数据集合对比
+&emsp;&emsp;在Callback源码开头的注释中写着，DiifUtil采用的是Eugene W. Myers's difference算法来计算最小更新数量的，但是这个算法对那些被移动的item无法处理，所以Google对这个算法进行了一定的改进，但是随之而来的就是性能上打折扣。下图是注释中给出的测试数据：
+<div align=center><img src="res/lib_recycler_diffutil_4.png"/></div>
 
-- DiffUtil的calculateDiff方法的最后一个参数有什么作用？  
+&emsp;&emsp;可见在主线程中进行大数据量的计算是很耗费时间的，会长时间的阻塞主线程，所以可以放到子线程中去计算。很简单，只需要将DiffUtil.calculateDiff这个方法的执行部分放到一个子线程中，然后将结果传递给主线程即可(Handler等)，不多于赘述。
+> DiffUtil存在一定的局限性，由于自身的实现原理，大数据量下性能堪忧，需要放到子线程中计算，使用步骤又显得很"诡异"，封装不佳，容易忽略步骤，所以RecyclerView lib中提供了另外一个工具---AsyncListDiffer，来替代DiffUtil。
+
+###### <a name="flag_1">1.4 一些疑问</a>
+
 - 如果两个item的唯一标识相同但是具体内容有差别，那么UI上是怎么更新的，在DiffResult中是一个什么样的状态？  
-- 方法getChangePayload的返回值是一个Object，但是与之配合使用的onBindViewHolder方法中，是一个List<Object>，这是什么意思？
+- 方法getChangePayload的返回值是一个Object，但是与之配合使用的onBindViewHolder方法中，是一个List\<Object\>，这是什么目的？
 
 
 ##### 2 源码及原理(RecyclerView lib的源码分析有优先级不高，熟练掌握使用既可以了，留待时间充裕时分析)
