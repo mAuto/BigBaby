@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.router;
+package com.mauto.bigbaby.support.router;
 
 /**
  * Created by haohuidong on 18-6-11.

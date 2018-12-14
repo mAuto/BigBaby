@@ -53,12 +53,12 @@
         <activity android:name=".librarys.recyclerview.SortedList.BigSortedActivity" />
         <activity android:name=".target26.service.BigServiceActivity">
 
-             <!--<intent-filter>-->
-             <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER" />-->
-             <!--</intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <service
@@ -99,7 +99,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".support.base.BigBaseActivity" />
-        <activity android:name=".librarys.BigLibrariesActivity"></activity>
+        <activity android:name=".librarys.BigLibrariesActivity" />
+        <activity android:name=".librarys.recyclerview.AsyncListDiffer.BigListDifferActivity"></activity>
     </application>
 
 </manifest>

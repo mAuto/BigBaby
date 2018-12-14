@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mauto.bigbaby.support.markdown.MarkdownPointer;
-import com.mauto.bigbaby.router.RoutPointer;
-import com.mauto.bigbaby.router.Router;
+import com.mauto.bigbaby.support.router.RoutPointer;
+import com.mauto.bigbaby.support.router.Router;
+import com.mauto.bigbaby.support.router.RouterMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState, persistentState);
     }
 
-    public void onClickDiffUtils(View view) {
-        Router.jump(this, RoutPointer.DIFFUTILS);
-    }
-
-
     public void onClickErr(View view) {
         Router.jump(this, RoutPointer.ERR_MAIN);
     }
@@ -72,5 +68,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    public void onClickTarget26(View view) {
+        Router.jump(this, RoutPointer.TARGET26_SERVICE);
     }
 }

@@ -13,7 +13,7 @@
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:layout_margin="10dp"
-        android:text="SortedList (done)"
+        android:text="SortedList"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -39,11 +39,26 @@
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:onClick="onClickListDiffer"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:layout_margin="10dp"
+        android:text="AsyncListDiffer"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:onClick="onClickAsyncListUtil"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:layout_margin="10dp"
-        android:text="AsyncListUtil (continue)"
+        android:text="AsyncListUtil"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -66,18 +81,4 @@
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickTileList"
-        android:background="@color/colorPrimary"
-        android:elevation="4dp"
-        android:layout_margin="10dp"
-        android:text="TileList"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
 </LinearLayout>

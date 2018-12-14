@@ -1,6 +1,7 @@
 package com.mauto.bigbaby.target26.service;
 
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Handler;
@@ -23,14 +24,23 @@ public class BigServiceActivity extends AppCompatActivity {
     }
 
     public void onClickStartServiceDelay(View view) {
-//        Handler handler = new Handler(){
-//            @Override
-//            public void handleMessage(Message msg) {
-//                Log.e("--> BigServiceActivity <--", "handleMessage"+"");
-                startService(new Intent(BigServiceActivity.this, BigSampleService.class));
-//            }
-//        };
-//
-//        handler.sendEmptyMessageDelayed(0, TimeUnit.SECONDS.toMillis(10));
+
+        final long startTime = System.currentTimeMillis();
+        final Handler handler = new Handler();
+
+        Runnable action = new Runnable() {
+            @Override
+            public void run() {
+//                try {
+                    startService(new Intent(BigServiceActivity.this, BigTestService.class));
+                    handler.postDelayed(this, TimeUnit.MINUTES.toMillis(1));
+//                } catch (Exception e) {
+//                    Log.e("--> BigServiceActivity <--", "cost:"+" "+TimeUnit.MILLISECONDS.toSeconds((System.currentTimeMillis() - startTime)));
+//                    Log.e("--> BigServiceActivity <--", "err: "+e.toString());
+//                }
+            }
+        };
+
+        handler.postDelayed(action, TimeUnit.MINUTES.toMillis(1));
     }
 }

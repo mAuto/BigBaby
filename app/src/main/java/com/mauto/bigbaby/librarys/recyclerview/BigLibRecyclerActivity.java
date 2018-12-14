@@ -5,8 +5,8 @@ import android.view.View;
 
 import com.mauto.bigbaby.R;
 import com.mauto.bigbaby.support.base.BigBaseActivity;
-import com.mauto.bigbaby.router.RoutPointer;
-import com.mauto.bigbaby.router.Router;
+import com.mauto.bigbaby.support.router.RoutPointer;
+import com.mauto.bigbaby.support.router.Router;
 
 public class BigLibRecyclerActivity extends BigBaseActivity {
 
@@ -23,7 +23,7 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
     }
 
     public void onClickDiffUtil(View view) {
-        Router.jump(this, RoutPointer.DIFFUTILS);
+        Router.jump(this, RoutPointer.LIB_RECYCLER_DIFF);
     }
 
     public void onClickAsyncListUtil(View view) {
@@ -33,8 +33,8 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
     public void onClickThreadUtil(View view) {
     }
 
-    public void onClickTileList(View view) {
+
+    public void onClickListDiffer(View view) {
+        Router.jump(this, RoutPointer.LIB_RECYCLER_DIFFER);
     }
-
-
 }

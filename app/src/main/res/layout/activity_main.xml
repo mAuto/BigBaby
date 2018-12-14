@@ -1,109 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.mauto.bigbaby.MainActivity">
-
-    <android.support.v7.widget.AppCompatButton
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickErr"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="Err"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.mauto.bigbaby.MainActivity">
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickAlgorithm"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="Algorithm"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickErr"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Err"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickLiveData"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="LiveData"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center" />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickAlgorithm"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Algorithm"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickUT"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="UnitTest"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center" />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickLiveData"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="LiveData"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickThread"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="Thread"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center" />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickUT"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="UnitTest"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickLibraries"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="Libraries"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center" />
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickThread"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Thread"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickFreeNote"
-        android:background="@color/colorPrimary"
-        android:layout_margin="10dp"
-        android:elevation="4dp"
-        android:text="Free Note"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:gravity="center" />
-</LinearLayout>
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickLibraries"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Libraries"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickTarget26"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Target26"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:onClick="onClickFreeNote"
+            android:background="@color/colorPrimary"
+            android:layout_margin="10dp"
+            android:elevation="4dp"
+            android:text="Free Note"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center" />
+    </LinearLayout>
+</ScrollView>
+

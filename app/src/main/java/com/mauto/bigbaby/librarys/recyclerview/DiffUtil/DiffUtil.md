@@ -156,7 +156,7 @@ private void fetchData() {
     }
 ```  
 > [FLAG_2: 注释标注的部分是出于什么目的？](#flag_2)
-- RandomAdapter.java
+- RandomDiffAdapter.java
 ```java
 @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {

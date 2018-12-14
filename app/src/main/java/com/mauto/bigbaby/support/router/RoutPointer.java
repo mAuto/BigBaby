@@ -1,5 +1,8 @@
-package com.mauto.bigbaby.router;
+package com.mauto.bigbaby.support.router;
 
+import android.util.Log;
+
+import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
 import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
@@ -10,6 +13,7 @@ import com.mauto.bigbaby.librarys.BigLibrariesActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil.BigAsyncListActivity;
 import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
 import com.mauto.bigbaby.librarys.recyclerview.SortedList.BigSortedActivity;
+import com.mauto.bigbaby.target26.service.BigServiceActivity;
 import com.mauto.bigbaby.thread.BigThreadActivity;
 import com.mauto.bigbaby.ut.BigUnitTestActivity;
 
@@ -24,8 +28,7 @@ public enum RoutPointer {
     ERR_FRAGMENT(BigErrFragmentActivity.class.getName()),
     ERR_TAG(BigErrTagActivity.class.getName()),
     ERR_ATTACH(BigErrAttachActivity.class.getName()),
-
-    DIFFUTILS(BigDiffUtilsActivity.class.getName()), LIVEDATA(BigLiveDataActivity.class.getName()),
+    LIVEDATA(BigLiveDataActivity.class.getName()),
     UT_MAIN(BigUnitTestActivity.class.getName()),
 
     THREAD(BigThreadActivity.class.getName()),
@@ -36,9 +39,23 @@ public enum RoutPointer {
     LIB_MAIN(BigLibrariesActivity.class.getName()),
     LIB_RECYCLER_MAIN(BigLibRecyclerActivity.class.getName()),
     LIB_RECYCLER_SORTED(BigSortedActivity.class.getName()),
-    LIB_RECYCLER_ASYNC(BigAsyncListActivity.class.getName());
+    LIB_RECYCLER_ASYNC(BigAsyncListActivity.class.getName()),
+    LIB_RECYCLER_DIFF(BigDiffUtilsActivity.class.getName()),
+    LIB_RECYCLER_DIFFER(BigListDifferActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lib <-- ↑↑↑/////////////////////////////////////
 
+    /////////////////////////////////////////--> 18-12-14 上午11:02 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> target26 service <-- ↓↓↓/////////////////////////////////////
+    TARGET26_SERVICE(BigServiceActivity.class.getName()),
+    /////////////////////////////////////↑↑↑ --> target26 service <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-14 下午5:22 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Just for occupancy <-- ↓↓↓/////////////////////////////////////
+    // 猜猜为什么放一个占位枚举？
+    @Deprecated
+    OCCUPANCY(Log.class.getName());
+    /////////////////////////////////////↑↑↑ --> Just for occupancy <-- ↑↑↑/////////////////////////////////////
+    
     String mRoutTarget = "";
     RoutPointer(String rout) {
         mRoutTarget = rout;
