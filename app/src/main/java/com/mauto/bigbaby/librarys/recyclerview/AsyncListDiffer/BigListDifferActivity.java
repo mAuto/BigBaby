@@ -54,7 +54,12 @@ public class BigListDifferActivity extends BigBaseActivity {
                     mPbLoading.setVisibility(View.GONE);
 
                     List<GankBean> newData = ((RandomResponseBody) model.resultBody).results;
-                    List<GankBean> oldData = mAdapter.getOriginalData();
+                    ArrayList<GankBean> oldData = null;
+                    try {
+                        oldData = (ArrayList<GankBean>) mAdapter.getOriginalData();
+                    } catch (Exception e) {
+                        Log.e(">>>>>>", "BigListDifferActivity --> " + "err: "+e.toString());
+                    }
 
                     try {
                         if (oldData != null && oldData.size() > 2) {

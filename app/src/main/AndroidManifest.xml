@@ -100,7 +100,8 @@
         </activity>
         <activity android:name=".support.base.BigBaseActivity" />
         <activity android:name=".librarys.BigLibrariesActivity" />
-        <activity android:name=".librarys.recyclerview.AsyncListDiffer.BigListDifferActivity"></activity>
+        <activity android:name=".librarys.recyclerview.AsyncListDiffer.BigListDifferActivity" />
+        <activity android:name=".librarys.recyclerview.SnapHelper.BigSnapHelperActivity"></activity>
     </application>
 
 </manifest>

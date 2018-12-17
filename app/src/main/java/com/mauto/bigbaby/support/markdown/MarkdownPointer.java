@@ -24,7 +24,7 @@ public class MarkdownPointer {
     * */
     public final static String MD_LINK_LIB_RECYCLER_ASYNCLISTUTIL = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/AsyncListUtil/AsyncListUtil.md";
     public final static String MD_LINK_LIB_RECYCLER_DIFFUTIL = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/DiffUtil/DiffUtil.md";
-    public final static String MD_LINK_LIB_RECYCLER_ASYNCLISTDIFFER = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/DiffUtil/DiffUtil.md";
+    public final static String MD_LINK_LIB_RECYCLER_ASYNCLISTDIFFER = "https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/librarys/recyclerview/AsyncListDiffer/AsyncListDiffer.md";
     public final static String MD_LINK_LIB_RECYCLER_SORTEDLIST = "";
     /////////////////////////////////////↑↑↑ --> for libraries <-- ↑↑↑/////////////////////////////////////
 

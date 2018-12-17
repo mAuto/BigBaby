@@ -30,7 +30,7 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
         Router.jump(this, RoutPointer.LIB_RECYCLER_ASYNC);
     }
 
-    public void onClickThreadUtil(View view) {
+    public void onClickSnapHelper(View view) {
     }
 
 
