@@ -1,4 +1,4 @@
-package com.mauto.bigbaby.librarys.recyclerview.DiffUtil;
+package com.mauto.bigbaby.librarys.recyclerview.SnapHelper;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -23,10 +23,10 @@ import java.util.List;
  * Created by haohuidong on 18-9-26.
  */
 
-public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder> {
+public class RandomSnapAdapter extends RecyclerView.Adapter<RandomSnapAdapter.ViewHolder> {
 
     private Context mContext;
-    public RandomAdapter(Context context) {
+    public RandomSnapAdapter(Context context) {
         mContext = context;
     }
 
@@ -38,7 +38,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull List<Object> payloads) {
-        Log.e("--> RandomSnapAdapter <--", "onBindViewHolder_payload"+" position:"+position);
+        Log.e(">>>>>>", "RandomSnapAdapter --> " + "onBindViewHolder_payload"+" position:"+position);
         Bundle payload = null;
         if (payloads != null && payloads.size() > 0)
             payload = (Bundle) payloads.get(0);
@@ -60,7 +60,7 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.e("--> RandomSnapAdapter <--", "onBindViewHolder"+" position:"+position);
+        Log.e(">>>>>>", "RandomSnapAdapter --> " + "onBindViewHolder"+" position:"+position);
         if (holder != null) {
             GankBean bean = mData.get(position);
 
@@ -92,8 +92,9 @@ public class RandomAdapter extends RecyclerView.Adapter<RandomAdapter.ViewHolder
         if (mData == null)
             mData = new ArrayList<>();
 
-        mData.clear();
+        int size = mData.size();
         mData.addAll(data);
+        notifyItemRangeInserted(size, data.size());
     }
 
     public void appendData(List<GankBean> data) {

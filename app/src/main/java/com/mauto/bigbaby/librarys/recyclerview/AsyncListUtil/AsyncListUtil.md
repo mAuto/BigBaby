@@ -125,7 +125,7 @@ public class BigAsyncListUtil extends AsyncListUtil<String> {
 ###### 2.1 为什么说AsyncListUtil加载的数据是定长的？   
 &emsp;&emsp;Adapter的getItemCount方法通过AsyncListUtil的实例的getItemCount方法获取，返回值是变量mItemCount。   
 - AsuncListUtil.class  
-```
+```java
 public int getItemCount() {
         return mItemCount;
     }

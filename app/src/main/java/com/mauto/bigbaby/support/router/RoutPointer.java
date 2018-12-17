@@ -12,6 +12,7 @@ import com.mauto.bigbaby.jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivit
 import com.mauto.bigbaby.librarys.BigLibrariesActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil.BigAsyncListActivity;
 import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
+import com.mauto.bigbaby.librarys.recyclerview.SnapHelper.BigSnapHelperActivity;
 import com.mauto.bigbaby.librarys.recyclerview.SortedList.BigSortedActivity;
 import com.mauto.bigbaby.target26.service.BigServiceActivity;
 import com.mauto.bigbaby.thread.BigThreadActivity;
@@ -42,6 +43,7 @@ public enum RoutPointer {
     LIB_RECYCLER_ASYNC(BigAsyncListActivity.class.getName()),
     LIB_RECYCLER_DIFF(BigDiffUtilsActivity.class.getName()),
     LIB_RECYCLER_DIFFER(BigListDifferActivity.class.getName()),
+    LIB_RECYCLER_SNAP(BigSnapHelperActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lib <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 上午11:02 <--/////////////////////////////////////

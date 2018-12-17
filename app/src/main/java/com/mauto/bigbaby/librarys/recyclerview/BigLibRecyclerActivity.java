@@ -31,6 +31,7 @@ public class BigLibRecyclerActivity extends BigBaseActivity {
     }
 
     public void onClickSnapHelper(View view) {
+        Router.jump(this, RoutPointer.LIB_RECYCLER_SNAP);
     }
 
 
