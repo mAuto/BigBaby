@@ -26,14 +26,21 @@ import java.util.List;
 public class RandomSnapAdapter extends RecyclerView.Adapter<RandomSnapAdapter.ViewHolder> {
 
     private Context mContext;
-    public RandomSnapAdapter(Context context) {
+    private int mOrientation = RecyclerView.VERTICAL;
+    public RandomSnapAdapter(Context context, @RecyclerView.Orientation int orientation) {
         mContext = context;
+        mOrientation = orientation;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.libs_recycler_item_layout, null, false));
+        int layoutId = R.layout.libs_recycler_item_layout;
+
+        if (mOrientation == RecyclerView.HORIZONTAL)
+            layoutId = R.layout.libs_recycler_horizontal_item_layout;
+
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(layoutId, null, false));
     }
 
     @Override

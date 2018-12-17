@@ -14,17 +14,14 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
         <android.support.v4.widget.ContentLoadingProgressBar
             android:id="@+id/pb_horizontal_loading"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:visibility="gone"
             style="?android:attr/progressBarStyleSmall"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_gravity="center"/>
     </FrameLayout>
 
     <View
@@ -47,10 +44,7 @@
             android:layout_height="48dp"
             android:visibility="gone"
             style="?android:attr/progressBarStyleSmall"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_gravity="center"/>
     </FrameLayout>
 
     <android.support.v7.widget.AppCompatButton
