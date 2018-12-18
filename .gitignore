@@ -1,14 +1,47 @@
+# Built application files
+*.apk
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Proguard folder
+proguard/
+proguard_logs/
+
+
+# IntelliJ project files
 *.iml
-.gradle
-/local.properties
-/.idea/libraries
+*.ipr
+*.iws
+.idea/
+
+# Ant build files
+.project
+.classpath
+.gitignore
+project.properties
+
+# Myself
+.gitignore
+
+# Misc
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-/.idea
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/workspace.xml
-.idea
-.idea/workspace.xml
+.settings/
+

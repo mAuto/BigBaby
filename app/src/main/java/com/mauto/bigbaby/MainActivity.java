@@ -40,37 +40,79 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState, persistentState);
     }
 
-    public void onClickErr(View view) {
-        Router.jump(this, RoutPointer.ERR_MAIN);
-    }
+
 
     public void onClickLiveData(View view) {
         Router.jump(this, RoutPointer.LIVEDATA);
-    }
-
-    public void onClickUT(View view) {
-        Router.jump(this, RoutPointer.UT_MAIN);
-    }
-
-    public void onClickThread(View view) {
-        Router.jump(this, RoutPointer.THREAD);
     }
 
     public void onClickLibraries(View view) {
         Router.jump(this, RoutPointer.LIB_MAIN);
     }
 
-    public void onClickAlgorithm(View view) {
+
+    /////////////////////////////////////////--> 18-12-18 下午5:47 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Algorithm <-- ↓↓↓/////////////////////////////////////
+    public void onClickLinearList(View view) {
+        Router.jump(this, RoutPointer.ALGORITHM_LINEAR_LIST);
     }
 
-    public void onClickFreeNote(View view) {
-        Uri uri = Uri.parse(MarkdownPointer.buildUri("https://github.com/mAuto/BigBaby/blob/master/app/src/main/java/com/mauto/bigbaby/note/note.md"));
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+    public void onClickElse(View view) {
+        Router.jump(this, RoutPointer.ALGORITHM_ELSE);
+    }
+    /////////////////////////////////////↑↑↑ --> Algorithm <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午5:47 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Architecture <-- ↓↓↓/////////////////////////////////////
+    public void onClickEasyTest(View view) {
+    }
+
+    public void onClickMVI(View view) {
+    }
+    /////////////////////////////////////↑↑↑ --> Architecture <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午5:48 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Err <-- ↓↓↓/////////////////////////////////////
+    public void onClickFragment(View view) {
+        Router.jump(this, RoutPointer.ERR_FRAGMENT);
+    }
+    /////////////////////////////////////↑↑↑ --> Err <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Lab <-- ↓↓↓/////////////////////////////////////
+    public void onClickThread(View view) {
+        Router.jump(this, RoutPointer.THREAD);
     }
 
     public void onClickTarget26(View view) {
         Router.jump(this, RoutPointer.TARGET26_SERVICE);
     }
+    /////////////////////////////////////↑↑↑ --> Lab <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Libraries <-- ↓↓↓/////////////////////////////////////
+    public void onClickJetpack(View view) {
+    }
+
+    public void onClickRecycler(View view) {
+        Router.jump(this, RoutPointer.LIB_RECYCLER_MAIN);
+    }
+    /////////////////////////////////////↑↑↑ --> Libraries <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午6:54 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Software test <-- ↓↓↓/////////////////////////////////////
+    public void onClickUT(View view) {
+        Router.jump(this, RoutPointer.UT_MAIN);
+    }
+    /////////////////////////////////////↑↑↑ --> Software test <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-18 下午6:55 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> Note <-- ↓↓↓/////////////////////////////////////
+    public void onClickFreeNote(View view) {
+        Router.jump(this, RoutPointer.NOTE_MAIN);
+    }
+
+    public void onClickTODO(View view) {
+    }
+    /////////////////////////////////////↑↑↑ --> Note <-- ↑↑↑/////////////////////////////////////
 }
