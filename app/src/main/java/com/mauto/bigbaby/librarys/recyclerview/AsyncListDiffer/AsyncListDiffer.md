@@ -42,6 +42,7 @@
 
 &emsp;&emsp;AsyncListDiffer的使用方法也很简单，同样需要一个callback来定义计算规则。但是和DiffUtil不同，AsyncListDiffer的callback要继承自ItemCallback，而不是DiffUtil中使用的Callback。
 - RandomDiffAdapter.java -> ItemCallback实例
+
 ```java
 private DiffUtil.ItemCallback<GankBean> callback = new DiffUtil.ItemCallback<GankBean>() {
         @Override
@@ -87,6 +88,7 @@ private DiffUtil.ItemCallback<GankBean> callback = new DiffUtil.ItemCallback<Gan
 ```
 &emsp;&emsp;具体实现和前面DiffUtil的方法基本一致。然后生成一个AsyncListDiffer实例，用来计算新旧数据集和的差异。
 - RandomDiffAdapter.java
+
 ```java
 public class RandomDiffAdapter extends RecyclerView.Adapter<RandomDiffAdapter.ViewHolder> {
 
@@ -158,8 +160,8 @@ public class RandomDiffAdapter extends RecyclerView.Adapter<RandomDiffAdapter.Vi
     };
     /////////////////////////////////////↑↑↑ --> async differ <-- ↑↑↑/////////////////////////////////////
 }
-
 ```
+
 &emsp;&emsp;到这里位置，就完成了AsyncListDiffer的使用，一个很简单的例子。
 > 值得注意的是，RecyclerView库还提供了另外一个工具类---ListAdapter，来实现这一套流程，这个工具类是对Adapter和AsyncListDiffer的再封装，
 只需要传入一个自定义的ItemCallback以及实现必要的渲染逻辑即可，使用方法相比AsyncListDiffer又简单很多，基本原理与AsyncListDiffer大同小异，不做赘述。

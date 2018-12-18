@@ -67,7 +67,7 @@ public class BigSnapHelperActivity extends BigBaseActivity {
         mPbHorizontalLoading = findViewById(R.id.pb_horizontal_loading);
         mRvHorizontal = findViewById(R.id.rv_horizontal);
         mRvHorizontal.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
-        mHorizontalAdapter = new RandomSnapAdapter(this);
+        mHorizontalAdapter = new RandomSnapAdapter(this, RecyclerView.HORIZONTAL);
         mRvHorizontal.setAdapter(mHorizontalAdapter);
     }
     /////////////////////////////////////↑↑↑ --> horizontal list <-- ↑↑↑/////////////////////////////////////
@@ -82,7 +82,7 @@ public class BigSnapHelperActivity extends BigBaseActivity {
         mPbVerticalLoading = findViewById(R.id.pb_vertical_loading);
         mRvVertical = findViewById(R.id.rv_vertical);
         mRvVertical.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        mVerticalAdapter = new RandomSnapAdapter(this);
+        mVerticalAdapter = new RandomSnapAdapter(this, RecyclerView.VERTICAL);
         mRvVertical.setAdapter(mVerticalAdapter);
     }
     /////////////////////////////////////↑↑↑ --> horizontal list <-- ↑↑↑/////////////////////////////////////
