@@ -2,20 +2,21 @@ package com.mauto.bigbaby.support.router;
 
 import android.util.Log;
 
+import com.mauto.bigbaby.lab.permission.BigLabPerActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
 import com.mauto.bigbaby.err.fragment.tag.BigErrTagActivity;
 import com.mauto.bigbaby.err.fragment.attach.BigErrAttachActivity;
 import com.mauto.bigbaby.err.fragment.BigErrFragmentActivity;
-import com.mauto.bigbaby.jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
+import com.mauto.bigbaby.librarys.Jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity;
 import com.mauto.bigbaby.librarys.BigLibrariesActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListUtil.BigAsyncListActivity;
 import com.mauto.bigbaby.librarys.recyclerview.BigLibRecyclerActivity;
 import com.mauto.bigbaby.librarys.recyclerview.SnapHelper.BigSnapHelperActivity;
 import com.mauto.bigbaby.librarys.recyclerview.SortedList.BigSortedActivity;
-import com.mauto.bigbaby.target26.service.BigServiceActivity;
-import com.mauto.bigbaby.thread.BigThreadActivity;
+import com.mauto.bigbaby.lab.service.BigServiceActivity;
+import com.mauto.bigbaby.lab.thread.BigThreadActivity;
 import com.mauto.bigbaby.ut.BigUnitTestActivity;
 
 import static com.mauto.bigbaby.support.markdown.MarkdownPointer.MD_LINK_ALG_ELSE;
@@ -65,6 +66,11 @@ public enum RoutPointer {
     /////////////////////////////////////↓↓↓ --> note <-- ↓↓↓/////////////////////////////////////
     NOTE_MAIN(MD_LINK_NOTE),
     /////////////////////////////////////↑↑↑ --> note <-- ↑↑↑/////////////////////////////////////
+
+    /////////////////////////////////////////--> 18-12-19 上午10:45 <--/////////////////////////////////////
+    /////////////////////////////////////↓↓↓ --> lab <-- ↓↓↓/////////////////////////////////////
+    LAB_PERMISSION(BigLabPerActivity.class.getName()),
+    /////////////////////////////////////↑↑↑ --> lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 下午5:22 <--/////////////////////////////////////
     /////////////////////////////////////↓↓↓ --> Just for occupancy <-- ↓↓↓/////////////////////////////////////

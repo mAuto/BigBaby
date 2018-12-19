@@ -87,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClickTarget26(View view) {
         Router.jump(this, RoutPointer.TARGET26_SERVICE);
     }
+
+    public void onClickOverlay(View view) {
+        Router.jump(this, RoutPointer.LAB_PERMISSION);
+    }
     /////////////////////////////////////↑↑↑ --> Lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////

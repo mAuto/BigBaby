@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".librarys.recyclerview.DiffUtil.BigDiffUtilsActivity" />
         <activity android:name=".err.BigErrMainActivity" />
-        <activity android:name=".news.BigNewsActivity">
+        <activity android:name=".lab.news.BigNewsActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -30,16 +30,16 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".news.BrowserCopyActivity" />
+        <activity android:name=".lab.news.BrowserCopyActivity" />
         <activity android:name=".err.fragment.tag.BigErrTagActivity" />
         <activity android:name=".err.fragment.BigErrFragmentActivity" />
-        <activity android:name=".jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
-        <activity android:name=".jetpack.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
+        <activity android:name=".librarys.Jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity" />
+        <activity android:name=".librarys.Jetpack.LiveData_Lifecycle_ViewModel.BigLifecycleActivity" />
         <activity android:name=".ut.BigUnitTestActivity" />
         <activity android:name=".err.fragment.attach.BigErrAttachActivity" />
-        <activity android:name=".thread.BigThreadActivity" />
+        <activity android:name=".lab.thread.BigThreadActivity" />
         <activity
-            android:name=".depthOfActivity.BigActivity"
+            android:name=".lab.depthOfActivity.BigActivity"
             android:persistableMode="persistAcrossReboots">
 
             <!-- <intent-filter> -->
@@ -51,7 +51,7 @@
         </activity>
         <activity android:name=".librarys.recyclerview.BigLibRecyclerActivity" />
         <activity android:name=".librarys.recyclerview.SortedList.BigSortedActivity" />
-        <activity android:name=".target26.service.BigServiceActivity">
+        <activity android:name=".lab.service.BigServiceActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -62,16 +62,16 @@
         </activity>
 
         <service
-            android:name=".target26.service.BigSampleService"
+            android:name=".lab.service.BigSampleService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".target26.service.BigTestService"
+            android:name=".lab.service.BigTestService"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".share.BigShareActivity"
+            android:name=".lab.share.BigShareActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -101,7 +101,8 @@
         <activity android:name=".support.base.BigBaseActivity" />
         <activity android:name=".librarys.BigLibrariesActivity" />
         <activity android:name=".librarys.recyclerview.AsyncListDiffer.BigListDifferActivity" />
-        <activity android:name=".librarys.recyclerview.SnapHelper.BigSnapHelperActivity"></activity>
+        <activity android:name=".librarys.recyclerview.SnapHelper.BigSnapHelperActivity" />
+        <activity android:name=".lab.permission.BigLabPerActivity"></activity>
     </application>
 
 </manifest>

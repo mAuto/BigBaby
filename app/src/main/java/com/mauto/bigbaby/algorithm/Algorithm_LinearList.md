@@ -18,7 +18,7 @@ public int RemoveDuplicates(int[] array) {
 ```
 
 #### 2 从一个旋转的不重复的有序数组中查找某个值的位置，要求空间复杂度O(n)，时间复杂度O(1)。[](#algorithm_3)
-&emsp;&emsp;**基本思路** ：对于一个有序数组采用二分法是正确的，但是难点在于怎么确定边界的取值。
+&emsp;&emsp; **基本思路** ：对于一个有序数组采用二分法是正确的，但是难点在于怎么确定边界的取值。
 ```java
 public int SearchInRotatedSortedArray(int[] array, int target) {
         if (array == null || array.length == 0)

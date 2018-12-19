@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".librarys.Jetpack.LiveData_Lifecycle_ViewModel.BigLiveDataActivity">
+    tools:context="com.mauto.bigbaby.lab.permission.BigLabPerActivity">
 
     <android.support.v7.widget.AppCompatButton
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:onClick="onClickAction"
+        android:layout_height="44dp"
+        android:onClick="onClickJump"
         android:background="@color/colorPrimary"
         android:layout_margin="10dp"
         android:elevation="4dp"
-        android:text="Action"
+        android:text="jump"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:gravity="center"
-        android:layout_gravity="bottom"/>
+        android:gravity="center" />
 
 </FrameLayout>
