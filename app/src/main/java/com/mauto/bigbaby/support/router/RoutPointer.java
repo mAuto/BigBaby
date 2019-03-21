@@ -2,7 +2,10 @@ package com.mauto.bigbaby.support.router;
 
 import android.util.Log;
 
+import com.mauto.bigbaby.lab.Toast.BigLabToastActivity;
+import com.mauto.bigbaby.lab.anim.BigAnimActivity;
 import com.mauto.bigbaby.lab.permission.BigLabPerActivity;
+import com.mauto.bigbaby.lab.sms.BigLabSmsActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
@@ -39,7 +42,6 @@ public enum RoutPointer {
 
     THREAD(BigThreadActivity.class.getName()),
 
-
     /////////////////////////////////////////--> 18-11-2 上午11:19 <--/////////////////////////////////////
     /////////////////////////////////////↓↓↓ --> lib <-- ↓↓↓/////////////////////////////////////
     LIB_MAIN(BigLibrariesActivity.class.getName()),
@@ -70,6 +72,9 @@ public enum RoutPointer {
     /////////////////////////////////////////--> 18-12-19 上午10:45 <--/////////////////////////////////////
     /////////////////////////////////////↓↓↓ --> lab <-- ↓↓↓/////////////////////////////////////
     LAB_PERMISSION(BigLabPerActivity.class.getName()),
+    LAB_TOAST(BigLabToastActivity.class.getName()),
+    LAB_ANIM(BigAnimActivity.class.getName()),
+    LAB_SMS(BigLabSmsActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 下午5:22 <--/////////////////////////////////////

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mauto.bigbaby.lab.anim.BigAnimActivity"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_main_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:text="Congratulations on getting\n a Free number"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_main_tip"
+        android:layout_marginTop="64dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="34sp"
+        android:text="(223) 530-5431"
+        android:textColor="@color/shine_color_5"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.shinebutton.ShineButton
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@android:color/transparent"
+        android:id="@+id/sb_shine_0"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="30dp"
+        app:btn_color="@android:color/transparent"
+        app:btn_fill_color="@android:color/transparent"
+        app:allow_random_color="false"
+        app:enable_flashing="false"
+        app:click_animation_duration="100"
+        app:shine_animation_duration="1600"
+        app:shine_turn_angle="-20"
+        app:small_shine_offset_angle="0"
+        app:shine_count="12"
+        app:siShape="@mipmap/ic_refresh"
+        app:big_shine_color="@color/shine_color_4"
+        app:small_shine_color="@color/shine_color_4"
+        app:tiny_shine_color="@color/shine_color_4"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.shinebutton.ShineButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@android:color/transparent"
+        android:id="@+id/sb_shine_1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="40dp"
+        app:btn_color="@android:color/transparent"
+        app:btn_fill_color="@android:color/transparent"
+        app:allow_random_color="false"
+        app:enable_flashing="false"
+        app:click_animation_duration="100"
+        app:shine_animation_duration="1600"
+        app:shine_turn_angle="-20"
+        app:small_shine_offset_angle="0"
+        app:shine_count="12"
+        app:siShape="@mipmap/ic_refresh"
+        app:big_shine_color="@color/shine_color_1"
+        app:small_shine_color="@color/shine_color_1"
+        app:tiny_shine_color="@color/shine_color_1"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.shinebutton.ShineButton
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@android:color/transparent"
+        android:id="@+id/sb_shine_2"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="50dp"
+        android:layout_alignParentRight="true"
+        app:btn_color="@android:color/transparent"
+        app:btn_fill_color="@android:color/transparent"
+        app:allow_random_color="false"
+        app:enable_flashing="false"
+        app:click_animation_duration="100"
+        app:shine_animation_duration="1600"
+        app:shine_turn_angle="-20"
+        app:small_shine_offset_angle="0"
+        app:shine_count="12"
+        app:siShape="@mipmap/ic_refresh"
+        app:big_shine_color="@color/shine_color_2"
+        app:small_shine_color="@color/shine_color_2"
+        app:tiny_shine_color="@color/shine_color_2"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.fireworks.Firecracker
+        android:id="@+id/f_cracker_0"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="60dp"
+        app:fire_color="@color/shine_color_5"
+        app:fire_flashing="false"
+        app:fire_duration="800"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.fireworks.Firecracker
+        android:id="@+id/f_cracker_1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="35dp"
+        app:fire_color="#00aff0"
+        app:fire_flashing="false"
+        app:fire_duration="800"/>
+
+    <com.mauto.bigbaby.lab.anim.widgets.fireworks.Firecracker
+        android:id="@+id/f_cracker_2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="180dp"
+        android:layout_marginRight="20dp"
+        app:fire_color="@color/shine_color_3"
+        app:fire_flashing="false"
+        app:fire_duration="800"/>
+    <!-- app:small_shine_color="#CC9999" -->
+    <!-- app:big_shine_color="#FF6666" -->
+
+</RelativeLayout>

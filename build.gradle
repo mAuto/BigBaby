@@ -4,10 +4,13 @@ buildscript {
     
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.novoda:bintray-release:0.7.0'
+        classpath 'com.google.gms:google-services:3.2.0'
         //----------------------------- protobuf -------------------------------
 //        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.4'
 
@@ -19,7 +22,17 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
+
+        // add the private bintray repository
+        maven {
+            url  "http://appmonet.bintray.com/MonetBidder"
+            credentials {
+                username 'androidsdk@appmonet'
+                password '8524be7aa419b4f729863dcf81fdd339b47862eb'
+            }
+        }
     }
 }
 

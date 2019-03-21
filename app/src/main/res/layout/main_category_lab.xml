@@ -59,4 +59,32 @@
         android:textSize="16sp"
         android:gravity="center" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:onClick="onClickAnim"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:elevation="4dp"
+        android:text="anim"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:onClick="onClickSms"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:elevation="4dp"
+        android:text="SMS"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center" />
+
 </LinearLayout>

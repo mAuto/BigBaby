@@ -1,8 +1,11 @@
 package com.mauto.bigbaby;
 
+import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.PersistableBundle;
+import android.support.v4.app.ActivityManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName("", ""));
     }
 
     @Override
@@ -91,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClickOverlay(View view) {
         Router.jump(this, RoutPointer.LAB_PERMISSION);
     }
+
+    public void onClickSms(View view) {
+        Router.jump(this, RoutPointer.LAB_SMS);
+    }
     /////////////////////////////////////↑↑↑ --> Lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////
@@ -118,5 +128,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickTODO(View view) {
     }
+
+    public void onClickAnim(View view) {
+        Router.jump(this, RoutPointer.LAB_ANIM);
+    }
     /////////////////////////////////////↑↑↑ --> Note <-- ↑↑↑/////////////////////////////////////
+
 }

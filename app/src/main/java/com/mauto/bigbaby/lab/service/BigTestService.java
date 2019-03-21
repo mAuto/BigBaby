@@ -4,12 +4,16 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.mauto.bigbaby.R;
 import com.mauto.bigbaby.lab.news.Constants;
+
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
 
 public class BigTestService extends Service {
     public BigTestService() {
@@ -24,22 +28,35 @@ public class BigTestService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("--> BigTestService <--", "onCreate"+"");
+        Log.e(">>>>>>", "BigTestService --> " + "onCreate"+" 0");
+//        try {
+//            Thread.sleep(8000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        Log.e(">>>>>>", "BigTestService --> " + "onCreate"+" 1");
+//        startForeground();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e("--> BigTestService <--", "onStartCommand"+"");
-        
-//        startForeground();
 
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                stopSelf();
-//                Log.e("--> BigTestService <--", "stop self"+"");
-//            }
-//        }, TimeUnit.SECONDS.toMillis(5));
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            Log.e(">>>>>>", "BigTestService --> " + "onStartCommand"+" err:"+e.toString());
+        }
+
+        startForeground();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                stopSelf();
+                Log.e("--> BigTestService <--", "stop self"+"");
+            }
+        }, TimeUnit.SECONDS.toMillis(5));
 
         return super.onStartCommand(intent, flags, startId);
     }

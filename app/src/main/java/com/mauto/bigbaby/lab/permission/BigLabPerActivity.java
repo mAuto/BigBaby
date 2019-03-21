@@ -56,7 +56,7 @@ public class BigLabPerActivity extends AppCompatActivity {
 
             Intent intent = new Intent(field.get(null).toString());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setData(Uri.parse("package:" + "com.android.vending"));
+//            intent.setData(Uri.parse("package:" + "com.android.vending"));
             this.startActivityForResult(intent, 1002);
         } catch (Exception e) {
 

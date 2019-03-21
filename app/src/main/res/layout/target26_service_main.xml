@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".lab.service.BigServiceActivity">
 
     <android.support.v7.widget.AppCompatButton
@@ -20,4 +21,32 @@
         android:textSize="16sp"
         android:gravity="center" />
 
-</FrameLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:onClick="onClickStartService"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:elevation="4dp"
+        android:text="startForegroundService"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:onClick="onClickStartServiceTry"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:elevation="4dp"
+        android:text="startService delay"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center" />
+
+</LinearLayout>

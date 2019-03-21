@@ -5,4 +5,11 @@
     <color name="colorAccent">#FF4081</color>
     <color name="primary_color_bg">#efeff4</color>
     <color name="text_color_description">#3d000000</color>
+
+    <color name="shine_color_0">#FFFF99</color>
+    <color name="shine_color_1">#FF6666</color>
+    <color name="shine_color_2">#FFFF66</color>
+    <color name="shine_color_3">#F44336</color>
+    <color name="shine_color_4">#CCCC00</color>
+    <color name="shine_color_5">#999933</color>
 </resources>
