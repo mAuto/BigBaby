@@ -101,6 +101,18 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSms(View view) {
         Router.jump(this, RoutPointer.LAB_SMS);
     }
+
+    public void onClickTerminal(View view) {
+        Router.jump(this, RoutPointer.LAB_TERMINAL);
+    }
+
+    public void onClickConcurrent(View view) {
+        Router.jump(this, RoutPointer.LAB_CONCURRENT);
+    }
+
+    public void onClickDialogQueue(View view) {
+        Router.jump(this, RoutPointer.LAB_DIALOG_QUEUE);
+    }
     /////////////////////////////////////↑↑↑ --> Lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////

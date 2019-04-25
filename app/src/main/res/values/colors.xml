@@ -12,4 +12,7 @@
     <color name="shine_color_3">#F44336</color>
     <color name="shine_color_4">#CCCC00</color>
     <color name="shine_color_5">#999933</color>
+
+    <color name="terminal_bg">#00aff0</color>
+    <color name="terminal_ripple_bg">#0527af</color>
 </resources>

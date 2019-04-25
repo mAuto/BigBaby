@@ -4,8 +4,11 @@ import android.util.Log;
 
 import com.mauto.bigbaby.lab.Toast.BigLabToastActivity;
 import com.mauto.bigbaby.lab.anim.BigAnimActivity;
+import com.mauto.bigbaby.lab.concurrent.BigLabConcurrentActivity;
+import com.mauto.bigbaby.lab.dialog.BigLabDialogActivity;
 import com.mauto.bigbaby.lab.permission.BigLabPerActivity;
 import com.mauto.bigbaby.lab.sms.BigLabSmsActivity;
+import com.mauto.bigbaby.lab.terminal.BigLabTerminalActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
@@ -75,6 +78,9 @@ public enum RoutPointer {
     LAB_TOAST(BigLabToastActivity.class.getName()),
     LAB_ANIM(BigAnimActivity.class.getName()),
     LAB_SMS(BigLabSmsActivity.class.getName()),
+    LAB_TERMINAL(BigLabTerminalActivity.class.getName()),
+    LAB_CONCURRENT(BigLabConcurrentActivity.class.getName()),
+    LAB_DIALOG_QUEUE(BigLabDialogActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 下午5:22 <--/////////////////////////////////////

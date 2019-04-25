@@ -3,7 +3,9 @@
     package="com.mauto.bigbaby">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_SMS" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.READ_SMS" />-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
 
     <application
@@ -161,7 +163,10 @@
             </intent-filter>
         </service>
         <!-- sms -->
-        <activity android:name=".lab.worm.BigLabWormActivity"></activity>
+        <activity android:name=".lab.worm.BigLabWormActivity" />
+        <activity android:name=".lab.terminal.BigLabTerminalActivity" />
+        <activity android:name=".lab.dialog.BigLabDialogActivity" />
+        <activity android:name=".lab.concurrent.BigLabConcurrentActivity"></activity>
     </application>
 
 </manifest>

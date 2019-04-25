@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="terminal_size">52dp</dimen>
+    <dimen name="terminal_margin_bottom">100dp</dimen>
+    <dimen name="terminal_margin_right">10dp</dimen>
+</resources>

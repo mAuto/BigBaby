@@ -1,5 +1,6 @@
 package com.mauto.bigbaby.lab.service;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +15,9 @@ import android.view.View;
 
 import com.mauto.bigbaby.BuildConfig;
 import com.mauto.bigbaby.R;
+import com.mauto.bigbaby.tools.Utils;
 
+import java.sql.Time;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -141,5 +144,23 @@ public class BigServiceActivity extends AppCompatActivity {
         };
 
         handler.postDelayed(action, TimeUnit.MINUTES.toMillis(2));
+    }
+
+    public void onClickStartLoopThread(View view) {
+        new Thread(){
+            @SuppressLint("LongLogTag")
+            @Override
+            public void run() {
+                for (;;) {
+                    try {
+                        sleep(TimeUnit.MINUTES.toMillis(2));
+                        Log.e(">>>>>> BigServiceActivity.150", "run --> " + " " + Utils.formatTime(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss"));
+                        Log.e(">>>>>> BigServiceActivity.154", "" + "***");
+                    } catch (InterruptedException e) {
+                        Log.e(">>>>>> BigServiceActivity.160", "run --> " + " "+e.toString());
+                    }
+                }
+            }
+        }.start();
     }
 }
