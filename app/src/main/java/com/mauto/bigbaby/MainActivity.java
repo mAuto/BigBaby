@@ -3,11 +3,14 @@ package com.mauto.bigbaby;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.mauto.bigbaby.support.markdown.MarkdownPointer;
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("", ""));
+
+        SharedPreferences sp_0 = PreferenceManager.getDefaultSharedPreferences(this);
+        Log.e(">>> MainActivity", "onCreate@31 --> " + " "+ sp_0.toString());
     }
 
     @Override
@@ -113,6 +119,18 @@ public class MainActivity extends AppCompatActivity {
     public void onClickDialogQueue(View view) {
         Router.jump(this, RoutPointer.LAB_DIALOG_QUEUE);
     }
+
+    public void onClickStore(View view) {
+        Router.jump(this, RoutPointer.LAB_STORE);
+    }
+
+    public void onClickPopup(View view) {
+        Router.jump(this, RoutPointer.LAB_POPUP);
+    }
+
+    public void onClickAnim(View view) {
+        Router.jump(this, RoutPointer.LAB_ANIM);
+    }
     /////////////////////////////////////↑↑↑ --> Lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////
@@ -139,10 +157,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickTODO(View view) {
-    }
-
-    public void onClickAnim(View view) {
-        Router.jump(this, RoutPointer.LAB_ANIM);
     }
     /////////////////////////////////////↑↑↑ --> Note <-- ↑↑↑/////////////////////////////////////
 

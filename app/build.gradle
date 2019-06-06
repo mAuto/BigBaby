@@ -102,6 +102,8 @@ dependencies {
     // Lifecycles only (no ViewModel or LiveData).
     implementation "android.arch.lifecycle:runtime:$lifecycle_version"
 
+    implementation 'com.tencent:mmkv:1.0.19'
+
 //    def room_version = "2.1.0-alpha03"
 //    implementation "androidx.room:room-runtime:$room_version"
 //    annotationProcessor "androidx.room:room-compiler:$room_version"

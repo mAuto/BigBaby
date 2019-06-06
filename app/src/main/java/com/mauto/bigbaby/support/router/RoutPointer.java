@@ -7,7 +7,9 @@ import com.mauto.bigbaby.lab.anim.BigAnimActivity;
 import com.mauto.bigbaby.lab.concurrent.BigLabConcurrentActivity;
 import com.mauto.bigbaby.lab.dialog.BigLabDialogActivity;
 import com.mauto.bigbaby.lab.permission.BigLabPerActivity;
+import com.mauto.bigbaby.lab.popup.BigLabPopupActivity;
 import com.mauto.bigbaby.lab.sms.BigLabSmsActivity;
+import com.mauto.bigbaby.lab.store.BigLabStoreActivity;
 import com.mauto.bigbaby.lab.terminal.BigLabTerminalActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
@@ -81,6 +83,8 @@ public enum RoutPointer {
     LAB_TERMINAL(BigLabTerminalActivity.class.getName()),
     LAB_CONCURRENT(BigLabConcurrentActivity.class.getName()),
     LAB_DIALOG_QUEUE(BigLabDialogActivity.class.getName()),
+    LAB_STORE(BigLabStoreActivity.class.getName()),
+    LAB_POPUP(BigLabPopupActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lab <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 下午5:22 <--/////////////////////////////////////

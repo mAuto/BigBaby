@@ -2,6 +2,7 @@ package com.mauto.bigbaby;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.mauto.bigbaby.tools.GlobalAttributes;
@@ -25,5 +26,11 @@ public class BabyApplication extends Application {
 
     public static BabyApplication getApplication() {
         return mApplication;
+    }
+
+    @Override
+    public SharedPreferences getSharedPreferences(String name, int mode) {
+        Log.e(">>> BabyApplication", "getSharedPreferences@33 --> " + "");
+        return super.getSharedPreferences(name, mode);
     }
 }
