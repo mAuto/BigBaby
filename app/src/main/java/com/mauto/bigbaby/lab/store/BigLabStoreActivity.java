@@ -13,12 +13,8 @@ import com.tencent.mmkv.MMKV;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class BigLabStoreActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -132,10 +128,10 @@ public class BigLabStoreActivity extends AppCompatActivity implements SharedPref
 
     @Override
     public SharedPreferences getSharedPreferences(String name, int mode) {
-        if (LocalPreferences.manage().hasMigratedData(name))
-            return LocalPreferences.manage().of(name, mode);
+        if (ProtobufPreferences.manage().hasMigratedData(name))
+            return ProtobufPreferences.manage().of(name, mode);
         else
-            return LocalPreferences.manage().of(name, mode, super.getSharedPreferences(name, mode));
+            return ProtobufPreferences.manage().of(name, mode, super.getSharedPreferences(name, mode));
     }
 
 

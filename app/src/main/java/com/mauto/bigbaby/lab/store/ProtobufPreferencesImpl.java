@@ -21,7 +21,7 @@ import java.util.WeakHashMap;
  * Created by haohuidong on 19-6-6.
  */
 
-public class LocalPreferencesImpl implements SharedPreferences, SharedPreferences.Editor {
+public class ProtobufPreferencesImpl implements SharedPreferences, SharedPreferences.Editor {
 
 
     //region >>> 真正的存储核心 - MMKV
@@ -102,14 +102,14 @@ public class LocalPreferencesImpl implements SharedPreferences, SharedPreference
             if (map != null) {
                 mMap = map;
             }
-            Log.e("LocalPreferencesImpl", "loadFromDisk@108 --> " + " " + mMap.size());
+            Log.e("ProtobufPreferencesImpl", "loadFromDisk@108 --> " + " " + mMap.size());
             mLock.notifyAll();
         }
 
     }
     /////////////////////////////////////↑↑↑↑↑↑↑↑↑/////////////////////////////////////
 
-    public LocalPreferencesImpl(String name, int mode){
+    public ProtobufPreferencesImpl(String name, int mode){
         mStoreCore = MMKV.mmkvWithID(name, mode);
         mMap = new HashMap<>();
         startLoadFromDisk();
@@ -371,7 +371,7 @@ public class LocalPreferencesImpl implements SharedPreferences, SharedPreference
             } else if (value instanceof Set) {
                 putStringSet(key, (Set<String>) value);
             } else {
-                Log.e("LocalPreferencesImpl", "unknown type: " + value.getClass());
+                Log.e("ProtobufPreferencesImpl", "unknown type: " + value.getClass());
             }
         }
         return kvs.size();

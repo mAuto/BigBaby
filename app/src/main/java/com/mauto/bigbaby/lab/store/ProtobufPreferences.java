@@ -15,7 +15,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by haohuidong on 19-6-6.
  */
 
-public class LocalPreferences {
+public class ProtobufPreferences {
 
     //region >>> singleton
     /*
@@ -23,7 +23,7 @@ public class LocalPreferences {
     * */
     /////////////////////////////////////↓↓↓↓↓↓↓↓↓/////////////////////////////////////
     private final static String MIGRATE_RECORD = "migrate_record";
-    private LocalPreferences(){
+    private ProtobufPreferences(){
         mPreferences = new HashMap<>();
         mPreferences.put(MIGRATE_RECORD, MMKV.mmkvWithID(MIGRATE_RECORD));
     }
@@ -32,10 +32,10 @@ public class LocalPreferences {
     private Map<String, SharedPreferences> mPreferences = null;
 
     private static class InstanceHolder {
-        private static LocalPreferences sInstance = new LocalPreferences();
+        private static ProtobufPreferences sInstance = new ProtobufPreferences();
     }
 
-    public static LocalPreferences manage() {
+    public static ProtobufPreferences manage() {
         return InstanceHolder.sInstance;
     }
     /////////////////////////////////////↑↑↑↑↑↑↑↑↑/////////////////////////////////////
@@ -53,11 +53,11 @@ public class LocalPreferences {
             if (mPreferences.containsKey(name))
                 return mPreferences.get(name);
             else {
-                LocalPreferencesImpl localPreferences = new LocalPreferencesImpl(name, mode);
+                ProtobufPreferencesImpl localPreferences = new ProtobufPreferencesImpl(name, mode);
                 if (preferences != null) {
                     if (preferences.getAll() != null && preferences.getAll().size() > 0) {
                         localPreferences.importFromSharedPreferences(preferences);
-                        Log.e(">>> LocalPreferences", "of@62 --> " + " " + "data had bean migrated");
+                        Log.e(">>> ProtobufPreferences", "of@62 --> " + " " + "data had bean migrated");
                     }
                     mPreferences.get(MIGRATE_RECORD).edit().putString(name, "data had bean migrated");
                 }
