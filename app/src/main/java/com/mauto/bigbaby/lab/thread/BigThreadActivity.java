@@ -28,7 +28,7 @@ public class BigThreadActivity extends AppCompatActivity {
             @Override
             public void run() {
                 long num = 0;
-                while (num < 50000000000l) {
+                while (num < 50000000000L) {
                     num += 1;
                 }
 
@@ -42,8 +42,6 @@ public class BigThreadActivity extends AppCompatActivity {
     public void onClickComputeSyn(View view) {
         Log.e("--> thread <--", "compute start");
         ThreadPoolExecutor pool = new ThreadPoolExecutor(3, 5, 1, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(100));
-
-        final Object lock = new Object();
 
         final long startMill = System.currentTimeMillis();
         for (int i=0;i<5;i++) {
@@ -61,5 +59,11 @@ public class BigThreadActivity extends AppCompatActivity {
             pool.execute(computeTask);
         }
 
+    }
+
+    public void onClickEnqueue(View view) {
+        String flag = String.valueOf(System.currentTimeMillis());
+        Log.e(">>> BigThreadActivity", "onClickEnqueue@68 --> " + " " + flag);
+        BigHandlerThreadManager.manager().enqueue(flag);
     }
 }
