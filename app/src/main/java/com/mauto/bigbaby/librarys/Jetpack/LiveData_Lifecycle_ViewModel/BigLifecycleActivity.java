@@ -19,12 +19,7 @@ public class BigLifecycleActivity extends AppCompatActivity  {
 
         getLifecycle().addObserver(mPresenter);
 
-        new MutableLiveData<String>().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
 
-            }
-        });
 
     }
 }
