@@ -11,6 +11,8 @@ import com.mauto.bigbaby.lab.popup.BigLabPopupActivity;
 import com.mauto.bigbaby.lab.sms.BigLabSmsActivity;
 import com.mauto.bigbaby.lab.store.BigLabStoreActivity;
 import com.mauto.bigbaby.lab.terminal.BigLabTerminalActivity;
+import com.mauto.bigbaby.librarys.Jetpack.BigJetPackActivity;
+import com.mauto.bigbaby.librarys.Jetpack.LiveData_Lifecycle_ViewModel.BigLifecycleActivity;
 import com.mauto.bigbaby.librarys.recyclerview.AsyncListDiffer.BigListDifferActivity;
 import com.mauto.bigbaby.librarys.recyclerview.DiffUtil.BigDiffUtilsActivity;
 import com.mauto.bigbaby.err.BigErrMainActivity;
@@ -56,6 +58,9 @@ public enum RoutPointer {
     LIB_RECYCLER_DIFF(BigDiffUtilsActivity.class.getName()),
     LIB_RECYCLER_DIFFER(BigListDifferActivity.class.getName()),
     LIB_RECYCLER_SNAP(BigSnapHelperActivity.class.getName()),
+
+    LIB_JETPACK_MAIN(BigJetPackActivity.class.getName()),
+    LIB_JETPACK_LIFECYCLE(BigLifecycleActivity.class.getName()),
     /////////////////////////////////////↑↑↑ --> lib <-- ↑↑↑/////////////////////////////////////
 
     /////////////////////////////////////////--> 18-12-14 上午11:02 <--/////////////////////////////////////

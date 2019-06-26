@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     /////////////////////////////////////////--> 18-12-18 下午6:53 <--/////////////////////////////////////
     /////////////////////////////////////↓↓↓ --> Libraries <-- ↓↓↓/////////////////////////////////////
     public void onClickJetpack(View view) {
+        Router.jump(this, RoutPointer.LIB_JETPACK_MAIN);
     }
 
     public void onClickRecycler(View view) {

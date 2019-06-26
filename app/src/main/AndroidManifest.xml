@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mauto.bigbaby">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <!-- <uses-permission android:name="android.permission.READ_SMS" /> -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
@@ -16,6 +15,7 @@
         android:roundIcon="@mipmap/ic_big_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".librarys.Jetpack.BigJetPackActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,17 +108,14 @@
         <activity android:name=".librarys.recyclerview.SnapHelper.BigSnapHelperActivity" />
         <activity android:name=".lab.permission.BigLabPerActivity" />
         <activity android:name=".lab.Toast.BigLabToastActivity" />
-        <activity android:name=".lab.anim.BigAnimActivity" />
-
-        <!-- sms -->
+        <activity android:name=".lab.anim.BigAnimActivity" /> <!-- sms -->
         <receiver
             android:name=".lab.sms.SmsReceiver"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_DELIVER" />
             </intent-filter>
-        </receiver>
-        <!-- BroadcastReceiver that listens for incoming MMS messages -->
+        </receiver> <!-- BroadcastReceiver that listens for incoming MMS messages -->
         <receiver
             android:name=".lab.sms.MmsReceiver"
             android:permission="android.permission.BROADCAST_WAP_PUSH">
@@ -127,8 +124,7 @@
 
                 <data android:mimeType="application/vnd.wap.mms-message" />
             </intent-filter>
-        </receiver>
-        <!-- Activity that allows the user to send new SMS/MMS messages -->
+        </receiver> <!-- Activity that allows the user to send new SMS/MMS messages -->
         <activity
             android:name=".lab.sms.BigLabSmsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -145,8 +141,7 @@
                 <data android:scheme="mms" />
                 <data android:scheme="mmsto" />
             </intent-filter>
-        </activity>
-        <!-- Service that delivers messages from the phone "quick response" -->
+        </activity> <!-- Service that delivers messages from the phone "quick response" -->
         <service
             android:name=".lab.sms.HeadlessSmsSendService"
             android:exported="true"
@@ -161,14 +156,13 @@
                 <data android:scheme="mms" />
                 <data android:scheme="mmsto" />
             </intent-filter>
-        </service>
-        <!-- sms -->
+        </service> <!-- sms -->
         <activity android:name=".lab.worm.BigLabWormActivity" />
         <activity android:name=".lab.terminal.BigLabTerminalActivity" />
         <activity android:name=".lab.dialog.BigLabDialogActivity" />
         <activity android:name=".lab.concurrent.BigLabConcurrentActivity" />
         <activity android:name=".lab.store.BigLabStoreActivity" />
-        <activity android:name=".lab.popup.BigLabPopupActivity"></activity>
+        <activity android:name=".lab.popup.BigLabPopupActivity" />
     </application>
 
 </manifest>
