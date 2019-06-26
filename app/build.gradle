@@ -244,4 +244,5 @@ dependencies {
 //    // Optional - If you want to use the Ads SDK
 //    implementation 'com.flurry.android:ads:8.2.0@aar'
     //***********************************************************************/
+    compile 'com.android.support:support-v4:27.+'
 }

@@ -5,10 +5,10 @@ package com.mauto.bigbaby.librarys.Jetpack.LiveData_Lifecycle_ViewModel;
  */
 
 public interface IPresenter {
-    void onStart();
-    void onCreate();
-    void onResume();
-    void onPause();
-    void onStop();
-    void onDestroy();
+//    void onStart();
+//    void onCreate();
+//    void onResume();
+//    void onPause();
+//    void onStop();
+//    void onDestroy();
 }
