@@ -5,6 +5,7 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.OnLifecycleEvent;
+import android.arch.lifecycle.ProcessLifecycleOwner;
 import android.arch.lifecycle.ProcessLifecycleOwnerInitializer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class BigLifecycleActivity extends AppCompatActivity  {
 
         getLifecycle().addObserver(mPresenter);
 
-
+        ProcessLifecycleOwner.get().getLifecycle().addObserver();
     }
 
     private void observeLifecycleByGeneric() {

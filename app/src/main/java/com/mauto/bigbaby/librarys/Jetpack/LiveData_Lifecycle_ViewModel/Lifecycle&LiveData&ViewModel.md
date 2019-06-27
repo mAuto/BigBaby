@@ -275,8 +275,6 @@ public class ReportFragment extends Fragment {
 
     public static void injectIfNeededIn(Activity activity) {
         // 在Activity创建的时候，注入一个ReportFragment
-        // ProcessLifecycleOwner should always correctly work and some activities may not extend
-        // FragmentActivity from support lib, so we use framework fragments for activities
         android.app.FragmentManager manager = activity.getFragmentManager();
         if (manager.findFragmentByTag(REPORT_FRAGMENT_TAG) == null) {
             manager.beginTransaction().add(new ReportFragment(), REPORT_FRAGMENT_TAG).commit();
@@ -393,8 +391,58 @@ public class ReportFragment extends Fragment {
 &emsp;&emsp;首先，SupportActivity在create时调用ReportFragment的静态方法injectIfNeededIn主动注入一个ReportFragment的实例。然后，我们来看看其他的代码，以发现一些其他的东西。看第二部分代码，这是则个Fragment的生命周期方法，每个方法中都调用了一个方法dispatch()，然后我们看第三部分代码中的dispatch方法的源码，发现，在生命周期中，调用了LifecycleRegistry的handleLifecycleEvent方法来分发生命周期事件。来看一下LifecycleRegistry的handleLifecycleEven方法。   
 
 ```Java
+public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
+        ...
+        moveToState(next);
+    }
 
-```
+    private void moveToState(State next) {
+        ...
+        sync();
+        ...
+    }
+    
+    private void sync() {
+        LifecycleOwner lifecycleOwner = mLifecycleOwner.get();
+        if (lifecycleOwner == null) {
+            Log.w(LOG_TAG, "LifecycleOwner is garbage collected, you shouldn't try dispatch "
+                    + "new events from it.");
+            return;
+        }
+        ...
+        backwardPass(lifecycleOwner);
+        ...
+        forwardPass(lifecycleOwner);
+        ...
+    }
+    
+    private void forwardPass(LifecycleOwner lifecycleOwner) {
+        ...
+        ObserverWithState observer = entry.getValue();
+        observer.dispatchEvent(lifecycleOwner, upEvent(observer.mState));
+        ...
+    }
+    
+    static class ObserverWithState {
+        State mState;
+        GenericLifecycleObserver mLifecycleObserver;
+
+        ObserverWithState(LifecycleObserver observer, State initialState) {
+            mLifecycleObserver = Lifecycling.getCallback(observer);
+            mState = initialState;
+        }
+
+        void dispatchEvent(LifecycleOwner owner, Event event) {
+            State newState = getStateAfter(event);
+            mState = min(mState, newState);
+            mLifecycleObserver.onStateChanged(owner, event);
+            mState = newState;
+        }
+    }
+```  
+
+&emsp;&emsp;我们发现，经过LifecycleRegistry的handleLifecycleEven方法后，最终调用了mLifecycleObserver的onStateChanged方法，而mLifecycleObserver这个对象就是我们在getLifecycle().addObserver()中插入的哪一个observer。最终通过这里实现了多生命周期的监听过程。在这里我们发现，从本质上讲，Lifecycle监听生命周期的原理，和我们之前Presenter的写法没什么太大的区别，都是直接写在生命周期方法中。
+
 &emsp;&emsp;接下来我们看一下第四部分和第一部分代码。这里有一个监听器ActivityInitializationListener，哪儿添加了这个监听器？我们从setProcessListener方法的引用中可以找到这样的代码。   
 - ProcessLifecycleOwner.java
 ```Java
@@ -481,6 +529,11 @@ public class ProcessLifecycleOwnerInitializer extends ContentProvider {
 
 &emsp;&emsp;这又是源码中常出现的一个关于初始化的小技巧，把单例的初始化代码放到一个自定义的ContentProvider中，ContentProvider会在app启动的时候自动创建，使用这个方法可以做到一种隐式的初始化，主要用在第三方的API的初始化上，因为如果所有的初始化代码都放到Application中，那么Application将会变得很臃肿，非常不便于管理。  
 
-&emsp;&emsp;下面是根据Lifecycle的原理，画出的一份类图，包含了主要的组件。
+&emsp;&emsp;下面是根据Lifecycle的原理，画出的一份类图，包含了主要的组件，我们可以根据这张图做一次简单的总结。
 
-<div align=center><img src="res/Lifecycle_UML.png"/></div>  
+<div align=center><img src="res/Lifecycle_UML.png"/></div>      
+
+### 1.3 最后的疑问
+
+- ProcessLifecycleOwner的具体用处是什么？ProcessLifecycleOwner中的成员变量Lifecycle并没有add observer，也就做不到分发事件，那么ProcessLifecycleOwner存在的意义是什么？      
+- ReportFragment的静态方法injectIfNeededIn中，使用的为什么是老的Fragment而不是v4包的Fragment？   
